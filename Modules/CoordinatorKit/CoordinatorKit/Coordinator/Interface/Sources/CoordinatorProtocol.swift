@@ -10,7 +10,7 @@ import UIKit
 
 @MainActor
 public protocol CoordinatorProtocol: AnyObject {
-    var navigationController: DefaultNavigationController { get }
+    var navigationController: UINavigationController { get }
     func start()
     func dismiss(animated: Bool)
     func startChildFlow(with coordinator: CoordinatorProtocol, animated: Bool)
