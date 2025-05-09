@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1858E9F92DCEB8C600456FA2 /* CoordinatorKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */; };
+		1858E9FE2DCEB9FF00456FA2 /* CoordinatorKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */; };
+		1858E9FF2DCEB9FF00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858EA022DCEB9FF00456FA2 /* CoordinatorKitTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9962DCEB29900456FA2 /* CoordinatorKitTesting.framework */; };
+		1858EA032DCEB9FF00456FA2 /* CoordinatorKitTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9962DCEB29900456FA2 /* CoordinatorKitTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -18,7 +22,36 @@
 			remoteGlobalIDString = 1858E9882DCEB28E00456FA2;
 			remoteInfo = CoordinatorKitInterface;
 		};
+		1858EA002DCEB9FF00456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858E9302DCEB21C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858E9882DCEB28E00456FA2;
+			remoteInfo = CoordinatorKitInterface;
+		};
+		1858EA042DCEB9FF00456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858E9302DCEB21C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858E9952DCEB29900456FA2;
+			remoteInfo = CoordinatorKitTesting;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1858EA062DCEB9FF00456FA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1858E9FF2DCEB9FF00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */,
+				1858EA032DCEB9FF00456FA2 /* CoordinatorKitTesting.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoordinatorKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858E9FE2DCEB9FF00456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
+				1858EA022DCEB9FF00456FA2 /* CoordinatorKitTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,10 +219,13 @@
 				1858E9A62DCEB42100456FA2 /* Sources */,
 				1858E9A72DCEB42100456FA2 /* Frameworks */,
 				1858E9A82DCEB42100456FA2 /* Resources */,
+				1858EA062DCEB9FF00456FA2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1858EA012DCEB9FF00456FA2 /* PBXTargetDependency */,
+				1858EA052DCEB9FF00456FA2 /* PBXTargetDependency */,
 			);
 			name = CoordinatorKitTests;
 			packageProductDependencies = (
@@ -291,6 +329,16 @@
 			isa = PBXTargetDependency;
 			target = 1858E9882DCEB28E00456FA2 /* CoordinatorKitInterface */;
 			targetProxy = 1858E9FB2DCEB8C600456FA2 /* PBXContainerItemProxy */;
+		};
+		1858EA012DCEB9FF00456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858E9882DCEB28E00456FA2 /* CoordinatorKitInterface */;
+			targetProxy = 1858EA002DCEB9FF00456FA2 /* PBXContainerItemProxy */;
+		};
+		1858EA052DCEB9FF00456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858E9952DCEB29900456FA2 /* CoordinatorKitTesting */;
+			targetProxy = 1858EA042DCEB9FF00456FA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
