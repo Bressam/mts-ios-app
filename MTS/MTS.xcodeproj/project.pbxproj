@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1858EAF82DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */; };
+		1858EAF92DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1858E8FB2DCEAE3F00456FA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -16,9 +21,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1858EAFA2DCEC31D00456FA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1858EAF92DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1858E8E52DCEAE3D00456FA2 /* MTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858E8FA2DCEAE3F00456FA2 /* MTSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoordinatorKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858EAFB2DCEC33A00456FA2 /* CoordinatorKitTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoordinatorKitTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -39,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858EAF82DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +79,7 @@
 			children = (
 				1858E8E72DCEAE3D00456FA2 /* MTS */,
 				1858E8FD2DCEAE3F00456FA2 /* MTSTests */,
+				1858EAF62DCEC31D00456FA2 /* Frameworks */,
 				1858E8E62DCEAE3D00456FA2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +93,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1858EAF62DCEC31D00456FA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1858EAFB2DCEC33A00456FA2 /* CoordinatorKitTesting.framework */,
+				1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +112,7 @@
 				1858E8E12DCEAE3D00456FA2 /* Sources */,
 				1858E8E22DCEAE3D00456FA2 /* Frameworks */,
 				1858E8E32DCEAE3D00456FA2 /* Resources */,
+				1858EAFA2DCEC31D00456FA2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

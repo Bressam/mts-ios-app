@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "80AE7F0B-1FE0-4C32-835C-6537E528ACE0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MTS.xcodeproj",
+      "identifier" : "1858E8E42DCEAE3D00456FA2",
+      "name" : "MTS"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/Modules\/CoordinatorKit\/CoordinatorKit.xcodeproj",
+        "identifier" : "1858E9A92DCEB42100456FA2",
+        "name" : "CoordinatorKitTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MTS.xcodeproj",
+        "identifier" : "1858E8F92DCEAE3F00456FA2",
+        "name" : "MTSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
