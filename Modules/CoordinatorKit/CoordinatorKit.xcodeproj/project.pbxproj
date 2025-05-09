@@ -6,6 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1858E9F92DCEB8C600456FA2 /* CoordinatorKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1858E9FB2DCEB8C600456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858E9302DCEB21C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858E9882DCEB28E00456FA2;
+			remoteInfo = CoordinatorKitInterface;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoordinatorKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858E9962DCEB29900456FA2 /* CoordinatorKitTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoordinatorKitTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -16,7 +30,7 @@
 		1858E9A02DCEB2BD00456FA2 /* Exceptions for "CoordinatorKit" folder in "CoordinatorKitTesting" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Testing/Implementation/Sources/StubService.swift,
+				Testing/Implementation/Sources/CoordinatorSpy.swift,
 			);
 			target = 1858E9952DCEB29900456FA2 /* CoordinatorKitTesting */;
 		};
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858E9F92DCEB8C600456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				1858E93B2DCEB21C00456FA2 /* CoordinatorKit */,
+				1858E9F82DCEB8C600456FA2 /* Frameworks */,
 				1858E93A2DCEB21C00456FA2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,6 +107,13 @@
 				1858E9AA2DCEB42100456FA2 /* CoordinatorKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1858E9F82DCEB8C600456FA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +168,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1858E9FC2DCEB8C600456FA2 /* PBXTargetDependency */,
 			);
 			name = CoordinatorKitTesting;
 			packageProductDependencies = (
@@ -261,6 +285,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1858E9FC2DCEB8C600456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858E9882DCEB28E00456FA2 /* CoordinatorKitInterface */;
+			targetProxy = 1858E9FB2DCEB8C600456FA2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1858E9442DCEB21C00456FA2 /* Debug */ = {
