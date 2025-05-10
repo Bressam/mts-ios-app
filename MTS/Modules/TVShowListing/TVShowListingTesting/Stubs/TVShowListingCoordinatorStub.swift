@@ -15,5 +15,9 @@ final public class TVShowListingCoordinatorStub: TVShowListingCoordinatorProtoco
     
     public init() {}
 
-    public func start() { }
+    public func start() {}
+    
+    public func navigateToTVShowsListingView() {}
+    
+    public func navigateToTVShowDetailsView(showID: Int, showTitle: String) {}
 }

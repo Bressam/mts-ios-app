@@ -27,4 +27,12 @@ final class TVShowsListingViewModel: ObservableObject {
             self.tvShows = tempTVShows
         }
     }
+    
+    func selectTVShow(with id: Int) {
+        guard let selectedShow = tvShows.first(where: { $0.id == id }) else {
+            print("Mismatching show ID for selected ID: \(id)")
+            return
+        }
+        coordinator?.navigateToTVShowDetailsView(showID: selectedShow.id, showTitle: selectedShow.name)
+    }
 }
