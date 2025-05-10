@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1813752B2DCF0E7B00D24DBA /* TVShowList+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813752A2DCF0E7200D24DBA /* TVShowList+Mock.swift */; };
 		1858EC012DCED65400456FA2 /* TVShowListingFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EBE32DCED5F400456FA2 /* TVShowListingFeature.framework */; };
 		1858EC092DCED67600456FA2 /* SomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EC082DCED66B00456FA2 /* SomeTests.swift */; };
 		1858EC0C2DCED68200456FA2 /* TVShowListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EC0A2DCED67B00456FA2 /* TVShowListingCoordinator.swift */; };
@@ -182,6 +183,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1813752A2DCF0E7200D24DBA /* TVShowList+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowList+Mock.swift"; sourceTree = "<group>"; };
 		1858EBE32DCED5F400456FA2 /* TVShowListingFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TVShowListingFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858EBFD2DCED65300456FA2 /* TVShowListingFeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVShowListingFeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858EC082DCED66B00456FA2 /* SomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeTests.swift; sourceTree = "<group>"; };
@@ -293,6 +295,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1813752C2DCF0E8500D24DBA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1813752A2DCF0E7200D24DBA /* TVShowList+Mock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		1858EBB52DCED50C00456FA2 = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +380,7 @@
 		1858EBDD2DCED5D300456FA2 /* TVShowListingTesting */ = {
 			isa = PBXGroup;
 			children = (
+				1813752C2DCF0E8500D24DBA /* Mocks */,
 				1858ED642DCF06C300456FA2 /* Resources */,
 				1858ED532DCF022100456FA2 /* Stubs */,
 			);
@@ -941,6 +952,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1858EC3E2DCED70300456FA2 /* TVShowListingCoordinatorStub.swift in Sources */,
+				1813752B2DCF0E7B00D24DBA /* TVShowList+Mock.swift in Sources */,
 				1858ED552DCF022800456FA2 /* FetchTVShowsUseCaseStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

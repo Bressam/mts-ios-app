@@ -22,7 +22,9 @@ final class TVShowsListingViewModel: ObservableObject {
     }
     
     func fetchTVShows() async {
-        // TODO: Impl
-        tvShows = (try? await fetchTVShowUseCase.execute()) ?? []
+        let tempTVShows = (try? await fetchTVShowUseCase.execute()) ?? []
+        await MainActor.run {
+            self.tvShows = tempTVShows
+        }
     }
 }
