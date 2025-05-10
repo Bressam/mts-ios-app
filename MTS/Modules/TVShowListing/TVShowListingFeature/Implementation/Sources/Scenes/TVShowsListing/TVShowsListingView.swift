@@ -61,6 +61,13 @@ struct TVShowsListingView: View {
                 Text("Status: \(show.status)")
                     .font(.caption)
                     .foregroundColor(.gray)
+
+                if let rating = show.rating.average {
+                    Text(String(format: "Rating: %.1f ★", rating))
+                        .font(.caption)
+                        .foregroundColor(.orange)
+                        .opacity(0.8)
+                }
             }
         }
     }
