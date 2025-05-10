@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct NetworkResponse {
+public struct HTTPNetworkResponse {
     public let response: HTTPURLResponse
     public let data: Data
     

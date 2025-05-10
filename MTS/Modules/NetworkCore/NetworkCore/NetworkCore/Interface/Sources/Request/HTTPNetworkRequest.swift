@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Request {
+public protocol HTTPNetworkRequest {
     var host: String { get }
     var path: String { get }
     var queryItems: [URLQueryItem]? { get }

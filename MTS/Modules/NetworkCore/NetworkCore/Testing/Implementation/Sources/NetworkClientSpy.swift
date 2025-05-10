@@ -20,7 +20,7 @@ public final class NetworkClientSpy: NetworkClientProtocol {
         self.expectedResponse = expectedResponse
     }
     
-    public func perform<R: Request>(_ request: R) async throws -> NetworkResponse {
+    public func perform<R: HTTPNetworkRequest>(_ request: R) async throws -> HTTPNetworkResponse {
         performedRequests.append(request)
         callCount += 1
         
@@ -28,6 +28,6 @@ public final class NetworkClientSpy: NetworkClientProtocol {
             throw(error)
         }
 
-        return NetworkResponse(response: expectedResponse, data: responseData ?? .init())
+        return HTTPNetworkResponse(response: expectedResponse, data: responseData ?? .init())
     }
 }

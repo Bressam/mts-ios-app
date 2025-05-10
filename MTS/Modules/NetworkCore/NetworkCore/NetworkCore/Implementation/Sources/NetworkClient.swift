@@ -11,7 +11,7 @@ import NetworkCoreInterface
 public final class NetworkClient: NetworkClientProtocol {
     public init() {}
     
-    public func perform<R: Request>(_ request: R) async throws -> NetworkResponse {
+    public func perform<R: HTTPNetworkRequest>(_ request: R) async throws -> HTTPNetworkResponse {
         var components = URLComponents()
         components.scheme = "https"
         components.host = request.host
@@ -59,7 +59,7 @@ public final class NetworkClient: NetworkClientProtocol {
                 throw NetworkError.requestFailed(statusCode: httpResponse.statusCode, response: httpResponse)
             }
             
-            return NetworkResponse(response: httpResponse, data: data)
+            return HTTPNetworkResponse(response: httpResponse, data: data)
             
         } catch {
             throw NetworkError.underlying(error)
