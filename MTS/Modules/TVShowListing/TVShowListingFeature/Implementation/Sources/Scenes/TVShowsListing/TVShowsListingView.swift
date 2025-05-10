@@ -19,8 +19,8 @@ struct TVShowsListingView: View {
     var body: some View {
         List(viewModel.tvShows) { show in
             HStack(alignment: .top, spacing: 16) {
-                if let imageUrl = show.image?.medium, let url = URL(string: imageUrl) {
-                    AsyncImage(url: url) { phase in
+                if let imageUrl = show.image?.medium {
+                    AsyncImage(url: imageUrl) { phase in
                         switch phase {
                         case .empty:
                             ProgressView()
