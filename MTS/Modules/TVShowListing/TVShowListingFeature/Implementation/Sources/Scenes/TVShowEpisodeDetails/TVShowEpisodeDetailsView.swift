@@ -23,16 +23,12 @@ struct TVShowEpisodeDetailsView: View {
             VStack(alignment: .leading, spacing: 16) {
                 AsyncImageView(
                     url: viewModel.episode.image?.original,
-                    width: UIScreen.main.bounds.width - 32,
+                    width: .infinity,
                     height: 220,
                     cornerRadius: 12
                 )
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(viewModel.episode.name)
-                        .font(.title2)
-                        .bold()
-                    
                     Text("Season \(viewModel.episode.season), Episode \(viewModel.episode.number)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
@@ -48,7 +44,7 @@ struct TVShowEpisodeDetailsView: View {
             }
             .padding()
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(viewModel.episode.name)
     }
         
     // MARK: - Utils

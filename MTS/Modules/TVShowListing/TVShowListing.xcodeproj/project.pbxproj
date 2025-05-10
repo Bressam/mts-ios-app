@@ -70,6 +70,8 @@
 		1863EC992DCFA704004015E1 /* TVShowEpisodeDetailsViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC972DCFA704004015E1 /* TVShowEpisodeDetailsViewModel+Preview.swift */; };
 		1863EC9A2DCFA704004015E1 /* TVShowEpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC982DCFA704004015E1 /* TVShowEpisodeDetailsView.swift */; };
 		1863EC9C2DCFA71A004015E1 /* TVShowEpisodeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC9B2DCFA719004015E1 /* TVShowEpisodeDetailsViewModel.swift */; };
+		1863ECA12DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; };
+		1863ECA22DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,13 @@
 			remoteGlobalIDString = 1858EC432DCED71500456FA2;
 			remoteInfo = TVShowListingFeatureDomain;
 		};
+		1863ECA32DCFAB89004015E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858EBB62DCED50C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858EC432DCED71500456FA2;
+			remoteInfo = TVShowListingFeatureDomain;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -198,6 +207,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1858ED3C2DCEFAD400456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */,
+				1863ECA22DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1858ED3B2DCEFAD400456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
+				1863ECA12DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +803,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1863ECA42DCFAB89004015E1 /* PBXTargetDependency */,
 			);
 			name = TVShowListingFeatureInterface;
 			packageProductDependencies = (
@@ -1219,6 +1231,11 @@
 			isa = PBXTargetDependency;
 			target = 1858EC432DCED71500456FA2 /* TVShowListingFeatureDomain */;
 			targetProxy = 1858ED5A2DCF025E00456FA2 /* PBXContainerItemProxy */;
+		};
+		1863ECA42DCFAB89004015E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858EC432DCED71500456FA2 /* TVShowListingFeatureDomain */;
+			targetProxy = 1863ECA32DCFAB89004015E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import TVShowListingFeatureInterface
+import TVShowListingFeatureDomain
 
 /// Stub for required dependencies of `TVShowListingCoordinatorProtocol` that won't matter the implementation
 final public class TVShowListingCoordinatorStub: TVShowListingCoordinatorProtocol {
@@ -20,4 +21,6 @@ final public class TVShowListingCoordinatorStub: TVShowListingCoordinatorProtoco
     public func navigateToTVShowsListingView() {}
     
     public func navigateToTVShowDetailsView(showID: Int, showTitle: String) {}
+    
+    public func navigateToEpisodeDetails(episode: TVShowEpisode) {}
 }
