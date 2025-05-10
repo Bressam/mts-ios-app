@@ -17,6 +17,10 @@ final class TVShowDetailsViewModel: ObservableObject {
     @Published var tvShowDetails: TVShowDetails?
     let currentShowID: Int
     let currentShowTitle: String
+    var groupedEpisodes: [Int: [TVShowEpisode]]? {
+        guard let episodes = tvShowDetails?.embeddedDetails?.episodes else { return nil }
+        return Dictionary(grouping: episodes, by: \.season)
+    }
 
     // MARK: - Init & Setup
     init(coordinator: TVShowListingCoordinatorProtocol,

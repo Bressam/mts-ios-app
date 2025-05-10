@@ -30,7 +30,7 @@ final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
         let tvShowListingViewModel: TVShowsListingViewModel = .init(coordinator: self,
                                                                     fetchTVShowUseCase: fetchTVShowUsecase)
         let hostingVC = UIHostingController(rootView: TVShowsListingView(viewModel: tvShowListingViewModel))
-
+        hostingVC.navigationItem.backButtonTitle = "TV Shows"
         navigationController.pushViewController(hostingVC, animated: true)
     }
     

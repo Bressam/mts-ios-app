@@ -31,36 +31,16 @@ struct TVShowsListingView: View {
                 await viewModel.fetchTVShows()
             }
         }
-        .navigationTitle("TV Shows")
+        .navigationTitle("TVMaze Shows")
     }
     
     @ViewBuilder
     private func tvShowRow(show: TVShow) -> some View {
         HStack(alignment: .top, spacing: 16) {
-            if let imageUrl = show.image?.medium {
-                AsyncImage(url: imageUrl) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                            .frame(width: 60, height: 90)
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 60, height: 90)
-                            .clipped()
-                            .cornerRadius(8)
-                    case .failure:
-                        Image(systemName: "photo")
-                            .frame(width: 60, height: 90)
-                    @unknown default:
-                        EmptyView()
-                    }
-                }
-            } else {
-                Image(systemName: "photo")
-                    .frame(width: 60, height: 90)
-            }
+            AsyncImageView(url: show.image?.medium,
+                           width: 60,
+                           height: 90,
+                           cornerRadius: 8)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(show.name)
@@ -79,5 +59,7 @@ struct TVShowsListingView: View {
 }
 
 #Preview {
-    TVShowsListingView(viewModel: .preview)
+    NavigationStack {
+        TVShowsListingView(viewModel: .preview)
+    }
 }
