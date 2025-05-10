@@ -10,19 +10,26 @@ import TVShowListingFeatureInterface
 import TVShowListingFeatureDomain
 
 final class TVShowDetailsViewModel: ObservableObject {
-    @Published var tvShowDetails: TVShowDetails?
+    // MARK: - Properties
     private weak var coordinator: TVShowListingCoordinatorProtocol?
     private var fetchTVShowDetailsUseCase: FetchTVShowDetailsUseCaseProtocol
-    private let currentShowID: Int
     
+    @Published var tvShowDetails: TVShowDetails?
+    let currentShowID: Int
+    let currentShowTitle: String
+
+    // MARK: - Init & Setup
     init(coordinator: TVShowListingCoordinatorProtocol,
          fetchTVShowDetailsUseCase: FetchTVShowDetailsUseCaseProtocol,
-         showID: Int) {
+         currentShowID: Int,
+         currentShowTitle: String) {
         self.coordinator = coordinator
         self.fetchTVShowDetailsUseCase = fetchTVShowDetailsUseCase
-        self.currentShowID = showID
+        self.currentShowID = currentShowID
+        self.currentShowTitle = currentShowTitle
     }
     
+    // MARK: - Methods
     func fetchTVShows() async {
         let tempTVShowDetails = (try? await fetchTVShowDetailsUseCase.execute(showID: currentShowID))
         await MainActor.run {

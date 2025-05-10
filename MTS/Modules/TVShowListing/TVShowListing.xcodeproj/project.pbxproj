@@ -65,6 +65,7 @@
 		1863EC842DCF93F2004015E1 /* TVShowDetailsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC832DCF93F2004015E1 /* TVShowDetailsRepositoryProtocol.swift */; };
 		1863EC892DCF947A004015E1 /* FetchTVShowDetailsUseCaseStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC872DCF947A004015E1 /* FetchTVShowDetailsUseCaseStub.swift */; };
 		1863EC8E2DCF9505004015E1 /* TVShowDetailsViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC8D2DCF94FF004015E1 /* TVShowDetailsViewModel+Preview.swift */; };
+		1863EC902DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC8F2DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 		1863EC832DCF93F2004015E1 /* TVShowDetailsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		1863EC872DCF947A004015E1 /* FetchTVShowDetailsUseCaseStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTVShowDetailsUseCaseStub.swift; sourceTree = "<group>"; };
 		1863EC8D2DCF94FF004015E1 /* TVShowDetailsViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowDetailsViewModel+Preview.swift"; sourceTree = "<group>"; };
+		1863EC8F2DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTVShowDetailsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				1858ED512DCF00FC00456FA2 /* LocalTVShowsRepository.swift */,
+				1863EC8F2DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1114,6 +1117,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1863EC902DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift in Sources */,
 				1858ED522DCF010A00456FA2 /* LocalTVShowsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

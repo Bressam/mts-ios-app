@@ -32,6 +32,7 @@ struct TVShowDetailView: View {
                 await viewModel.fetchTVShows()
             }
         }
+        .navigationTitle(viewModel.currentShowTitle)
     }
     
     @ViewBuilder
@@ -62,9 +63,6 @@ struct TVShowDetailView: View {
                     Image(systemName: "photo")
                         .frame(width: 60, height: 90)
                 }
-                Text(show.name)
-                    .font(.title)
-                    .bold()
                 
                 if !show.genres.isEmpty {
                     Text("Genres: \(show.genres.joined(separator: ", "))")
@@ -111,5 +109,7 @@ struct TVShowDetailView: View {
 }
 
 #Preview {
-    TVShowDetailView(viewModel: .preview)
+    NavigationStack {
+        TVShowDetailView(viewModel: .preview)
+    }
 }

@@ -9,4 +9,6 @@ import Foundation
 import CoordinatorKitInterface
 
 public protocol TVShowListingCoordinatorProtocol: CoordinatorProtocol {
+    func navigateToTVShowsListingView()
+    func navigateToTVShowDetailsView(showID: Int, showTitle: String)
 }

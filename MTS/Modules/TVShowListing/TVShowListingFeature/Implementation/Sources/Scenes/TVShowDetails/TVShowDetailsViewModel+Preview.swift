@@ -8,12 +8,15 @@
 import Foundation
 import TVShowListingFeatureInterface
 import TVShowListingFeatureTesting
+import TVShowListingFeatureDomain
 
 extension TVShowDetailsViewModel {
     @MainActor
     static var preview: TVShowDetailsViewModel {
+        let tvShowMock = TVShow.mock.first!
         return TVShowDetailsViewModel(coordinator: TVShowListingCoordinatorStub(),
                                       fetchTVShowDetailsUseCase: FetchTVShowDetailsUseCaseStub(),
-                                      showID: 1)
+                                      currentShowID: tvShowMock.id,
+                                      currentShowTitle: tvShowMock.name)
     }
 }
