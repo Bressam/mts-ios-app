@@ -26,7 +26,7 @@ struct TVShowsListingView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 List(filteredShows.indices, id: \.self) { index in
-                    let show = viewModel.tvShows[index]
+                    let show = filteredShows[index]
                     tvShowRow(show: show)
                         .padding(.vertical, 8)
                         .onTapGesture {

@@ -145,13 +145,27 @@ struct TVShowDetailView: View {
     @ViewBuilder
     private func seasonPicker(seasons: [TVShowSeason]) -> some View {
         let seasonNumbers = seasons.map(\.number)
-        Picker("Season", selection: $selectedSeason) {
-            ForEach(seasonNumbers, id: \.self) { number in
-                Text("Season \(number)")
-                    .tag(number)
+        
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 12) {
+                ForEach(seasonNumbers, id: \.self) { number in
+                    Button(action: {
+                        selectedSeason = number
+                    }) {
+                        Text("Season \(number)")
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(
+                                selectedSeason == number
+                                ? Color.accentColor
+                                : Color.gray.opacity(0.2)
+                            )
+                            .foregroundColor(selectedSeason == number ? .white : .primary)
+                            .cornerRadius(10)
+                    }
+                }
             }
         }
-        .pickerStyle(SegmentedPickerStyle())
     }
 }
 
