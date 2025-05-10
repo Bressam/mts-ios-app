@@ -11,6 +11,9 @@
       location = "group:Modules"
       name = "Modules">
       <FileRef
+         location = "group:NetworkCore/NetworkCore.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:TVShowListing/TVShowListing.xcodeproj">
       </FileRef>
       <FileRef
