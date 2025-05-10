@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		1858EAF82DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */; };
 		1858EAF92DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ECDF2DCEDAA900456FA2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECCF2DCEDAA900456FA2 /* MainCoordinator.swift */; };
+		1858ECE02DCEDAA900456FA2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECD52DCEDAA900456FA2 /* ContentView.swift */; };
+		1858ECE12DCEDAA900456FA2 /* MTS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECD72DCEDAA900456FA2 /* MTS.xcdatamodeld */; };
+		1858ECE22DCEDAA900456FA2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECD82DCEDAA900456FA2 /* Persistence.swift */; };
+		1858ECE32DCEDAA900456FA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECDA2DCEDAA900456FA2 /* AppDelegate.swift */; };
+		1858ECE42DCEDAA900456FA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECDC2DCEDAA900456FA2 /* SceneDelegate.swift */; };
+		1858ECE52DCEDAA900456FA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1858ECD12DCEDAA900456FA2 /* Preview Assets.xcassets */; };
+		1858ECE62DCEDAA900456FA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1858ECD32DCEDAA900456FA2 /* Assets.xcassets */; };
+		1858ECEA2DCEDAAD00456FA2 /* MTSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECE82DCEDAAD00456FA2 /* MTSTests.swift */; };
+		1858ED252DCEF7B100456FA2 /* TVShowListingFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */; };
+		1858ED262DCEF7B100456FA2 /* TVShowListingFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; };
+		1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED2B2DCEF92A00456FA2 /* TVShowListingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +43,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1858EAF92DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */,
+				1858ED262DCEF7B100456FA2 /* TVShowListingFeature.framework in Embed Frameworks */,
+				1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,33 +56,20 @@
 		1858E8FA2DCEAE3F00456FA2 /* MTSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MTSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoordinatorKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858EAFB2DCEC33A00456FA2 /* CoordinatorKitTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CoordinatorKitTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858ECCF2DCEDAA900456FA2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		1858ECD12DCEDAA900456FA2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1858ECD32DCEDAA900456FA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1858ECD52DCEDAA900456FA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1858ECD82DCEDAA900456FA2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1858ECDA2DCEDAA900456FA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1858ECDB2DCEDAA900456FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1858ECDC2DCEDAA900456FA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1858ECDE2DCEDAA900456FA2 /* MTS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTS.xcdatamodel; sourceTree = "<group>"; };
+		1858ECE82DCEDAAD00456FA2 /* MTSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSTests.swift; sourceTree = "<group>"; };
+		1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeatureInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowListingAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1858EB7D2DCECB3100456FA2 /* Exceptions for "MTS" folder in "MTS" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 1858E8E42DCEAE3D00456FA2 /* MTS */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		1858E8E72DCEAE3D00456FA2 /* MTS */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1858EB7D2DCECB3100456FA2 /* Exceptions for "MTS" folder in "MTS" target */,
-			);
-			path = MTS;
-			sourceTree = "<group>";
-		};
-		1858E8FD2DCEAE3F00456FA2 /* MTSTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MTSTests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1858E8E22DCEAE3D00456FA2 /* Frameworks */ = {
@@ -74,6 +77,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1858EAF82DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
+				1858ED252DCEF7B100456FA2 /* TVShowListingFeature.framework in Frameworks */,
+				1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +95,8 @@
 		1858E8DC2DCEAE3D00456FA2 = {
 			isa = PBXGroup;
 			children = (
-				1858E8E72DCEAE3D00456FA2 /* MTS */,
-				1858E8FD2DCEAE3F00456FA2 /* MTSTests */,
+				1858ECDD2DCEDAA900456FA2 /* MTS */,
+				1858ECE92DCEDAAD00456FA2 /* MTSTests */,
 				1858EAF62DCEC31D00456FA2 /* Frameworks */,
 				1858E8E62DCEAE3D00456FA2 /* Products */,
 			);
@@ -109,10 +114,85 @@
 		1858EAF62DCEC31D00456FA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */,
+				1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */,
 				1858EAFB2DCEC33A00456FA2 /* CoordinatorKitTesting.framework */,
 				1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1858ECD02DCEDAA900456FA2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECCF2DCEDAA900456FA2 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1858ECD22DCEDAA900456FA2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECD12DCEDAA900456FA2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1858ECD42DCEDAA900456FA2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECD32DCEDAA900456FA2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1858ECD62DCEDAA900456FA2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECD52DCEDAA900456FA2 /* ContentView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1858ECD92DCEDAA900456FA2 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECD72DCEDAA900456FA2 /* MTS.xcdatamodeld */,
+				1858ECD82DCEDAA900456FA2 /* Persistence.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		1858ECDD2DCEDAA900456FA2 /* MTS */ = {
+			isa = PBXGroup;
+			children = (
+				1858ED292DCEF91800456FA2 /* Assemblers */,
+				1858ECD02DCEDAA900456FA2 /* Coordinator */,
+				1858ECD22DCEDAA900456FA2 /* Preview Content */,
+				1858ECD42DCEDAA900456FA2 /* Resources */,
+				1858ECD62DCEDAA900456FA2 /* Scenes */,
+				1858ECD92DCEDAA900456FA2 /* Storage */,
+				1858ECDA2DCEDAA900456FA2 /* AppDelegate.swift */,
+				1858ECDB2DCEDAA900456FA2 /* Info.plist */,
+				1858ECDC2DCEDAA900456FA2 /* SceneDelegate.swift */,
+			);
+			path = MTS;
+			sourceTree = "<group>";
+		};
+		1858ECE92DCEDAAD00456FA2 /* MTSTests */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECE82DCEDAAD00456FA2 /* MTSTests.swift */,
+			);
+			path = MTSTests;
+			sourceTree = "<group>";
+		};
+		1858ED292DCEF91800456FA2 /* Assemblers */ = {
+			isa = PBXGroup;
+			children = (
+				1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */,
+			);
+			path = Assemblers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,9 +210,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				1858E8E72DCEAE3D00456FA2 /* MTS */,
 			);
 			name = MTS;
 			packageProductDependencies = (
@@ -153,9 +230,6 @@
 			);
 			dependencies = (
 				1858E8FC2DCEAE3F00456FA2 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				1858E8FD2DCEAE3F00456FA2 /* MTSTests */,
 			);
 			name = MTSTests;
 			packageProductDependencies = (
@@ -208,6 +282,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ECE52DCEDAA900456FA2 /* Preview Assets.xcassets in Resources */,
+				1858ECE62DCEDAA900456FA2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ECDF2DCEDAA900456FA2 /* MainCoordinator.swift in Sources */,
+				1858ECE02DCEDAA900456FA2 /* ContentView.swift in Sources */,
+				1858ECE12DCEDAA900456FA2 /* MTS.xcdatamodeld in Sources */,
+				1858ED2B2DCEF92A00456FA2 /* TVShowListingAssembly.swift in Sources */,
+				1858ECE22DCEDAA900456FA2 /* Persistence.swift in Sources */,
+				1858ECE32DCEDAA900456FA2 /* AppDelegate.swift in Sources */,
+				1858ECE42DCEDAA900456FA2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ECEA2DCEDAAD00456FA2 /* MTSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +590,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1858ECD72DCEDAA900456FA2 /* MTS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1858ECDE2DCEDAA900456FA2 /* MTS.xcdatamodel */,
+			);
+			currentVersion = 1858ECDE2DCEDAA900456FA2 /* MTS.xcdatamodel */;
+			path = MTS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1858E8DD2DCEAE3D00456FA2 /* Project object */;
 }
