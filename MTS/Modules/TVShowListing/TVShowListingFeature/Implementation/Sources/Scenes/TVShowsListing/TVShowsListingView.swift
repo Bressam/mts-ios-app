@@ -20,14 +20,40 @@ struct TVShowsListingView: View {
     
     // MARK: - Body
     var body: some View {
-        List(filteredShows) { show in
-            tvShowRow(show: show)
-                .padding(.vertical, 8)
-                .onTapGesture {
-                    viewModel.selectTVShow(with: show.id)
+        Group {
+            if viewModel.isInitialLoading {
+                ProgressView("Loading Shows...")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List(filteredShows.indices, id: \.self) { index in
+                    let show = viewModel.tvShows[index]
+                    tvShowRow(show: show)
+                        .padding(.vertical, 8)
+                        .onTapGesture {
+                            viewModel.selectTVShow(with: show.id)
+                        }
+                        .onAppear {
+                            // Check pagination
+                            if index == viewModel.tvShows.count - 1 {
+                                Task {
+                                    await viewModel.loadNextPageIfNeeded()
+                                }
+                            }
+                        }
                 }
+                .searchable(text: $searchText, prompt: "Search TV Shows")
+                
+                // Bottom spinner
+                if viewModel.isLoadingNextPage {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                            .padding()
+                        Spacer()
+                    }
+                }
+            }
         }
-        .searchable(text: $searchText, prompt: "Search TV Shows")
         .overlay {
             if filteredShows.isEmpty && !searchText.isEmpty {
                 ContentUnavailableView.search

@@ -35,9 +35,13 @@ final class TVShowDetailsViewModel: ObservableObject {
     
     // MARK: - Methods
     func fetchTVShows() async {
-        let tempTVShowDetails = (try? await fetchTVShowDetailsUseCase.execute(showID: currentShowID))
-        await MainActor.run {
-            self.tvShowDetails = tempTVShowDetails
+        do {
+            let tempTVShowDetails = try await fetchTVShowDetailsUseCase.execute(showID: currentShowID)
+            await MainActor.run {
+                self.tvShowDetails = tempTVShowDetails
+            }
+        } catch {
+            print("Loading TVShow detail error: \(error)")
         }
     }
     
