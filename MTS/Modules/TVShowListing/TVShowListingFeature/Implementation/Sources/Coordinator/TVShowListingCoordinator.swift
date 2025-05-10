@@ -25,6 +25,10 @@ final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
         return RemoteTVShowsRepository(networkClient: networkClient)
     }()
 
+    private lazy var tvShowDetailsRepository: TVShowDetailsRepositoryProtocol = {
+        return RemoteTVShowDetailsRepository(networkClient: networkClient)
+    }()
+
     public init(navigationController: UINavigationController,
                 networkClient: NetworkClientProtocol) {
         self.navigationController = navigationController
@@ -46,7 +50,7 @@ final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
     }
     
     public func navigateToTVShowDetailsView(showID: Int, showTitle: String) {
-        let fetchTVShowDetailsUsecase = FetchTVShowDetailsUseCase(tvShowDetailsRepository: LocalTVShowDetailsRepository())
+        let fetchTVShowDetailsUsecase = FetchTVShowDetailsUseCase(tvShowDetailsRepository: tvShowDetailsRepository)
         let tvShowDetailsViewModel = TVShowDetailsViewModel(coordinator: self,
                                                             fetchTVShowDetailsUseCase: fetchTVShowDetailsUsecase,
                                                             currentShowID: showID,

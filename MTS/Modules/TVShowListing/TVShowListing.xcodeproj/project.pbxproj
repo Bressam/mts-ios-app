@@ -66,6 +66,7 @@
 		18CD8BFB2DCFC32400AECE19 /* TVShowListingFeatureTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC362DCED6FA00456FA2 /* TVShowListingFeatureTesting.framework */; };
 		18CD8C012DCFC94C00AECE19 /* RemoteTVShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD8C002DCFC94C00AECE19 /* RemoteTVShowsRepository.swift */; };
 		18CD8C042DCFD17800AECE19 /* TVShowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD8C032DCFD17400AECE19 /* TVShowRequest.swift */; };
+		18CD8C062DCFD18E00AECE19 /* RemoteTVShowDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 		1863ECA62DCFB303004015E1 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		18CD8C002DCFC94C00AECE19 /* RemoteTVShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTVShowsRepository.swift; sourceTree = "<group>"; };
 		18CD8C032DCFD17400AECE19 /* TVShowRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowRequest.swift; sourceTree = "<group>"; };
+		18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTVShowDetailsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,6 +479,7 @@
 			children = (
 				1858ED512DCF00FC00456FA2 /* LocalTVShowsRepository.swift */,
 				18CD8C002DCFC94C00AECE19 /* RemoteTVShowsRepository.swift */,
+				18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */,
 				1863EC8F2DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift */,
 			);
 			path = Sources;
@@ -1132,6 +1135,7 @@
 			files = (
 				18CD8C062DCFD18E00AECE19 /* RemoteTVShowDetailsRepository.swift in Sources */,
 				1863EC902DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift in Sources */,
+				18CD8C012DCFC94C00AECE19 /* RemoteTVShowsRepository.swift in Sources */,
 				18CD8C042DCFD17800AECE19 /* TVShowRequest.swift in Sources */,
 				1858ED522DCF010A00456FA2 /* LocalTVShowsRepository.swift in Sources */,
 			);
