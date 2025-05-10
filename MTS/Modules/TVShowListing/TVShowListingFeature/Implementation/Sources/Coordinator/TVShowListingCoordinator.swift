@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 import SwiftUI
+// Infra
 import CoordinatorKitInterface
+import NetworkCoreInterface
+// Feats
 import TVShowListingFeatureInterface
 import TVShowListingFeatureData
 import TVShowListingFeatureDomain
@@ -16,8 +19,20 @@ import TVShowListingFeatureDomain
 final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
     public var navigationController: UINavigationController
     
-    public init(navigationController: UINavigationController) {
+    let networkClient: NetworkClientProtocol
+
+    private lazy var tvShowsRepositoryProtocol: TVShowsRepositoryProtocol = {
+        return RemoteTVShowsRepository(networkClient: networkClient)
+    }()
+
+    private lazy var tvShowDetailsRepository: TVShowDetailsRepositoryProtocol = {
+        return RemoteTVShowDetailsRepository(networkClient: networkClient)
+    }()
+
+    public init(navigationController: UINavigationController,
+                networkClient: NetworkClientProtocol) {
         self.navigationController = navigationController
+        self.networkClient = networkClient
         navigationController.navigationBar.prefersLargeTitles = true
     }
 
@@ -26,7 +41,7 @@ final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
     }
     
     public func navigateToTVShowsListingView() {
-        let fetchTVShowUsecase = FetchTVShowsUseCase(tvShowRepository: LocalTVShowsRepository())
+        let fetchTVShowUsecase = FetchTVShowsUseCase(tvShowRepository: tvShowsRepositoryProtocol)
         let tvShowListingViewModel: TVShowsListingViewModel = .init(coordinator: self,
                                                                     fetchTVShowUseCase: fetchTVShowUsecase)
         let hostingVC = UIHostingController(rootView: TVShowsListingView(viewModel: tvShowListingViewModel))
@@ -35,7 +50,7 @@ final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
     }
     
     public func navigateToTVShowDetailsView(showID: Int, showTitle: String) {
-        let fetchTVShowDetailsUsecase = FetchTVShowDetailsUseCase(tvShowDetailsRepository: LocalTVShowDetailsRepository())
+        let fetchTVShowDetailsUsecase = FetchTVShowDetailsUseCase(tvShowDetailsRepository: tvShowDetailsRepository)
         let tvShowDetailsViewModel = TVShowDetailsViewModel(coordinator: self,
                                                             fetchTVShowDetailsUseCase: fetchTVShowDetailsUsecase,
                                                             currentShowID: showID,

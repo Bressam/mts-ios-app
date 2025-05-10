@@ -8,12 +8,15 @@
 import SwiftUI
 import UIKit
 import CoordinatorKitInterface
+import NetworkCore
+import NetworkCoreInterface
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Properties
     var window: UIWindow?
     var mainCoordinator: CoordinatorProtocol!
     var rootNavigationVC: DefaultNavigationController = .init()
+    let networkClient: NetworkClientProtocol = NetworkClient()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
@@ -35,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: - Dependencies setup
     private func setupCoordinators() {
-        mainCoordinator = MainCoordinator(navigationController: rootNavigationVC)
+        mainCoordinator = MainCoordinator(navigationController: rootNavigationVC,
+                                          networkClient: networkClient)
     }
 }

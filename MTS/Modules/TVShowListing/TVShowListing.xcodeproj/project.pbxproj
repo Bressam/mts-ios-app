@@ -64,7 +64,9 @@
 		1863ECA12DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; };
 		1863ECA72DCFB307004015E1 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863ECA62DCFB303004015E1 /* String+HTML.swift */; };
 		18CD8BFB2DCFC32400AECE19 /* TVShowListingFeatureTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC362DCED6FA00456FA2 /* TVShowListingFeatureTesting.framework */; };
-		18CD8BFC2DCFC32400AECE19 /* TVShowListingFeatureTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC362DCED6FA00456FA2 /* TVShowListingFeatureTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18CD8C012DCFC94C00AECE19 /* RemoteTVShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD8C002DCFC94C00AECE19 /* RemoteTVShowsRepository.swift */; };
+		18CD8C042DCFD17800AECE19 /* TVShowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD8C032DCFD17400AECE19 /* TVShowRequest.swift */; };
+		18CD8C062DCFD18E00AECE19 /* RemoteTVShowDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,20 +163,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		18CD8BFF2DCFC32400AECE19 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				18CD8BFC2DCFC32400AECE19 /* TVShowListingFeatureTesting.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		1813752A2DCF0E7200D24DBA /* TVShowList+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowList+Mock.swift"; sourceTree = "<group>"; };
 		1858EBE32DCED5F400456FA2 /* TVShowListingFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TVShowListingFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +217,9 @@
 		1863EC982DCFA704004015E1 /* TVShowEpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowEpisodeDetailsView.swift; sourceTree = "<group>"; };
 		1863EC9B2DCFA719004015E1 /* TVShowEpisodeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowEpisodeDetailsViewModel.swift; sourceTree = "<group>"; };
 		1863ECA62DCFB303004015E1 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
+		18CD8C002DCFC94C00AECE19 /* RemoteTVShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTVShowsRepository.swift; sourceTree = "<group>"; };
+		18CD8C032DCFD17400AECE19 /* TVShowRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowRequest.swift; sourceTree = "<group>"; };
+		18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTVShowDetailsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +362,7 @@
 		1858EBDA2DCED5B500456FA2 /* TVShowListingData */ = {
 			isa = PBXGroup;
 			children = (
+				18CD8C022DCFD16F00AECE19 /* Requests */,
 				1858EC842DCED78900456FA2 /* Resources */,
 				1858EC802DCED77C00456FA2 /* Sources */,
 				1858EC7D2DCED76900456FA2 /* Tests */,
@@ -486,6 +478,8 @@
 			isa = PBXGroup;
 			children = (
 				1858ED512DCF00FC00456FA2 /* LocalTVShowsRepository.swift */,
+				18CD8C002DCFC94C00AECE19 /* RemoteTVShowsRepository.swift */,
+				18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */,
 				1863EC8F2DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift */,
 			);
 			path = Sources;
@@ -674,6 +668,14 @@
 				1863ECA62DCFB303004015E1 /* String+HTML.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		18CD8C022DCFD16F00AECE19 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				18CD8C032DCFD17400AECE19 /* TVShowRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -872,7 +874,6 @@
 				1858EC632DCED75D00456FA2 /* Sources */,
 				1858EC642DCED75D00456FA2 /* Frameworks */,
 				1858EC652DCED75D00456FA2 /* Resources */,
-				18CD8BFF2DCFC32400AECE19 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1132,7 +1133,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CD8C062DCFD18E00AECE19 /* RemoteTVShowDetailsRepository.swift in Sources */,
 				1863EC902DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift in Sources */,
+				18CD8C012DCFC94C00AECE19 /* RemoteTVShowsRepository.swift in Sources */,
+				18CD8C042DCFD17800AECE19 /* TVShowRequest.swift in Sources */,
 				1858ED522DCF010A00456FA2 /* LocalTVShowsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
