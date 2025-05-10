@@ -23,6 +23,10 @@
 		1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; };
 		1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1858ED2B2DCEF92A00456FA2 /* TVShowListingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */; };
+		18CD8BF72DCFC2FE00AECE19 /* NetworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */; };
+		18CD8BF82DCFC2FE00AECE19 /* NetworkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18CD8BF92DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */; };
+		18CD8BFA2DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +46,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				18CD8BF82DCFC2FE00AECE19 /* NetworkCore.framework in Embed Frameworks */,
 				1858EAF92DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */,
 				1858ED262DCEF7B100456FA2 /* TVShowListingFeature.framework in Embed Frameworks */,
+				18CD8BFA2DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Embed Frameworks */,
 				1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -69,6 +75,8 @@
 		1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeatureInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowListingAssembly.swift; sourceTree = "<group>"; };
+		18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkCoreInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +84,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CD8BF72DCFC2FE00AECE19 /* NetworkCore.framework in Frameworks */,
 				1858EAF82DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
 				1858ED252DCEF7B100456FA2 /* TVShowListingFeature.framework in Frameworks */,
+				18CD8BF92DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Frameworks */,
 				1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +124,8 @@
 		1858EAF62DCEC31D00456FA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */,
+				18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */,
 				1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */,
 				1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */,
 				1858EAFB2DCEC33A00456FA2 /* CoordinatorKitTesting.framework */,

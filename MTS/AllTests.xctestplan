@@ -19,22 +19,8 @@
     {
       "target" : {
         "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
-        "identifier" : "1858EC1A2DCED6AA00456FA2",
-        "name" : "TVShowListingFeatureInterfaceTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
-        "identifier" : "1858EC4A2DCED71500456FA2",
-        "name" : "TVShowListingFeatureDomainTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
-        "identifier" : "1858EC6D2DCED75D00456FA2",
-        "name" : "TVShowListingFeatureDataTests"
+        "identifier" : "1858EBFC2DCED65300456FA2",
+        "name" : "TVShowListingFeatureTests"
       }
     },
     {
@@ -46,9 +32,16 @@
     },
     {
       "target" : {
+        "containerPath" : "container:Modules\/NetworkCore\/NetworkCore.xcodeproj",
+        "identifier" : "18CD8B7A2DCFC05800AECE19",
+        "name" : "NetworkCoreTests"
+      }
+    },
+    {
+      "target" : {
         "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
-        "identifier" : "1858EBFC2DCED65300456FA2",
-        "name" : "TVShowListingFeatureTests"
+        "identifier" : "1858EC6D2DCED75D00456FA2",
+        "name" : "TVShowListingFeatureDataTests"
       }
     },
     {
@@ -57,6 +50,20 @@
         "containerPath" : "container:MTS.xcodeproj",
         "identifier" : "1858E8F92DCEAE3F00456FA2",
         "name" : "MTSTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC1A2DCED6AA00456FA2",
+        "name" : "TVShowListingFeatureInterfaceTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC4A2DCED71500456FA2",
+        "name" : "TVShowListingFeatureDomainTests"
       }
     }
   ],
