@@ -22,7 +22,7 @@ struct TVShowDetailView: View {
     var body: some View {
         Group {
             if let show = viewModel.tvShowDetails {
-                detailsView(show: show)
+                detailsView(for: show)
             } else {
                 ProgressView()
                     .frame(width: 60, height: 90)
@@ -38,51 +38,57 @@ struct TVShowDetailView: View {
     
     // MARK: ViewBuilders
     @ViewBuilder
-    private func detailsView(show: TVShowDetails) -> some View {
+    private func detailsView(for show: TVShowDetails) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 headerImage(show.image?.original)
-                
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(show.name)
-                        .font(.title)
-                        .bold()
-                    
-                    if !show.genres.isEmpty {
-                        Text("Genres: \(show.genres.joined(separator: ", "))")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    if !show.schedule.days.isEmpty || !show.schedule.time.isEmpty {
-                        Text("Airs: \(show.schedule.days.joined(separator: ", ")) at \(show.schedule.time)")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    if let rating = show.rating.average {
-                        Text(String(format: "Rating: %.1f ★", rating))
-                            .font(.subheadline)
-                            .foregroundColor(.orange)
-                            .opacity(0.8)
-                    }
-                }
-                
-                if let summary = show.summary {
-                    Text(summary.stripHTML())
-                        .font(.body)
-                }
-                
+                titleAndDetails(for: show)
+                summaryView(for: show)
                 Divider()
-                
-                seasonsAndEpisodesSection(show: show)
+                seasonsAndEpisodesSection(for: show)
             }
             .padding()
         }
     }
     
     @ViewBuilder
-    private func seasonsAndEpisodesSection(show: TVShowDetails) -> some View {
+    private func summaryView(for show: TVShowDetails) -> some View {
+        if let summary = show.summary {
+            Text(summary.stripHTML())
+                .font(.body)
+        }
+    }
+    
+    @ViewBuilder
+    private func titleAndDetails(for show: TVShowDetails) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text(show.name)
+                .font(.title)
+                .fontWeight(.bold)
+
+            if !show.genres.isEmpty {
+                Text("Genres: \(show.genres.joined(separator: ", "))")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            
+            if !show.schedule.days.isEmpty || !show.schedule.time.isEmpty {
+                Text("Airs: \(show.schedule.days.joined(separator: ", ")) at \(show.schedule.time)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            
+            if let rating = show.rating.average {
+                Text(String(format: "Rating: %.1f ★", rating))
+                    .font(.subheadline)
+                    .foregroundColor(.orange)
+                    .opacity(0.8)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func seasonsAndEpisodesSection(for show: TVShowDetails) -> some View {
         if let seasons = show.embeddedDetails?.seasons {
             Text("Seasons")
                 .font(.title)
@@ -98,6 +104,7 @@ struct TVShowDetailView: View {
             
             ForEach(episodes) { episode in
                 episodeRow(for: episode)
+                    .padding(.vertical, 6)
                     .onTapGesture {
                         viewModel.didSelectEpisode(episode)
                     }
@@ -128,10 +135,7 @@ struct TVShowDetailView: View {
                         .lineLimit(2)
                 }
             }
-            
-            Spacer()
         }
-        .padding(.vertical, 6)
     }
     
     @ViewBuilder
