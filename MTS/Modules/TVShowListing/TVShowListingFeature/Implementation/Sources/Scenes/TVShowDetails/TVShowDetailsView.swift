@@ -10,9 +10,32 @@ import SwiftUI
 import TVShowListingFeatureDomain
 
 struct TVShowDetailView: View {
-    let show: TVShowDetails
+    // MARK: - Properties
+    @ObservedObject private var viewModel: TVShowDetailsViewModel
     
+    init(viewModel: TVShowDetailsViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    // MARK: - Body
     var body: some View {
+        Group {
+            if let show = viewModel.tvShowDetails {
+                detailsView(show: show)
+            } else {
+                ProgressView()
+                    .frame(width: 60, height: 90)
+            }
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchTVShows()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func detailsView(show: TVShowDetails) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 if let imageUrl = show.image?.original {
@@ -78,9 +101,9 @@ struct TVShowDetailView: View {
             }
             .padding()
         }
-        .navigationTitle("Show Details")
     }
     
+    // MARK: - Utils
     // Helper to strip <p>, <b>, etc. for readability
     private func stripHTML(_ html: String) -> String {
         html.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
@@ -88,5 +111,5 @@ struct TVShowDetailView: View {
 }
 
 #Preview {
-    TVShowDetailView(show: .mock)
+    TVShowDetailView(viewModel: .preview)
 }
