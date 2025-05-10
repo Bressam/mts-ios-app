@@ -16,7 +16,7 @@ extension TVShow {
     private static func mockFromJSON() -> [TVShow] {
         guard let resourceBundle = Bundle(identifier: "dev.bressam.TVShowListingFeatureTesting"),
               let fileURL = resourceBundle.url(forResource: "shows-response", withExtension: "json") else {
-            print("Could not find shows.json")
+            print("Could not find shows-response.json")
             return []
             }
 

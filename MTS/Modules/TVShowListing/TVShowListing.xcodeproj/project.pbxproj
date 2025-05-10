@@ -321,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				1813752A2DCF0E7200D24DBA /* TVShowList+Mock.swift */,
+				1863EC702DCF8D32004015E1 /* TVShowDetails+Mock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -564,6 +565,7 @@
 		1858ED642DCF06C300456FA2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1863EC5F2DCF7FA8004015E1 /* show-details-response.json */,
 				1858ED652DCF06D900456FA2 /* shows-response.json */,
 			);
 			path = Resources;
@@ -900,6 +902,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1863EC602DCF7FA8004015E1 /* show-details-response.json in Resources */,
 				1858ED662DCF06D900456FA2 /* shows-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,12 +986,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1863EC692DCF8B9C004015E1 /* WebChannel.swift in Sources */,
 				1858ED4D2DCF001C00456FA2 /* FetchTVShowsUseCase.swift in Sources */,
+				1863EC732DCF8D8C004015E1 /* TVShowDetails.swift in Sources */,
+				1863EC6D2DCF8BBB004015E1 /* Schedule.swift in Sources */,
+				1863EC6F2DCF8BCA004015E1 /* ImageURLs.swift in Sources */,
 				1858ED472DCEFEF800456FA2 /* TVShow.swift in Sources */,
+				1863EC672DCF8B8C004015E1 /* Network.swift in Sources */,
 				1858EC5E2DCED74000456FA2 /* FetchTVShowsUseCaseProtocol.swift in Sources */,
 				1858ED4B2DCEFF0800456FA2 /* TVShowEpisode.swift in Sources */,
 				1858ED502DCF005400456FA2 /* TVShowsRepositoryProtocol.swift in Sources */,
 				1858ED492DCEFF0100456FA2 /* TVShowSeason.swift in Sources */,
+				1863EC6B2DCF8BAD004015E1 /* Country.swift in Sources */,
+				1863EC752DCF8EBF004015E1 /* TVShowEmbenddedDetails.swift in Sources */,
+				1863EC652DCF8B77004015E1 /* Rating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
