@@ -18,6 +18,11 @@
 		1858ECE52DCEDAA900456FA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1858ECD12DCEDAA900456FA2 /* Preview Assets.xcassets */; };
 		1858ECE62DCEDAA900456FA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1858ECD32DCEDAA900456FA2 /* Assets.xcassets */; };
 		1858ECEA2DCEDAAD00456FA2 /* MTSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECE82DCEDAAD00456FA2 /* MTSTests.swift */; };
+		1858ED252DCEF7B100456FA2 /* TVShowListingFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */; };
+		1858ED262DCEF7B100456FA2 /* TVShowListingFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; };
+		1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED2B2DCEF92A00456FA2 /* TVShowListingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1858EAF92DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */,
+				1858ED262DCEF7B100456FA2 /* TVShowListingFeature.framework in Embed Frameworks */,
+				1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +66,9 @@
 		1858ECDC2DCEDAA900456FA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1858ECDE2DCEDAA900456FA2 /* MTS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MTS.xcdatamodel; sourceTree = "<group>"; };
 		1858ECE82DCEDAAD00456FA2 /* MTSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSTests.swift; sourceTree = "<group>"; };
+		1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeatureInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowListingAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1858EAF82DCEC31D00456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
+				1858ED252DCEF7B100456FA2 /* TVShowListingFeature.framework in Frameworks */,
+				1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +114,8 @@
 		1858EAF62DCEC31D00456FA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */,
+				1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */,
 				1858EAFB2DCEC33A00456FA2 /* CoordinatorKitTesting.framework */,
 				1858EAF72DCEC31D00456FA2 /* CoordinatorKitInterface.framework */,
 			);
@@ -152,6 +166,7 @@
 		1858ECDD2DCEDAA900456FA2 /* MTS */ = {
 			isa = PBXGroup;
 			children = (
+				1858ED292DCEF91800456FA2 /* Assemblers */,
 				1858ECD02DCEDAA900456FA2 /* Coordinator */,
 				1858ECD22DCEDAA900456FA2 /* Preview Content */,
 				1858ECD42DCEDAA900456FA2 /* Resources */,
@@ -170,6 +185,14 @@
 				1858ECE82DCEDAAD00456FA2 /* MTSTests.swift */,
 			);
 			path = MTSTests;
+			sourceTree = "<group>";
+		};
+		1858ED292DCEF91800456FA2 /* Assemblers */ = {
+			isa = PBXGroup;
+			children = (
+				1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */,
+			);
+			path = Assemblers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +304,7 @@
 				1858ECDF2DCEDAA900456FA2 /* MainCoordinator.swift in Sources */,
 				1858ECE02DCEDAA900456FA2 /* ContentView.swift in Sources */,
 				1858ECE12DCEDAA900456FA2 /* MTS.xcdatamodeld in Sources */,
+				1858ED2B2DCEF92A00456FA2 /* TVShowListingAssembly.swift in Sources */,
 				1858ECE22DCEDAA900456FA2 /* Persistence.swift in Sources */,
 				1858ECE32DCEDAA900456FA2 /* AppDelegate.swift in Sources */,
 				1858ECE42DCEDAA900456FA2 /* SceneDelegate.swift in Sources */,
