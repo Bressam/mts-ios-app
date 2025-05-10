@@ -12,6 +12,7 @@ import TVShowListingFeatureDomain
 struct TVShowsListingView: View {
     // MARK: - Properties
     @ObservedObject private var viewModel: TVShowsListingViewModel
+    @State private var searchText: String = ""
 
     init(viewModel: TVShowsListingViewModel) {
         self.viewModel = viewModel
@@ -19,12 +20,18 @@ struct TVShowsListingView: View {
     
     // MARK: - Body
     var body: some View {
-        List(viewModel.tvShows) { show in
+        List(filteredShows) { show in
             tvShowRow(show: show)
                 .padding(.vertical, 8)
                 .onTapGesture {
                     viewModel.selectTVShow(with: show.id)
                 }
+        }
+        .searchable(text: $searchText, prompt: "Search TV Shows")
+        .overlay {
+            if filteredShows.isEmpty && !searchText.isEmpty {
+                ContentUnavailableView.search
+            }
         }
         .onAppear {
             Task {
@@ -34,6 +41,7 @@ struct TVShowsListingView: View {
         .navigationTitle("TVMaze Shows")
     }
     
+    // MARK: - Views
     @ViewBuilder
     private func tvShowRow(show: TVShow) -> some View {
         HStack(alignment: .top, spacing: 16) {
@@ -53,6 +61,17 @@ struct TVShowsListingView: View {
                 Text("Status: \(show.status)")
                     .font(.caption)
                     .foregroundColor(.gray)
+            }
+        }
+    }
+    
+    // MARK: - Utils
+    private var filteredShows: [TVShow] {
+        if searchText.isEmpty {
+            return viewModel.tvShows
+        } else {
+            return viewModel.tvShows.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText)
             }
         }
     }
