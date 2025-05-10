@@ -14,40 +14,28 @@ struct AsyncImageView: View {
     let cornerRadius: CGFloat
     
     var body: some View {
-        Group {
-            if let url = url {
-                AsyncImage(url: url) { phase in
-                    switch phase {
-                    case .empty:
-                        placeholder
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    case .failure:
-                        fallback
-                    @unknown default:
-                        fallback
-                    }
-                }
-            } else {
-                fallback
-            }
+        AsyncImage(url: url) { image in
+            image
+                .resizable()
+                .scaledToFill()
+        } placeholder: {
+            placeholder
         }
-        .frame(maxWidth: width, maxHeight: height)
+        .frame(maxWidth: width)
+        .frame(height: height)
         .clipped()
         .cornerRadius(cornerRadius)
     }
     
     private var placeholder: some View {
         ProgressView()
-            .frame(maxWidth: width, maxHeight: height)
             .background(Color.gray.opacity(0.1))
     }
     
     private var fallback: some View {
         Image(systemName: "photo")
-            .frame(width: width, height: height)
+            .resizable()
+            .scaledToFit()
             .background(Color.gray.opacity(0.2))
     }
 }

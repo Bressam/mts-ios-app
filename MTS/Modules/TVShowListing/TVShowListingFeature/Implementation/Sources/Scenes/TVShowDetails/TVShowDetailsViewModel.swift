@@ -40,4 +40,8 @@ final class TVShowDetailsViewModel: ObservableObject {
             self.tvShowDetails = tempTVShowDetails
         }
     }
+    
+    func didSelectEpisode(_ episode: TVShowEpisode) {
+        coordinator?.navigateToEpisodeDetails(episode: episode)
+    }
 }

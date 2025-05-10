@@ -67,6 +67,12 @@
 		1863EC8E2DCF9505004015E1 /* TVShowDetailsViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC8D2DCF94FF004015E1 /* TVShowDetailsViewModel+Preview.swift */; };
 		1863EC902DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC8F2DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift */; };
 		1863EC932DCF9EEC004015E1 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC922DCF9EE8004015E1 /* AsyncImageView.swift */; };
+		1863EC992DCFA704004015E1 /* TVShowEpisodeDetailsViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC972DCFA704004015E1 /* TVShowEpisodeDetailsViewModel+Preview.swift */; };
+		1863EC9A2DCFA704004015E1 /* TVShowEpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC982DCFA704004015E1 /* TVShowEpisodeDetailsView.swift */; };
+		1863EC9C2DCFA71A004015E1 /* TVShowEpisodeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863EC9B2DCFA719004015E1 /* TVShowEpisodeDetailsViewModel.swift */; };
+		1863ECA12DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; };
+		1863ECA22DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1863ECA72DCFB307004015E1 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863ECA62DCFB303004015E1 /* String+HTML.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +153,13 @@
 			remoteGlobalIDString = 1858EC432DCED71500456FA2;
 			remoteInfo = TVShowListingFeatureDomain;
 		};
+		1863ECA32DCFAB89004015E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858EBB62DCED50C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858EC432DCED71500456FA2;
+			remoteInfo = TVShowListingFeatureDomain;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -195,6 +208,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1858ED3C2DCEFAD400456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */,
+				1863ECA22DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +265,10 @@
 		1863EC8D2DCF94FF004015E1 /* TVShowDetailsViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowDetailsViewModel+Preview.swift"; sourceTree = "<group>"; };
 		1863EC8F2DCF97BE004015E1 /* LocalTVShowDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTVShowDetailsRepository.swift; sourceTree = "<group>"; };
 		1863EC922DCF9EE8004015E1 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		1863EC972DCFA704004015E1 /* TVShowEpisodeDetailsViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowEpisodeDetailsViewModel+Preview.swift"; sourceTree = "<group>"; };
+		1863EC982DCFA704004015E1 /* TVShowEpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowEpisodeDetailsView.swift; sourceTree = "<group>"; };
+		1863EC9B2DCFA719004015E1 /* TVShowEpisodeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowEpisodeDetailsViewModel.swift; sourceTree = "<group>"; };
+		1863ECA62DCFB303004015E1 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1858ED3B2DCEFAD400456FA2 /* CoordinatorKitInterface.framework in Frameworks */,
+				1863ECA12DCFAB89004015E1 /* TVShowListingFeatureDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +392,7 @@
 		1858EBD82DCED55D00456FA2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1863ECA52DCFB2FF004015E1 /* Utils */,
 				1863EC912DCF9EE3004015E1 /* Components */,
 				1858ED1E2DCEF72F00456FA2 /* Scenes */,
 				1858ED1D2DCEF72900456FA2 /* Coordinator */,
@@ -537,6 +557,7 @@
 		1858ED1E2DCEF72F00456FA2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1863EC942DCFA6F0004015E1 /* TVShowEpisodeDetails */,
 				1863EC772DCF8FEE004015E1 /* TVShowDetails */,
 				1863EC762DCF8FE2004015E1 /* TVShowsListing */,
 			);
@@ -676,6 +697,24 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		1863EC942DCFA6F0004015E1 /* TVShowEpisodeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1863EC9B2DCFA719004015E1 /* TVShowEpisodeDetailsViewModel.swift */,
+				1863EC972DCFA704004015E1 /* TVShowEpisodeDetailsViewModel+Preview.swift */,
+				1863EC982DCFA704004015E1 /* TVShowEpisodeDetailsView.swift */,
+			);
+			path = TVShowEpisodeDetails;
+			sourceTree = "<group>";
+		};
+		1863ECA52DCFB2FF004015E1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1863ECA62DCFB303004015E1 /* String+HTML.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -775,6 +814,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1863ECA42DCFAB89004015E1 /* PBXTargetDependency */,
 			);
 			name = TVShowListingFeatureInterface;
 			packageProductDependencies = (
@@ -1049,11 +1089,15 @@
 			files = (
 				1863EC8E2DCF9505004015E1 /* TVShowDetailsViewModel+Preview.swift in Sources */,
 				1863EC7B2DCF9344004015E1 /* TVShowDetailsViewModel.swift in Sources */,
+				1863EC992DCFA704004015E1 /* TVShowEpisodeDetailsViewModel+Preview.swift in Sources */,
+				1863ECA72DCFB307004015E1 /* String+HTML.swift in Sources */,
+				1863EC9A2DCFA704004015E1 /* TVShowEpisodeDetailsView.swift in Sources */,
 				1858ED3F2DCEFBF800456FA2 /* TVShowsListingViewModel+Preview.swift in Sources */,
 				1863EC932DCF9EEC004015E1 /* AsyncImageView.swift in Sources */,
 				1858ED222DCEF74800456FA2 /* TVShowsListingView.swift in Sources */,
 				1863EC792DCF8FF9004015E1 /* TVShowDetailsView.swift in Sources */,
 				1858ED2D2DCEFA1100456FA2 /* TVShowsListingViewModel.swift in Sources */,
+				1863EC9C2DCFA71A004015E1 /* TVShowEpisodeDetailsViewModel.swift in Sources */,
 				1858EC0C2DCED68200456FA2 /* TVShowListingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1199,6 +1243,11 @@
 			isa = PBXTargetDependency;
 			target = 1858EC432DCED71500456FA2 /* TVShowListingFeatureDomain */;
 			targetProxy = 1858ED5A2DCF025E00456FA2 /* PBXContainerItemProxy */;
+		};
+		1863ECA42DCFAB89004015E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858EC432DCED71500456FA2 /* TVShowListingFeatureDomain */;
+			targetProxy = 1863ECA32DCFAB89004015E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -45,4 +45,9 @@ final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
         navigationController.pushViewController(hostingVC, animated: true)
     }
     
+    public func navigateToEpisodeDetails(episode: TVShowEpisode) {
+        let episodeDetailsViewModel = TVShowEpisodeDetailsViewModel(episode: episode)
+        let hostingVC = UIHostingController(rootView: TVShowEpisodeDetailsView(viewModel: episodeDetailsViewModel))
+        navigationController.pushViewController(hostingVC, animated: true)
+    }
 }
