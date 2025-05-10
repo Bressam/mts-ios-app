@@ -19,6 +19,16 @@
 		1858EC6F2DCED75D00456FA2 /* TVShowListingFeatureData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC672DCED75D00456FA2 /* TVShowListingFeatureData.framework */; };
 		1858EC7F2DCED77900456FA2 /* SomeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EC7E2DCED76E00456FA2 /* SomeTest.swift */; };
 		1858EC832DCED78600456FA2 /* SomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858EC812DCED78000456FA2 /* SomeData.swift */; };
+		1858ED062DCEF60800456FA2 /* TVShowListingFeatureDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; };
+		1858ED072DCEF60800456FA2 /* TVShowListingFeatureDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED0B2DCEF61700456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC142DCED6AA00456FA2 /* TVShowListingFeatureInterface.framework */; };
+		1858ED0C2DCEF61700456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC142DCED6AA00456FA2 /* TVShowListingFeatureInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED102DCEF62500456FA2 /* TVShowListingFeatureData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC672DCED75D00456FA2 /* TVShowListingFeatureData.framework */; };
+		1858ED112DCEF62500456FA2 /* TVShowListingFeatureData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC672DCED75D00456FA2 /* TVShowListingFeatureData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED142DCEF62500456FA2 /* TVShowListingFeatureDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; };
+		1858ED152DCEF62500456FA2 /* TVShowListingFeatureDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ED182DCEF62500456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC142DCED6AA00456FA2 /* TVShowListingFeatureInterface.framework */; };
+		1858ED192DCEF62500456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC142DCED6AA00456FA2 /* TVShowListingFeatureInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +60,80 @@
 			remoteGlobalIDString = 1858EC662DCED75D00456FA2;
 			remoteInfo = TVShowListingFeatureData;
 		};
+		1858ED082DCEF60800456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858EBB62DCED50C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858EC432DCED71500456FA2;
+			remoteInfo = TVShowListingFeatureDomain;
+		};
+		1858ED0D2DCEF61700456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858EBB62DCED50C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858EC132DCED6AA00456FA2;
+			remoteInfo = TVShowListingFeatureInterface;
+		};
+		1858ED122DCEF62500456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858EBB62DCED50C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858EC662DCED75D00456FA2;
+			remoteInfo = TVShowListingFeatureData;
+		};
+		1858ED162DCEF62500456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858EBB62DCED50C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858EC432DCED71500456FA2;
+			remoteInfo = TVShowListingFeatureDomain;
+		};
+		1858ED1A2DCEF62500456FA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1858EBB62DCED50C00456FA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1858EC132DCED6AA00456FA2;
+			remoteInfo = TVShowListingFeatureInterface;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1858ED0A2DCEF60800456FA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1858ED072DCEF60800456FA2 /* TVShowListingFeatureDomain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1858ED0F2DCEF61700456FA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1858ED0C2DCEF61700456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1858ED1C2DCEF62500456FA2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1858ED112DCEF62500456FA2 /* TVShowListingFeatureData.framework in Embed Frameworks */,
+				1858ED152DCEF62500456FA2 /* TVShowListingFeatureDomain.framework in Embed Frameworks */,
+				1858ED192DCEF62500456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1858EBE32DCED5F400456FA2 /* TVShowListingFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TVShowListingFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +160,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ED102DCEF62500456FA2 /* TVShowListingFeatureData.framework in Frameworks */,
+				1858ED142DCEF62500456FA2 /* TVShowListingFeatureDomain.framework in Frameworks */,
+				1858ED182DCEF62500456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ED0B2DCEF61700456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ED062DCEF60800456FA2 /* TVShowListingFeatureDomain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +238,7 @@
 				1858EBDC2DCED5C800456FA2 /* TVShowListingFeature */,
 				1858EBDB2DCED5C200456FA2 /* TVShowListingDomain */,
 				1858EBDA2DCED5B500456FA2 /* TVShowListingData */,
+				1858ED052DCEF60800456FA2 /* Frameworks */,
 				1858EBC02DCED50C00456FA2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -310,6 +399,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		1858ED052DCEF60800456FA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -359,10 +455,14 @@
 				1858EBDF2DCED5F400456FA2 /* Sources */,
 				1858EBE02DCED5F400456FA2 /* Frameworks */,
 				1858EBE12DCED5F400456FA2 /* Resources */,
+				1858ED1C2DCEF62500456FA2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1858ED132DCEF62500456FA2 /* PBXTargetDependency */,
+				1858ED172DCEF62500456FA2 /* PBXTargetDependency */,
+				1858ED1B2DCEF62500456FA2 /* PBXTargetDependency */,
 			);
 			name = TVShowListingFeature;
 			packageProductDependencies = (
@@ -439,10 +539,12 @@
 				1858EC322DCED6FA00456FA2 /* Sources */,
 				1858EC332DCED6FA00456FA2 /* Frameworks */,
 				1858EC342DCED6FA00456FA2 /* Resources */,
+				1858ED0F2DCEF61700456FA2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1858ED0E2DCEF61700456FA2 /* PBXTargetDependency */,
 			);
 			name = TVShowListingFeatureTesting;
 			packageProductDependencies = (
@@ -499,10 +601,12 @@
 				1858EC632DCED75D00456FA2 /* Sources */,
 				1858EC642DCED75D00456FA2 /* Frameworks */,
 				1858EC652DCED75D00456FA2 /* Resources */,
+				1858ED0A2DCEF60800456FA2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1858ED092DCEF60800456FA2 /* PBXTargetDependency */,
 			);
 			name = TVShowListingFeatureData;
 			packageProductDependencies = (
@@ -757,6 +861,31 @@
 			isa = PBXTargetDependency;
 			target = 1858EC662DCED75D00456FA2 /* TVShowListingFeatureData */;
 			targetProxy = 1858EC702DCED75D00456FA2 /* PBXContainerItemProxy */;
+		};
+		1858ED092DCEF60800456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858EC432DCED71500456FA2 /* TVShowListingFeatureDomain */;
+			targetProxy = 1858ED082DCEF60800456FA2 /* PBXContainerItemProxy */;
+		};
+		1858ED0E2DCEF61700456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858EC132DCED6AA00456FA2 /* TVShowListingFeatureInterface */;
+			targetProxy = 1858ED0D2DCEF61700456FA2 /* PBXContainerItemProxy */;
+		};
+		1858ED132DCEF62500456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858EC662DCED75D00456FA2 /* TVShowListingFeatureData */;
+			targetProxy = 1858ED122DCEF62500456FA2 /* PBXContainerItemProxy */;
+		};
+		1858ED172DCEF62500456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858EC432DCED71500456FA2 /* TVShowListingFeatureDomain */;
+			targetProxy = 1858ED162DCEF62500456FA2 /* PBXContainerItemProxy */;
+		};
+		1858ED1B2DCEF62500456FA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1858EC132DCED6AA00456FA2 /* TVShowListingFeatureInterface */;
+			targetProxy = 1858ED1A2DCEF62500456FA2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
