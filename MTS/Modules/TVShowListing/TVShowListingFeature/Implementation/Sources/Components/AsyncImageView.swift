@@ -14,7 +14,7 @@ struct AsyncImageView: View {
         AsyncImage(url: url) { image in
             image
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
         } placeholder: {
             placeholder
         }
@@ -24,6 +24,7 @@ struct AsyncImageView: View {
     private var placeholder: some View {
         ProgressView()
             .background(Color.gray.opacity(0.1))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private var fallback: some View {

@@ -139,7 +139,9 @@ struct TVShowDetailView: View {
     @ViewBuilder
     private func headerImage(_ url: URL?) -> some View {
         AsyncImageView(url: url)
-            .cornerRadius(8)
+            .cornerRadius(12)
+            .frame(height: 520)
+            .frame(maxWidth: .infinity)
     }
     
     @ViewBuilder
