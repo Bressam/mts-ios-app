@@ -36,6 +36,7 @@ struct TVShowDetailView: View {
         .navigationTitle(viewModel.currentShowTitle)
     }
     
+    // MARK: ViewBuilders
     @ViewBuilder
     private func detailsView(show: TVShowDetails) -> some View {
         ScrollView {
@@ -59,7 +60,7 @@ struct TVShowDetailView: View {
                 }
                 
                 if let summary = show.summary {
-                    Text(stripHTML(summary))
+                    Text(summary.stripHTML())
                         .font(.body)
                 }
                 
@@ -113,7 +114,7 @@ struct TVShowDetailView: View {
 
                 
                 if let summary = episode.summary, !summary.isEmpty {
-                    Text(stripHTML(summary))
+                    Text(summary.stripHTML())
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .lineLimit(2)
@@ -143,12 +144,6 @@ struct TVShowDetailView: View {
             }
         }
         .pickerStyle(SegmentedPickerStyle())
-    }
-    
-    // MARK: - Utils
-    // Helper to strip <p>, <b>, etc. for readability
-    private func stripHTML(_ html: String) -> String {
-        html.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
     }
 }
 

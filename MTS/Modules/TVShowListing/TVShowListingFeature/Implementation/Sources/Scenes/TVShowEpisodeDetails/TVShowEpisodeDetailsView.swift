@@ -35,7 +35,7 @@ struct TVShowEpisodeDetailsView: View {
                 }
                 
                 if let summary = viewModel.episode.summary {
-                    Text(stripHTML(summary))
+                    Text(summary.stripHTML())
                         .font(.body)
                         .padding(.top)
                 }
@@ -45,11 +45,6 @@ struct TVShowEpisodeDetailsView: View {
             .padding()
         }
         .navigationTitle(viewModel.episode.name)
-    }
-        
-    // MARK: - Utils
-    private func stripHTML(_ html: String) -> String {
-        html.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
     }
 }
 
