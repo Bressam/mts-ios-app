@@ -12,6 +12,12 @@
 		1858E9FF2DCEB9FF00456FA2 /* CoordinatorKitInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1858EA022DCEB9FF00456FA2 /* CoordinatorKitTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9962DCEB29900456FA2 /* CoordinatorKitTesting.framework */; };
 		1858EA032DCEB9FF00456FA2 /* CoordinatorKitTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858E9962DCEB29900456FA2 /* CoordinatorKitTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1858ECB92DCED8BD00456FA2 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECA62DCED8BD00456FA2 /* CoordinatorProtocol.swift */; };
+		1858ECBA2DCED8BD00456FA2 /* UINavigationController+presentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECA72DCED8BD00456FA2 /* UINavigationController+presentationStyle.swift */; };
+		1858ECBB2DCED8BD00456FA2 /* AnyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECB32DCED8BD00456FA2 /* AnyCoordinator.swift */; };
+		1858ECBC2DCED8BD00456FA2 /* NavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECB52DCED8BD00456FA2 /* NavigationControllerSpy.swift */; };
+		1858ECBD2DCED8BD00456FA2 /* CoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECB42DCED8BD00456FA2 /* CoordinatorSpy.swift */; };
+		1858ECBE2DCED8BD00456FA2 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ECAB2DCED8BD00456FA2 /* CoordinatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,47 +63,17 @@
 		1858E9892DCEB28E00456FA2 /* CoordinatorKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoordinatorKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858E9962DCEB29900456FA2 /* CoordinatorKitTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoordinatorKitTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858E9AA2DCEB42100456FA2 /* CoordinatorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1858ECA02DCED8BD00456FA2 /* Coordinator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Coordinator-Info.plist"; sourceTree = "<group>"; };
+		1858ECA12DCED8BD00456FA2 /* CoordinatorInterface-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoordinatorInterface-Info.plist"; sourceTree = "<group>"; };
+		1858ECA22DCED8BD00456FA2 /* CoordinatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoordinatorTests-Info.plist"; sourceTree = "<group>"; };
+		1858ECA62DCED8BD00456FA2 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		1858ECA72DCED8BD00456FA2 /* UINavigationController+presentationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+presentationStyle.swift"; sourceTree = "<group>"; };
+		1858ECAB2DCED8BD00456FA2 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
+		1858ECAF2DCED8BD00456FA2 /* CoordinatorTesting-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoordinatorTesting-Info.plist"; sourceTree = "<group>"; };
+		1858ECB32DCED8BD00456FA2 /* AnyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCoordinator.swift; sourceTree = "<group>"; };
+		1858ECB42DCED8BD00456FA2 /* CoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorSpy.swift; sourceTree = "<group>"; };
+		1858ECB52DCED8BD00456FA2 /* NavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1858E9A02DCEB2BD00456FA2 /* Exceptions for "CoordinatorKit" folder in "CoordinatorKitTesting" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Testing/Implementation/Sources/AnyCoordinator.swift,
-				Testing/Implementation/Sources/CoordinatorSpy.swift,
-				Testing/Implementation/Sources/NavigationControllerSpy.swift,
-			);
-			target = 1858E9952DCEB29900456FA2 /* CoordinatorKitTesting */;
-		};
-		1858E9B52DCEB42C00456FA2 /* Exceptions for "CoordinatorKit" folder in "CoordinatorKitTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Coordinator/Tests/Sources/CoordinatorTests.swift,
-			);
-			target = 1858E9A92DCEB42100456FA2 /* CoordinatorKitTests */;
-		};
-		1858E9BA2DCEB45000456FA2 /* Exceptions for "CoordinatorKit" folder in "CoordinatorKitInterface" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Coordinator/Interface/Sources/CoordinatorProtocol.swift,
-				"Coordinator/Interface/Sources/UINavigationController+presentationStyle.swift",
-			);
-			target = 1858E9882DCEB28E00456FA2 /* CoordinatorKitInterface */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		1858E93B2DCEB21C00456FA2 /* CoordinatorKit */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1858E9BA2DCEB45000456FA2 /* Exceptions for "CoordinatorKit" folder in "CoordinatorKitInterface" target */,
-				1858E9A02DCEB2BD00456FA2 /* Exceptions for "CoordinatorKit" folder in "CoordinatorKitTesting" target */,
-				1858E9B52DCEB42C00456FA2 /* Exceptions for "CoordinatorKit" folder in "CoordinatorKitTests" target */,
-			);
-			path = CoordinatorKit;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1858E9862DCEB28E00456FA2 /* Frameworks */ = {
@@ -130,7 +106,7 @@
 		1858E92F2DCEB21C00456FA2 = {
 			isa = PBXGroup;
 			children = (
-				1858E93B2DCEB21C00456FA2 /* CoordinatorKit */,
+				1858ECBF2DCED91B00456FA2 /* CoordinatorKit */,
 				1858E9F82DCEB8C600456FA2 /* Frameworks */,
 				1858E93A2DCEB21C00456FA2 /* Products */,
 			);
@@ -151,6 +127,143 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1858ECBF2DCED91B00456FA2 /* CoordinatorKit */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECC42DCED94300456FA2 /* Testing */,
+				1858ECC02DCED92C00456FA2 /* Coordinator */,
+			);
+			path = CoordinatorKit;
+			sourceTree = "<group>";
+		};
+		1858ECC02DCED92C00456FA2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECC32DCED93C00456FA2 /* Tests */,
+				1858ECC22DCED93700456FA2 /* Interface */,
+				1858ECC12DCED93200456FA2 /* Derived */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1858ECC12DCED93200456FA2 /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECCE2DCED9A400456FA2 /* InfoPlists */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		1858ECC22DCED93700456FA2 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECCD2DCED99900456FA2 /* Resources */,
+				1858ECCC2DCED99600456FA2 /* Sources */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		1858ECC32DCED93C00456FA2 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECCB2DCED98900456FA2 /* Resources */,
+				1858ECCA2DCED98400456FA2 /* Sources */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		1858ECC42DCED94300456FA2 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECC92DCED96D00456FA2 /* Implementation */,
+				1858ECC62DCED95B00456FA2 /* Derived */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
+		1858ECC52DCED94E00456FA2 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECAF2DCED8BD00456FA2 /* CoordinatorTesting-Info.plist */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		1858ECC62DCED95B00456FA2 /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECC52DCED94E00456FA2 /* InfoPlists */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		1858ECC72DCED96200456FA2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECB32DCED8BD00456FA2 /* AnyCoordinator.swift */,
+				1858ECB42DCED8BD00456FA2 /* CoordinatorSpy.swift */,
+				1858ECB52DCED8BD00456FA2 /* NavigationControllerSpy.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		1858ECC82DCED96700456FA2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1858ECC92DCED96D00456FA2 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECC82DCED96700456FA2 /* Resources */,
+				1858ECC72DCED96200456FA2 /* Sources */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		1858ECCA2DCED98400456FA2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECAB2DCED8BD00456FA2 /* CoordinatorTests.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		1858ECCB2DCED98900456FA2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1858ECCC2DCED99600456FA2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECA62DCED8BD00456FA2 /* CoordinatorProtocol.swift */,
+				1858ECA72DCED8BD00456FA2 /* UINavigationController+presentationStyle.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		1858ECCD2DCED99900456FA2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1858ECCE2DCED9A400456FA2 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				1858ECA02DCED8BD00456FA2 /* Coordinator-Info.plist */,
+				1858ECA12DCED8BD00456FA2 /* CoordinatorInterface-Info.plist */,
+				1858ECA22DCED8BD00456FA2 /* CoordinatorTests-Info.plist */,
+			);
+			path = InfoPlists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +420,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ECB92DCED8BD00456FA2 /* CoordinatorProtocol.swift in Sources */,
+				1858ECBA2DCED8BD00456FA2 /* UINavigationController+presentationStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +429,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ECBB2DCED8BD00456FA2 /* AnyCoordinator.swift in Sources */,
+				1858ECBC2DCED8BD00456FA2 /* NavigationControllerSpy.swift in Sources */,
+				1858ECBD2DCED8BD00456FA2 /* CoordinatorSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1858ECBE2DCED8BD00456FA2 /* CoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
