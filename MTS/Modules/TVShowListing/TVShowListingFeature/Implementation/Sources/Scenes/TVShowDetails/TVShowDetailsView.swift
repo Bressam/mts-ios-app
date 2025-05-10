@@ -47,7 +47,7 @@ struct TVShowDetailView: View {
                 Divider()
                 seasonsAndEpisodesSection(for: show)
             }
-            .padding()
+            .padding(.horizontal)
         }
     }
     
@@ -116,11 +116,9 @@ struct TVShowDetailView: View {
     private func episodeRow(for episode: TVShowEpisode) -> some View {
         HStack(alignment: .top, spacing: 12) {
             AsyncImageView(
-                url: episode.image?.medium,
-                width: 100,
-                height: 60,
-                cornerRadius: 8
-            )
+                url: episode.image?.medium)
+            .frame(width: 120, height: 60)
+            .cornerRadius(8)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("S\(episode.season)E\(episode.number): \(episode.name)")
@@ -140,10 +138,8 @@ struct TVShowDetailView: View {
     
     @ViewBuilder
     private func headerImage(_ url: URL?) -> some View {
-        AsyncImageView(url: url,
-                       width: .infinity,
-                       height: 220,
-                       cornerRadius: 8)
+        AsyncImageView(url: url)
+            .cornerRadius(8)
     }
     
     @ViewBuilder

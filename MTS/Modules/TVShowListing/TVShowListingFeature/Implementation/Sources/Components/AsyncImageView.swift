@@ -9,9 +9,6 @@ import SwiftUI
 
 struct AsyncImageView: View {
     let url: URL?
-    let width: CGFloat
-    let height: CGFloat
-    let cornerRadius: CGFloat
     
     var body: some View {
         AsyncImage(url: url) { image in
@@ -21,10 +18,7 @@ struct AsyncImageView: View {
         } placeholder: {
             placeholder
         }
-        .frame(maxWidth: width)
-        .frame(height: height)
         .clipped()
-        .cornerRadius(cornerRadius)
     }
     
     private var placeholder: some View {

@@ -22,11 +22,8 @@ struct TVShowEpisodeDetailsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 AsyncImageView(
-                    url: viewModel.episode.image?.original,
-                    width: .infinity,
-                    height: 220,
-                    cornerRadius: 12
-                )
+                    url: viewModel.episode.image?.original)
+                .cornerRadius(12)
                 
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Season \(viewModel.episode.season), Episode \(viewModel.episode.number)")
@@ -42,8 +39,9 @@ struct TVShowEpisodeDetailsView: View {
                 
                 Spacer()
             }
-            .padding()
         }
+        .padding(.horizontal)
+        .scrollIndicators(.hidden)
         .navigationTitle(viewModel.episode.name)
     }
 }

@@ -45,10 +45,9 @@ struct TVShowsListingView: View {
     @ViewBuilder
     private func tvShowRow(show: TVShow) -> some View {
         HStack(alignment: .top, spacing: 16) {
-            AsyncImageView(url: show.image?.medium,
-                           width: 60,
-                           height: 90,
-                           cornerRadius: 8)
+            AsyncImageView(url: show.image?.medium)
+                .frame(width: 60, height: 90)
+                .cornerRadius(8)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(show.name)
