@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 // Infra
 import CoordinatorKitInterface
+import NetworkCoreInterface
 // TVShowListing
 import TVShowListingFeatureInterface
 
@@ -17,15 +18,18 @@ final class MainCoordinator: CoordinatorProtocol {
     // MARK: - Properties
     let persistenceController = PersistenceController.shared
     var navigationController: UINavigationController
+    let networkClient: NetworkClientProtocol
     
-    private var tvShowsListingCoordinator: TVShowListingCoordinatorProtocol = {
-        let coordinator = TVShowListingAssembly.assemble()
+    private lazy var tvShowsListingCoordinator: TVShowListingCoordinatorProtocol = {
+        let coordinator = TVShowListingAssembly.assemble(networkClient: networkClient)
         coordinator.navigationController.modalPresentationStyle = .fullScreen
         return coordinator
     }()
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController,
+         networkClient: NetworkClientProtocol) {
         self.navigationController = navigationController
+        self.networkClient = networkClient
     }
     
     func start() {

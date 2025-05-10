@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import NetworkCoreInterface
 import TVShowListingFeatureInterface
 import TVShowListingFeature
 
 class TVShowListingAssembly {
     @MainActor
-    static func assemble() -> TVShowListingCoordinatorProtocol {
-        return TVShowListingCoordinator(navigationController: .init())
+    static func assemble(networkClient: NetworkClientProtocol) -> TVShowListingCoordinatorProtocol {
+        return TVShowListingCoordinator(navigationController: .init(),
+                                        networkClient: networkClient)
     }
 }
