@@ -76,13 +76,12 @@ struct TVShowDetailView: View {
     private func seasonsAndEpisodesSection(show: TVShowDetails) -> some View {
         if let seasons = show.embeddedDetails?.seasons {
             Text("Seasons")
-                .font(.headline)
+                .font(.title)
+                .fontWeight(.bold)
             
             seasonPicker(seasons: seasons)
         }
-        
-        Divider()
-        
+
         if let episodesBySeason = viewModel.groupedEpisodes,
            let episodes = episodesBySeason[selectedSeason] {
             Text("Episodes - Season \(selectedSeason)")
