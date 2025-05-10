@@ -12,7 +12,7 @@ import TVShowListingFeatureTesting
 public final class LocalTVShowDetailsRepository: TVShowDetailsRepositoryProtocol {
     public init() {}
 
-    public func getTVShowDetails(id: Int) async throws -> TVShowListingFeatureDomain.TVShowDetails {
+    public func getTVShowDetails(id: Int) async throws -> TVShowDetails {
         return .mock // TODO: Temp
     }
 }
