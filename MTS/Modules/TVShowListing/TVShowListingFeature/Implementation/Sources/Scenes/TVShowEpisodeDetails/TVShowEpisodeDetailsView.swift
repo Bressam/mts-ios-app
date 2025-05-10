@@ -24,6 +24,8 @@ struct TVShowEpisodeDetailsView: View {
                 AsyncImageView(
                     url: viewModel.episode.image?.original)
                 .cornerRadius(12)
+                .frame(height: 100)
+                .frame(maxWidth: .infinity)
                 
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Season \(viewModel.episode.season), Episode \(viewModel.episode.number)")
