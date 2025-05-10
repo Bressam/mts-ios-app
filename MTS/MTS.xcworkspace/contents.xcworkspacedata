@@ -5,9 +5,16 @@
       location = "container:MTS.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:../Modules/CoordinatorKit/CoordinatorKit.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:AllTests.xctestplan">
    </FileRef>
+   <Group
+      location = "group:Modules"
+      name = "Modules">
+      <FileRef
+         location = "group:TVShowListing/TVShowListing.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:CoordinatorKit/CoordinatorKit.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>

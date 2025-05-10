@@ -18,9 +18,37 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:..\/Modules\/CoordinatorKit\/CoordinatorKit.xcodeproj",
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC1A2DCED6AA00456FA2",
+        "name" : "TVShowListingFeatureInterfaceTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC4A2DCED71500456FA2",
+        "name" : "TVShowListingFeatureDomainTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC6D2DCED75D00456FA2",
+        "name" : "TVShowListingFeatureDataTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/CoordinatorKit\/CoordinatorKit.xcodeproj",
         "identifier" : "1858E9A92DCEB42100456FA2",
         "name" : "CoordinatorKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EBFC2DCED65300456FA2",
+        "name" : "TVShowListingFeatureTests"
       }
     },
     {
