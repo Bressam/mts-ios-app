@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Schedule: Decodable {
+public struct Schedule: Codable {
     public let time: String
     public let days: [String]
     

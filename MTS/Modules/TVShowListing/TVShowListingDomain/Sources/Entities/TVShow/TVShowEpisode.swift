@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TVShowEpisode: Decodable, Identifiable {
+public struct TVShowEpisode: Codable, Identifiable {
     public let id: Int
     public let url: String
     public let name: String

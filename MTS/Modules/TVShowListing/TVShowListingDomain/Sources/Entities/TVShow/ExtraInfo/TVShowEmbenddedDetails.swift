@@ -5,7 +5,7 @@
 //  Created by Giovanne Bressam on 10/05/25.
 //
 
-public struct TVShowEmbenddedDetails: Decodable {
+public struct TVShowEmbenddedDetails: Codable {
     public let episodes: [TVShowEpisode]
     public let seasons: [TVShowSeason]
     
