@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ImageURLs: Decodable {
+public struct ImageURLs: Codable {
     public let medium: URL?
     public let original: URL?
     

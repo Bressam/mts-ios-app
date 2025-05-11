@@ -15,6 +15,7 @@ public protocol HTTPNetworkRequest {
     var parameters: [String: Any]? { get }
     var encoding: RequestEncoding { get }
     var method: HTTPMethod { get }
+    var cachePolicy: URLRequest.CachePolicy { get }
 }
 
 public extension HTTPNetworkRequest {
@@ -27,4 +28,5 @@ public extension HTTPNetworkRequest {
     var encoding: RequestEncoding { .urlEncoded }
     
     var method: HTTPMethod { .get }
+    var cachePolicy: URLRequest.CachePolicy { .useProtocolCachePolicy }
 }
