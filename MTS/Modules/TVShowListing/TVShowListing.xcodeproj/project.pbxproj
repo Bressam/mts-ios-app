@@ -92,6 +92,9 @@
 		18EB763E2DD13C750013B536 /* TVShowList+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB763D2DD13C750013B536 /* TVShowList+Stub.swift */; };
 		18EB763F2DD13D430013B536 /* TVShowListingFeatureDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC442DCED71500456FA2 /* TVShowListingFeatureDomain.framework */; };
 		18EB76482DD13DE80013B536 /* TVShowListingFeatureTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858EC362DCED6FA00456FA2 /* TVShowListingFeatureTesting.framework */; };
+		18FE60BB2DD1421000D99F53 /* TVShowDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE60BA2DD1420F00D99F53 /* TVShowDetailsViewModelTests.swift */; };
+		18FE60BD2DD1429A00D99F53 /* FetchTVShowDetailsUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE60BC2DD1429900D99F53 /* FetchTVShowDetailsUseCaseSpy.swift */; };
+		18FE60C02DD1434800D99F53 /* TVShowEpisode+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE60BF2DD1434500D99F53 /* TVShowEpisode+Stub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -318,6 +321,9 @@
 		18EB76392DD138310013B536 /* FetchTVShowDetailsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTVShowDetailsUseCaseTests.swift; sourceTree = "<group>"; };
 		18EB763B2DD138A20013B536 /* TVShowDetails+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowDetails+Stub.swift"; sourceTree = "<group>"; };
 		18EB763D2DD13C750013B536 /* TVShowList+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowList+Stub.swift"; sourceTree = "<group>"; };
+		18FE60BA2DD1420F00D99F53 /* TVShowDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		18FE60BC2DD1429900D99F53 /* FetchTVShowDetailsUseCaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTVShowDetailsUseCaseSpy.swift; sourceTree = "<group>"; };
+		18FE60BF2DD1434500D99F53 /* TVShowEpisode+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVShowEpisode+Stub.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -509,6 +515,7 @@
 		1858EC072DCED66200456FA2 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				18FE60BA2DD1420F00D99F53 /* TVShowDetailsViewModelTests.swift */,
 				1858EC082DCED66B00456FA2 /* ListingViewModelTests.swift */,
 			);
 			path = Tests;
@@ -666,6 +673,7 @@
 			children = (
 				1858EC302DCED6E400456FA2 /* TVShowListingCoordinatorStub.swift */,
 				1863EC862DCF9475004015E1 /* TVShowDetails */,
+				18FE60BE2DD1433700D99F53 /* TVShowEpisode */,
 				18EB76062DD0F7DE0013B536 /* TVShowSearch */,
 				1863EC852DCF946D004015E1 /* TVShowsList */,
 			);
@@ -826,6 +834,7 @@
 		18EB760B2DD130370013B536 /* Spies */ = {
 			isa = PBXGroup;
 			children = (
+				18FE60BC2DD1429900D99F53 /* FetchTVShowDetailsUseCaseSpy.swift */,
 				18EB76372DD137B90013B536 /* TVShowDetailsRepositorySpy.swift */,
 				18EB762A2DD135E00013B536 /* TVShowsRepositorySpy.swift */,
 				18EB760C2DD130540013B536 /* TVShowListingCoordinatorSpy.swift */,
@@ -847,6 +856,14 @@
 				18EB76342DD1376D0013B536 /* XCTest+Async.swift */,
 			);
 			path = "Async Test Utils";
+			sourceTree = "<group>";
+		};
+		18FE60BE2DD1433700D99F53 /* TVShowEpisode */ = {
+			isa = PBXGroup;
+			children = (
+				18FE60BF2DD1434500D99F53 /* TVShowEpisode+Stub.swift */,
+			);
+			path = TVShowEpisode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1244,6 +1261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FE60BB2DD1421000D99F53 /* TVShowDetailsViewModelTests.swift in Sources */,
 				1858EC092DCED67600456FA2 /* ListingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1268,8 +1286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1863EC892DCF947A004015E1 /* FetchTVShowDetailsUseCaseStub.swift in Sources */,
+				18FE60BD2DD1429A00D99F53 /* FetchTVShowDetailsUseCaseSpy.swift in Sources */,
 				1863EC712DCF8D32004015E1 /* TVShowDetails+Mock.swift in Sources */,
 				1858EC3E2DCED70300456FA2 /* TVShowListingCoordinatorStub.swift in Sources */,
+				18FE60C02DD1434800D99F53 /* TVShowEpisode+Stub.swift in Sources */,
 				1813752B2DCF0E7B00D24DBA /* TVShowList+Mock.swift in Sources */,
 				18EB76082DD0F7EB0013B536 /* SearchTVShowUseCaseStub.swift in Sources */,
 				18EB760D2DD1305A0013B536 /* TVShowListingCoordinatorSpy.swift in Sources */,

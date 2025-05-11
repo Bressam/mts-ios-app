@@ -11,7 +11,8 @@ import TVShowListingFeatureDomain
 public extension TVShowDetails {
     static func stub(
         id: Int = 1,
-        name: String = "Breaking Bad"
+        name: String = "Breaking Bad",
+        embeddedDetails: TVShowEmbenddedDetails? = nil
     ) -> TVShowDetails {
         TVShowDetails(
             id: id,
@@ -31,7 +32,7 @@ public extension TVShowDetails {
             image: ImageURLs(medium: URL(string: "https://www.anyURL.com")!,
                              original: URL(string: "https://www.anyURL.com")!),
             summary: "<p>A high school chemistry teacher turned methamphetamine producer...</p>",
-            embeddedDetails: nil
+            embeddedDetails: embeddedDetails
         )
     }
 }
