@@ -8,10 +8,11 @@
 import Foundation
 import NetworkCoreInterface
 
-enum TVShowRequest: HTTPNetworkRequest {
+enum TVShowRequest: HTTPNetworkRequest {   
     case listAll(page: Int)
     case details(id: Int)
-    
+    case search(query: String)
+
     var host: String { "api.tvmaze.com" }
     
     var path: String {
@@ -20,11 +21,11 @@ enum TVShowRequest: HTTPNetworkRequest {
             return "/shows"
         case .details(let id):
             return "/shows/\(id)"
+        case .search:
+            return "/search/shows"
         }
     }
     
-    var queryItems: [URLQueryItem]? { nil }
-    var headers: [String : String]? { nil }
     var parameters: [String : Any]? {
         switch self {
         case .listAll(let page):
@@ -34,14 +35,12 @@ enum TVShowRequest: HTTPNetworkRequest {
                 "id": id,
                 "embed[]": ["episodes", "cast", "seasons"]
             ]
+        case .search(let query):
+            return ["q": query]
         }
     }
-    
-    var encoding: NetworkCoreInterface.RequestEncoding {
-        return .urlEncoded
-    }
-    
-    var method: NetworkCoreInterface.HTTPMethod {
+
+    var method: HTTPMethod {
         return .get
     }
 }

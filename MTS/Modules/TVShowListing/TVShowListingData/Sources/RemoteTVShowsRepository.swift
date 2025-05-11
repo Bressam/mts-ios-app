@@ -30,7 +30,7 @@ final public class RemoteTVShowsRepository: TVShowsRepositoryProtocol {
     }
     
     public func searchTVShows(query: String) async throws -> [TVShowSearchResult] {
-        let response = try await networkClient.perform(SearchTVShowRequest(query: query))
+        let response = try await networkClient.perform(TVShowRequest.search(query: query))
         let tvShows = try JSONDecoder().decode([TVShowSearchResult].self, from: Data(response.data))
         return tvShows
     }

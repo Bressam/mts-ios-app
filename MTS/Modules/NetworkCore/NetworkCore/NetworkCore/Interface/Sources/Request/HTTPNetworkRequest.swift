@@ -16,3 +16,15 @@ public protocol HTTPNetworkRequest {
     var encoding: RequestEncoding { get }
     var method: HTTPMethod { get }
 }
+
+public extension HTTPNetworkRequest {
+    var queryItems: [URLQueryItem]? { nil }
+    
+    var headers: [String: String]? { nil }
+    
+    var parameters: [String: Any]? { nil }
+    
+    var encoding: RequestEncoding { .urlEncoded }
+    
+    var method: HTTPMethod { .get }
+}
