@@ -8,7 +8,7 @@
 import Foundation
 import NetworkCoreInterface
 
-public final class NetworkClient: NetworkClientProtocol {
+final public class NetworkClient: NetworkClientProtocol {
     public init() {}
     
     public func perform<R: HTTPNetworkRequest>(_ request: R) async throws -> HTTPNetworkResponse {
@@ -60,7 +60,6 @@ public final class NetworkClient: NetworkClientProtocol {
             }
             
             return HTTPNetworkResponse(response: httpResponse, data: data)
-            
         } catch {
             throw NetworkError.underlying(error)
         }

@@ -9,10 +9,16 @@ import Foundation
 import TVShowListingFeatureDomain
 import TVShowListingFeatureTesting
 
-public final class LocalTVShowsRepository: TVShowsRepositoryProtocol {
+final public class LocalTVShowsRepository: TVShowsRepositoryProtocol {
     public init() {}
 
     public func getTVShows() async throws -> [TVShow] {
-        return TVShow.mock // TODO: Temp
+        // TODO: Implement localDB in future
+        return TVShow.mock
+    }
+    
+    public func searchTVShows(query: String) async throws -> [TVShowListingFeatureDomain.TVShowSearchResult] {
+        // TODO: Implement localDB in future
+        return []
     }
 }

@@ -12,7 +12,6 @@ import TVShowListingFeatureDomain
 struct TVShowsListingView: View {
     // MARK: - Properties
     @ObservedObject private var viewModel: TVShowsListingViewModel
-    @State private var searchText: String = ""
 
     init(viewModel: TVShowsListingViewModel) {
         self.viewModel = viewModel
@@ -25,38 +24,21 @@ struct TVShowsListingView: View {
                 ProgressView("Loading Shows...")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                List(filteredShows.indices, id: \.self) { index in
-                    let show = filteredShows[index]
-                    tvShowRow(show: show)
-                        .padding(.vertical, 8)
-                        .onTapGesture {
-                            viewModel.selectTVShow(with: show.id)
-                        }
-                        .onAppear {
-                            // Check pagination
-                            if index == viewModel.tvShows.count - 1 {
-                                Task {
-                                    await viewModel.loadNextPageIfNeeded()
-                                }
-                            }
-                        }
-                }
-                .searchable(text: $searchText, prompt: "Search TV Shows")
-                
-                // Bottom spinner
-                if viewModel.isLoadingNextPage {
-                    HStack {
-                        Spacer()
-                        ProgressView()
-                            .padding()
-                        Spacer()
-                    }
-                }
+                tvShowList
             }
         }
         .overlay {
-            if filteredShows.isEmpty && !searchText.isEmpty {
+            if viewModel.filteredResults.isEmpty,
+               !viewModel.searchText.isEmpty {
                 ContentUnavailableView.search
+            }
+            
+            if viewModel.fetchingError {
+                ContentUnavailableView {
+                    Label("Something went wrong...", systemImage: "wifi.slash")
+                } description: {
+                    Text("Please check your connection and try again.")
+                }
             }
         }
         .onAppear {
@@ -68,43 +50,48 @@ struct TVShowsListingView: View {
     }
     
     // MARK: - Views
-    @ViewBuilder
-    private func tvShowRow(show: TVShow) -> some View {
-        HStack(alignment: .top, spacing: 16) {
-            AsyncImageView(url: show.image?.medium)
-                .frame(width: 60, height: 90)
-                .cornerRadius(8)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(show.name)
-                    .font(.headline)
-                
-                Text(show.genres.joined(separator: ", "))
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Text("Status: \(show.status)")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-
-                if let rating = show.rating.average {
-                    Text(String(format: "Rating: %.1f ★", rating))
-                        .font(.caption)
-                        .foregroundColor(.orange)
-                        .opacity(0.8)
+    // TODO: Error handling
+    private var tvShowList: some View {
+        List(viewModel.filteredResults) { show in
+            TVShowRowView(show: show)
+                .padding(.vertical, 8)
+                .id(show.id)
+                .onTapGesture {
+                    viewModel.selectTVShow(with: show.id)
                 }
+                .onAppear {
+                    // Paging
+                    if viewModel.isEndOfList(at: show.id) {
+                        Task {
+                            await viewModel.loadNextPageIfNeeded()
+                        }
+                    }
+                }
+        }
+        .refreshable {
+            Task {
+                await viewModel.fetchTVShows()
             }
         }
+        .searchable(text: $viewModel.searchText)
+        .onChange(of: viewModel.searchText, initial: false, { _, _ in
+            viewModel.handleSearchTextChanged()
+        })
     }
     
-    // MARK: - Utils
-    private var filteredShows: [TVShow] {
-        if searchText.isEmpty {
-            return viewModel.tvShows
-        } else {
-            return viewModel.tvShows.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText)
+    @ViewBuilder
+    private func pagingLoadView(_ show: TVShow) -> some View {
+        // Bottom spinner
+        if viewModel.isLoadingNextPage,
+           viewModel.isEndOfList(at: show.id) {
+            HStack {
+                Spacer()
+                ProgressView()
+                    .padding()
+                Spacer()
             }
+        } else {
+            EmptyView()
         }
     }
 }

@@ -10,7 +10,7 @@ import TVShowListingFeatureDomain
 import TVShowListingFeatureTesting
 import NetworkCoreInterface
 
-public final class RemoteTVShowsRepository: TVShowsRepositoryProtocol {
+final public class RemoteTVShowsRepository: TVShowsRepositoryProtocol {
     // Dependencies
     let networkClient: NetworkClientProtocol
 
@@ -23,11 +23,15 @@ public final class RemoteTVShowsRepository: TVShowsRepositoryProtocol {
     }
 
     public func getTVShows() async throws -> [TVShow] {
-        currentPage += 1
-        
-        print("Fetching page: \(currentPage)")
-        let response = try await networkClient.perform(TVShowRequest.listAll(page: currentPage))
+        let response = try await networkClient.perform(TVShowRequest.listAll(page: currentPage + 1))
         let tvShows = try JSONDecoder().decode([TVShow].self, from: response.data)
+        currentPage += 1
+        return tvShows
+    }
+    
+    public func searchTVShows(query: String) async throws -> [TVShowSearchResult] {
+        let response = try await networkClient.perform(TVShowRequest.search(query: query))
+        let tvShows = try JSONDecoder().decode([TVShowSearchResult].self, from: Data(response.data))
         return tvShows
     }
 }

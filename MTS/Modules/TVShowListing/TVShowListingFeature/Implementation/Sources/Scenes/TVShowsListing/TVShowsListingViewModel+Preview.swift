@@ -13,6 +13,7 @@ extension TVShowsListingViewModel {
     @MainActor
     static var preview: TVShowsListingViewModel {
         return TVShowsListingViewModel(coordinator: TVShowListingCoordinatorStub(),
-                                       fetchTVShowUseCase: FetchTVShowsUseCaseStub())
+                                       fetchTVShowUseCase: FetchTVShowsUseCaseStub(),
+                                       searchTVShowUseCase: SearchTVShowUseCaseStub())
     }
 }

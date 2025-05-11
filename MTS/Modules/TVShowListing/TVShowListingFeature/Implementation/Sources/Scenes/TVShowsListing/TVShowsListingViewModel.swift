@@ -15,22 +15,33 @@ final class TVShowsListingViewModel: ObservableObject {
     // MARK: - Properties
     private weak var coordinator: TVShowListingCoordinatorProtocol?
     private var fetchTVShowUseCase: FetchTVShowsUseCaseProtocol
+    private var searchTVShowUseCase: SearchTVShowsUseCaseProtocol
     
-    @Published var tvShows: [TVShow] = []
+    // Fetch
     @Published var isInitialLoading: Bool = true
     @Published var isLoadingNextPage: Bool = false
+    @Published var fetchingError: Bool = false
     private var hasMorePages = true
 
+    
+    // Search
+    @Published var searchText: String = ""
+    @Published var filteredResults: [TVShow] = []
+    @Published var isSearchingRemotely: Bool = false
+    private var allLocalShows: [TVShow] = []
+    private var debounceTask: Task<(), any Error>?
+
     init(coordinator: TVShowListingCoordinatorProtocol,
-         fetchTVShowUseCase: FetchTVShowsUseCaseProtocol) {
+         fetchTVShowUseCase: FetchTVShowsUseCaseProtocol,
+         searchTVShowUseCase: SearchTVShowsUseCaseProtocol) {
         self.coordinator = coordinator
         self.fetchTVShowUseCase = fetchTVShowUseCase
+        self.searchTVShowUseCase = searchTVShowUseCase
     }
-    
     
     // MARK: - Navigation
     func selectTVShow(with id: Int) {
-        guard let selectedShow = tvShows.first(where: { $0.id == id }) else {
+        guard let selectedShow = allLocalShows.first(where: { $0.id == id }) else {
             print("Mismatching show ID for selected ID: \(id)")
             return
         }
@@ -46,29 +57,96 @@ final class TVShowsListingViewModel: ObservableObject {
         do {
             let newShows = try await fetchTVShowUseCase.execute()
             await MainActor.run {
-                tvShows.append(contentsOf: newShows)
+                isLoadingNextPage = false
+                updateLocalShows(newShows)
             }
         } catch {
             hasMorePages = false
+            isLoadingNextPage = false
             print("Paging error or end of pages: \(error)")
         }
-        isLoadingNextPage = false
+    }
+    
+    func isEndOfList(at showID: Int) -> Bool {
+        return allLocalShows.last?.id == showID
     }
     
     // Initial fetch
     func fetchTVShows() async {
-        guard tvShows.isEmpty else {
+        guard allLocalShows.isEmpty else {
             return
         }
 
         do {
+            fetchingError = false
             let newShows = try await fetchTVShowUseCase.execute()
             await MainActor.run {
-                tvShows = newShows
+                isInitialLoading = false
+                updateLocalShows(newShows)
             }
         } catch {
-            print("Paging error or end of pages: \(error)")
+            fetchingError = true
+            isInitialLoading = false
+            print("Failed to fetch shows: \(error)")
         }
-        isInitialLoading = false
+    }
+    
+    @MainActor
+    private func updateLocalShows(_ shows: [TVShow]) {
+        allLocalShows.append(contentsOf: shows)
+        filteredResults.append(contentsOf: shows)
+    }
+
+    // MARK: - TVShows search
+    private func searchLocaly(for query: String) -> [TVShow] {
+        let localMatches = allLocalShows.filter {
+            $0.name.localizedCaseInsensitiveContains(query)
+        }
+        print("Local matches count: \(localMatches.count)")
+        return localMatches
+    }
+    
+    private func searchRemotely(for query: String) async {
+        print("No local matches, sarching remotely...")
+        await MainActor.run { isSearchingRemotely = true }
+        do {
+            let remoteSearchResult = try await searchTVShowUseCase.execute(query: query)
+            let remoteSearchTVShows = remoteSearchResult.map(\.show)
+            print("Remote search result: \(remoteSearchResult.count)")
+            await MainActor.run {
+                filteredResults = remoteSearchTVShows
+                isSearchingRemotely = false
+            }
+        } catch {
+            print("Remote search error: \(error)")
+        }
+    }
+    
+    func handleSearchTextChanged() {
+        debounceTask?.cancel()
+        
+        debounceTask = Task {
+            // Debounce 300ms
+            try await Task.sleep(nanoseconds: 300_000_000)
+            let trimmedQuery = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            guard !trimmedQuery.isEmpty else {
+                await MainActor.run {
+                    filteredResults = allLocalShows
+                    isSearchingRemotely = false
+                }
+                return
+            }
+            
+            let localMatches = searchLocaly(for: trimmedQuery)
+            if !localMatches.isEmpty {
+                await MainActor.run {
+                    filteredResults = localMatches
+                    isSearchingRemotely = false
+                }
+            } else {
+                await searchRemotely(for: trimmedQuery)
+            }
+        }
     }
 }
