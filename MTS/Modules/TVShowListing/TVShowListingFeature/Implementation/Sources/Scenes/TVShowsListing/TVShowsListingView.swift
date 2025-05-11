@@ -46,23 +46,25 @@ struct TVShowsListingView: View {
     // TODO: Error handling
     private var tvShowList: some View {
         VStack {
-            List(viewModel.filteredResults.indices, id: \.self) { index in
-                let show = viewModel.filteredResults[index]
-                tvShowRow(show: show)
-                    .padding(.vertical, 8)
-                    .onTapGesture {
-                        viewModel.selectTVShow(with: show.id)
-                    }
-                    .onAppear {
-                        // Check pagination
-                        if viewModel.isEndOfList(at: index) {
-                            Task {
-                                await viewModel.loadNextPageIfNeeded()
+            List {
+                ForEach(viewModel.filteredResults, id: \.self) { show in
+                    tvShowRow(show: show)
+                        .padding(.vertical, 8)
+                        .id(show.id)
+                        .onTapGesture {
+                            viewModel.selectTVShow(with: show.id)
+                        }
+                        .onAppear {
+                            // Paging
+                            if viewModel.isEndOfList(at: show.id) {
+                                Task {
+                                    await viewModel.loadNextPageIfNeeded()
+                                }
                             }
                         }
-                    }
+                }
             }
-            
+
             pagingLoadView
         }
         .searchable(text: $viewModel.searchText)

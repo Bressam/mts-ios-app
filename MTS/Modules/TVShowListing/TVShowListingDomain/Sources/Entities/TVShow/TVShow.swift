@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TVShow: Decodable, Identifiable {
+public struct TVShow: Decodable, Identifiable, Equatable, Hashable {
     public let id: Int
     public let name: String
     public let type: String
@@ -42,6 +42,14 @@ public struct TVShow: Decodable, Identifiable {
         self.webChannel = webChannel
         self.image = image
         self.summary = summary
+    }
+    
+    public static func == (lhs: TVShow, rhs: TVShow) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 

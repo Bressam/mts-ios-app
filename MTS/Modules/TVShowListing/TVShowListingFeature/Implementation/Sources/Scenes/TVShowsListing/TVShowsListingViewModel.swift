@@ -56,7 +56,7 @@ final class TVShowsListingViewModel: ObservableObject {
         do {
             let newShows = try await fetchTVShowUseCase.execute()
             await MainActor.run {
-                setLocalShows(newShows)
+                updateLocalShows(newShows)
             }
         } catch {
             hasMorePages = false
@@ -78,7 +78,7 @@ final class TVShowsListingViewModel: ObservableObject {
         do {
             let newShows = try await fetchTVShowUseCase.execute()
             await MainActor.run {
-                setLocalShows(newShows)
+                updateLocalShows(newShows)
             }
         } catch {
             print("Paging error or end of pages: \(error)")
@@ -87,9 +87,9 @@ final class TVShowsListingViewModel: ObservableObject {
     }
     
     @MainActor
-    private func setLocalShows(_ shows: [TVShow]) {
-        allLocalShows = shows
-        filteredResults = shows
+    private func updateLocalShows(_ shows: [TVShow]) {
+        allLocalShows.append(contentsOf: shows)
+        filteredResults.append(contentsOf: shows)
     }
 
     // MARK: - TVShows search
