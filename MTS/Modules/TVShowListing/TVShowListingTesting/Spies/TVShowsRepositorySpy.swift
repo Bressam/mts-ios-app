@@ -12,6 +12,7 @@ public final class TVShowsRepositorySpy: TVShowsRepositoryProtocol {
     public private(set) var searchCallCount = 0
     public var receivedQuery: String?
     public var stubbedSearchResults: [TVShowSearchResult] = []
+    public var stubbedGetResults: [TVShow] = []
     public var errorToThrow: Error?
     
     public init() {}
@@ -28,6 +29,10 @@ public final class TVShowsRepositorySpy: TVShowsRepositoryProtocol {
     }
     
     public func getTVShows() async throws -> [TVShow] {
-        []
+        if let error = errorToThrow {
+            throw error
+        }
+        
+        return stubbedGetResults
     }
 }
