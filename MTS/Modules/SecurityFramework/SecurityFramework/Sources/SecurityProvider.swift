@@ -8,7 +8,7 @@
 import SwiftUI
 import SecurityFrameworkInterface
 import LocalAuthentication
-import SecurityInterface
+import SecurityFrameworkInterface
 
 public final class SecurityProvider: SecurityProviderProtocol {
     private var storedPIN: String? {

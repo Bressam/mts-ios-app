@@ -19,5 +19,9 @@
 			</array>
 		</dict>
 	</dict>
+    <key>NSFaceIDUsageDescription</key>
+    <string>We use Face ID for secure authentication.</string>
+    <key>NSBiometricUsageDescription</key>
+    <string>We use biometrics for secure authentication.</string>
 </dict>
 </plist>
