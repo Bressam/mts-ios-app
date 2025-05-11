@@ -10,7 +10,7 @@ import UIKit
 import CoordinatorKitInterface
 
 /// Simple implementation of `CoordinatorProtocol`, allowing default behavior tests and prevent duplicate implementations for tests
-public final class AnyCoordinator: CoordinatorProtocol {
+final public class AnyCoordinator: CoordinatorProtocol {
     public var navigationController: UINavigationController
     
     public init(navigationController: UINavigationController? = nil) {

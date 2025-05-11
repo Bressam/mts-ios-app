@@ -9,7 +9,7 @@ import Foundation
 import NetworkCoreInterface
 
 /// Spy for `NetworkClientProtocol`. Besides the list of performedRequests and count of them, it allows to provide expected response, responseData and error to be thrown
-public final class NetworkClientSpy: NetworkClientProtocol {
+final public class NetworkClientSpy: NetworkClientProtocol {
     public private(set) var performedRequests: [Any] = []
     public private(set) var callCount = 0
     public var errorToThrow: Error?

@@ -10,7 +10,7 @@ import TVShowListingFeatureDomain
 import TVShowListingFeatureTesting
 import NetworkCoreInterface
 
-public final class RemoteTVShowDetailsRepository: TVShowDetailsRepositoryProtocol {
+final public class RemoteTVShowDetailsRepository: TVShowDetailsRepositoryProtocol {
     // Dependencies
     let networkClient: NetworkClientProtocol
 

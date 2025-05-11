@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class SearchTVShowsUseCase: SearchTVShowsUseCaseProtocol {
+final public class SearchTVShowsUseCase: SearchTVShowsUseCaseProtocol {
     private let repository: TVShowsRepositoryProtocol
     
     public init(repository: TVShowsRepositoryProtocol) {

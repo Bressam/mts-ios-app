@@ -8,7 +8,7 @@
 import Foundation
 import TVShowListingFeatureDomain
 
-public final class SearchTVShowUseCaseStub: SearchTVShowsUseCaseProtocol {
+final public class SearchTVShowUseCaseStub: SearchTVShowsUseCaseProtocol {
     public init() {}
 
     public func execute(query: String) async throws -> [TVShowListingFeatureDomain.TVShowSearchResult] {

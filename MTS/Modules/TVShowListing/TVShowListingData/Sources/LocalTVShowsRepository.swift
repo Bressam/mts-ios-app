@@ -9,7 +9,7 @@ import Foundation
 import TVShowListingFeatureDomain
 import TVShowListingFeatureTesting
 
-public final class LocalTVShowsRepository: TVShowsRepositoryProtocol {
+final public class LocalTVShowsRepository: TVShowsRepositoryProtocol {
     public init() {}
 
     public func getTVShows() async throws -> [TVShow] {

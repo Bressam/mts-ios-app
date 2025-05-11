@@ -93,7 +93,7 @@ final class TVShowsListingViewModel: ObservableObject {
     }
 
     // MARK: - TVShows search
-    private func searchLocaly(query: String) -> [TVShow] {
+    private func searchLocaly(for query: String) -> [TVShow] {
         let localMatches = allLocalShows.filter {
             $0.name.localizedCaseInsensitiveContains(query)
         }
@@ -101,7 +101,7 @@ final class TVShowsListingViewModel: ObservableObject {
         return localMatches
     }
     
-    private func searchRemotely(query: String) async {
+    private func searchRemotely(for query: String) async {
         print("No local matches, sarching remotely...")
         await MainActor.run { isSearchingRemotely = true }
         do {
@@ -133,14 +133,14 @@ final class TVShowsListingViewModel: ObservableObject {
                 return
             }
             
-            let localMatches = searchLocaly(query: trimmedQuery)
+            let localMatches = searchLocaly(for: trimmedQuery)
             if !localMatches.isEmpty {
                 await MainActor.run {
                     filteredResults = localMatches
                     isSearchingRemotely = false
                 }
             } else {
-                await searchRemotely(query: trimmedQuery)
+                await searchRemotely(for: trimmedQuery)
             }
         }
     }

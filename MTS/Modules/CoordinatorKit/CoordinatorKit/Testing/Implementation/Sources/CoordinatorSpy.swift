@@ -11,7 +11,7 @@ import UIKit
 import CoordinatorKitInterface
 
 /// Spy implementation for `CoordinatorProtocol`. Notifies by closure any protocol method called
-public final class CoordinatorSpy: CoordinatorProtocol {
+final public class CoordinatorSpy: CoordinatorProtocol {
     public var navigationController: UINavigationController
     public var didStart: (() -> Void)?
     public var didDisismiss: (() -> Void)?
