@@ -22,6 +22,7 @@ public final class SecurityProvider: SecurityProviderProtocol {
     }
     
     private weak var presentingViewController: UIViewController?
+    private var blurView: UIVisualEffectView?
     
     public init() {}
     
@@ -45,11 +46,17 @@ public final class SecurityProvider: SecurityProviderProtocol {
             return false
         }
         
+        showBlurEffect(on: presentingVC.view)
+        
+        let isAuthenticated: Bool
         if isBiometricEnabled, await isBiometricAvailable() {
-            return await showBiometricOrPINAlert(in: presentingVC, isDismissable: isDismissable)
+            isAuthenticated = await showBiometricOrPINAlert(in: presentingVC, isDismissable: isDismissable)
         } else {
-            return await handlePINAuthentication(in: presentingVC, isDismissable: isDismissable)
+            isAuthenticated = await handlePINAuthentication(in: presentingVC, isDismissable: isDismissable)
         }
+        
+        removeBlurEffect()
+        return isAuthenticated
     }
     
     // MARK: - Biometric + PIN Authentication
@@ -88,12 +95,8 @@ public final class SecurityProvider: SecurityProviderProtocol {
         let reason = "Authenticate using Face ID or Touch ID"
         
         return await withCheckedContinuation { continuation in
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
-                if success {
-                    continuation.resume(returning: true)
-                } else {
-                    continuation.resume(returning: false)
-                }
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, _ in
+                continuation.resume(returning: success)
             }
         }
     }
@@ -147,5 +150,21 @@ public final class SecurityProvider: SecurityProviderProtocol {
         var error: NSError?
         let isAvailable = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
         return isAvailable
+    }
+    
+    // MARK: - Blur Effect Management
+    
+    private func showBlurEffect(on view: UIView) {
+        let blurEffect = UIBlurEffect(style: .systemMaterialDark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = view.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurView)
+        self.blurView = blurView
+    }
+    
+    private func removeBlurEffect() {
+        blurView?.removeFromSuperview()
+        blurView = nil
     }
 }
