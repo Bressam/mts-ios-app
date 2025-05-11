@@ -12,7 +12,6 @@ import TVShowListingFeatureDomain
 struct TVShowsListingView: View {
     // MARK: - Properties
     @ObservedObject private var viewModel: TVShowsListingViewModel
-    @State private var searchText: String = ""
 
     init(viewModel: TVShowsListingViewModel) {
         self.viewModel = viewModel
@@ -25,37 +24,12 @@ struct TVShowsListingView: View {
                 ProgressView("Loading Shows...")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                List(filteredShows.indices, id: \.self) { index in
-                    let show = filteredShows[index]
-                    tvShowRow(show: show)
-                        .padding(.vertical, 8)
-                        .onTapGesture {
-                            viewModel.selectTVShow(with: show.id)
-                        }
-                        .onAppear {
-                            // Check pagination
-                            if index == viewModel.tvShows.count - 1 {
-                                Task {
-                                    await viewModel.loadNextPageIfNeeded()
-                                }
-                            }
-                        }
-                }
-                .searchable(text: $searchText, prompt: "Search TV Shows")
-                
-                // Bottom spinner
-                if viewModel.isLoadingNextPage {
-                    HStack {
-                        Spacer()
-                        ProgressView()
-                            .padding()
-                        Spacer()
-                    }
-                }
+                tvShowList
             }
         }
         .overlay {
-            if filteredShows.isEmpty && !searchText.isEmpty {
+            if viewModel.filteredResults.isEmpty,
+               !viewModel.searchText.isEmpty {
                 ContentUnavailableView.search
             }
         }
@@ -68,6 +42,50 @@ struct TVShowsListingView: View {
     }
     
     // MARK: - Views
+    // TODO: Improvements: LazyVStack & Stay at index after loading
+    // TODO: Error handling
+    private var tvShowList: some View {
+        VStack {
+            List(viewModel.filteredResults.indices, id: \.self) { index in
+                let show = viewModel.filteredResults[index]
+                tvShowRow(show: show)
+                    .padding(.vertical, 8)
+                    .onTapGesture {
+                        viewModel.selectTVShow(with: show.id)
+                    }
+                    .onAppear {
+                        // Check pagination
+                        if viewModel.isEndOfList(at: index) {
+                            Task {
+                                await viewModel.loadNextPageIfNeeded()
+                            }
+                        }
+                    }
+            }
+            
+            pagingLoadView
+        }
+        .searchable(text: $viewModel.searchText)
+        .onChange(of: viewModel.searchText, initial: false, { _, _ in
+            viewModel.handleSearchTextChanged()
+        })
+    }
+    
+    @ViewBuilder
+    private var pagingLoadView: some View {
+        // Bottom spinner
+        if viewModel.isLoadingNextPage {
+            HStack {
+                Spacer()
+                ProgressView()
+                    .padding()
+                Spacer()
+            }
+        } else {
+            EmptyView()
+        }
+    }
+    
     @ViewBuilder
     private func tvShowRow(show: TVShow) -> some View {
         HStack(alignment: .top, spacing: 16) {
@@ -93,17 +111,6 @@ struct TVShowsListingView: View {
                         .foregroundColor(.orange)
                         .opacity(0.8)
                 }
-            }
-        }
-    }
-    
-    // MARK: - Utils
-    private var filteredShows: [TVShow] {
-        if searchText.isEmpty {
-            return viewModel.tvShows
-        } else {
-            return viewModel.tvShows.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText)
             }
         }
     }

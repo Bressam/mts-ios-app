@@ -42,8 +42,10 @@ final public class TVShowListingCoordinator: TVShowListingCoordinatorProtocol {
     
     public func navigateToTVShowsListingView() {
         let fetchTVShowUsecase = FetchTVShowsUseCase(tvShowRepository: tvShowsRepositoryProtocol)
+        let searchTVShowUsecase = SearchTVShowsUseCase(repository: tvShowsRepositoryProtocol)
         let tvShowListingViewModel: TVShowsListingViewModel = .init(coordinator: self,
-                                                                    fetchTVShowUseCase: fetchTVShowUsecase)
+                                                                    fetchTVShowUseCase: fetchTVShowUsecase,
+                                                                    searchTVShowUseCase: searchTVShowUsecase)
         let hostingVC = UIHostingController(rootView: TVShowsListingView(viewModel: tvShowListingViewModel))
         hostingVC.navigationItem.backButtonTitle = "TV Shows"
         navigationController.pushViewController(hostingVC, animated: true)
