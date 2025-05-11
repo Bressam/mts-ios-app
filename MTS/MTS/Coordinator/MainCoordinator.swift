@@ -49,7 +49,15 @@ final class MainCoordinator: CoordinatorProtocol {
     }
     
     private func setupInitialViewController() {
-        navigateToLockScreen()
+        if securityProvider.isAuthenticationRequired() {
+            navigateToLockScreen()
+        } else {
+            navigateToMainScreen()
+        }
+    }
+    
+    private func navigateToMainScreen() {
+        navigateToTVShowsListing()
     }
     
     private func navigateToTVShowsListing() {
@@ -59,6 +67,6 @@ final class MainCoordinator: CoordinatorProtocol {
 
 extension MainCoordinator: MainCoordinatorDelegateProtocol {
     func didFinishValidation() {
-        navigateToTVShowsListing()
+        navigateToMainScreen()
     }
 }

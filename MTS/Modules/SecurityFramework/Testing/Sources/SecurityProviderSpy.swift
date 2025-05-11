@@ -12,11 +12,12 @@ import SecurityFrameworkInterface
 public final class SecurityProviderSpy: SecurityProviderProtocol {
     // MARK: - Tracking Properties
     public private(set) var requestAuthenticationCallCount = 0
+    public private(set) var isAuthenticationRequiredCallCount = 0
+    public private(set) var setAuthenticationRequiredCallCount = 0
     
     // MARK: - Controllable Behavior
-    public var shouldSucceedBiometric = true
-    public var shouldSucceedDevicePIN = true
-    public var biometricAvailable = true
+    public var shouldSucceedAuthentication = true
+    public var authenticationRequired = true
     
     public init() {}
     
@@ -24,21 +25,25 @@ public final class SecurityProviderSpy: SecurityProviderProtocol {
     
     public func requestAuthentication() async -> Bool {
         requestAuthenticationCallCount += 1
-        
-        if biometricAvailable {
-            if shouldSucceedBiometric {
-                return true
-            }
-        }
-        
-        return shouldSucceedDevicePIN
+        return shouldSucceedAuthentication
+    }
+    
+    public func setAuthenticationRequired(_ required: Bool) {
+        setAuthenticationRequiredCallCount += 1
+        authenticationRequired = required
+    }
+    
+    public func isAuthenticationRequired() -> Bool {
+        isAuthenticationRequiredCallCount += 1
+        return authenticationRequired
     }
     
     // MARK: - Reset for Testing
     public func reset() {
         requestAuthenticationCallCount = 0
-        shouldSucceedBiometric = true
-        shouldSucceedDevicePIN = true
-        biometricAvailable = true
+        isAuthenticationRequiredCallCount = 0
+        setAuthenticationRequiredCallCount = 0
+        shouldSucceedAuthentication = true
+        authenticationRequired = true
     }
 }

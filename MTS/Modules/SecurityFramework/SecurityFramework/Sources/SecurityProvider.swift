@@ -11,6 +11,8 @@ import LocalAuthentication
 
 @MainActor
 public final class SecurityProvider: SecurityProviderProtocol {
+    private let userDefaults = UserDefaults.standard
+
     public init() {}
     
     public func requestAuthentication() async -> Bool {
@@ -22,6 +24,14 @@ public final class SecurityProvider: SecurityProviderProtocol {
         }
         
         return await requestDevicePIN()
+    }
+    
+    public func setAuthenticationRequired(_ required: Bool) {
+        userDefaults.set(required, forKey: "authenticationRequired")
+    }
+    
+    public func isAuthenticationRequired() -> Bool {
+        return userDefaults.bool(forKey: "authenticationRequired")
     }
     
     // MARK: - Biometric Authentication
@@ -44,7 +54,12 @@ public final class SecurityProvider: SecurityProviderProtocol {
     }
     
     // MARK: - System Device PIN Authentication
-    
+    // TODO: Improvement for custom pin
+    /**
+     To implement custom PINs would need to apply few changes changes:
+     - Add to protocol possibility to set a pin value;
+     - change biometric validation to deviceOwnerAuthenticationWithBiometrics, to
+     */
     private func requestDevicePIN() async -> Bool {
         let context = LAContext()
         let reason = "Authenticate using your device passcode"
