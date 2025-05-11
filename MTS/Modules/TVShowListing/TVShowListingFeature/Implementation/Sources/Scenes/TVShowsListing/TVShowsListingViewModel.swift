@@ -20,6 +20,7 @@ final class TVShowsListingViewModel: ObservableObject {
     // Fetch
     @Published var isInitialLoading: Bool = true
     @Published var isLoadingNextPage: Bool = false
+    @Published var fetchingError: Bool = false
     private var hasMorePages = true
 
     
@@ -56,17 +57,18 @@ final class TVShowsListingViewModel: ObservableObject {
         do {
             let newShows = try await fetchTVShowUseCase.execute()
             await MainActor.run {
+                isLoadingNextPage = false
                 updateLocalShows(newShows)
             }
         } catch {
             hasMorePages = false
+            isLoadingNextPage = false
             print("Paging error or end of pages: \(error)")
         }
-        isLoadingNextPage = false
     }
     
-    func isEndOfList(at index: Int) -> Bool {
-        return allLocalShows.count - 1 == index
+    func isEndOfList(at showID: Int) -> Bool {
+        return allLocalShows.last?.id == showID
     }
     
     // Initial fetch
@@ -76,14 +78,17 @@ final class TVShowsListingViewModel: ObservableObject {
         }
 
         do {
+            fetchingError = false
             let newShows = try await fetchTVShowUseCase.execute()
             await MainActor.run {
+                isInitialLoading = false
                 updateLocalShows(newShows)
             }
         } catch {
-            print("Paging error or end of pages: \(error)")
+            fetchingError = true
+            isInitialLoading = false
+            print("Failed to fetch shows: \(error)")
         }
-        isInitialLoading = false
     }
     
     @MainActor

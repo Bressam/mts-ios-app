@@ -23,9 +23,9 @@ final public class RemoteTVShowsRepository: TVShowsRepositoryProtocol {
     }
 
     public func getTVShows() async throws -> [TVShow] {
-        currentPage += 1
-        let response = try await networkClient.perform(TVShowRequest.listAll(page: currentPage))
+        let response = try await networkClient.perform(TVShowRequest.listAll(page: currentPage + 1))
         let tvShows = try JSONDecoder().decode([TVShow].self, from: response.data)
+        currentPage += 1
         return tvShows
     }
     
