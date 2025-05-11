@@ -60,7 +60,6 @@ public final class NetworkClient: NetworkClientProtocol {
             }
             
             return HTTPNetworkResponse(response: httpResponse, data: data)
-            
         } catch {
             throw NetworkError.underlying(error)
         }
