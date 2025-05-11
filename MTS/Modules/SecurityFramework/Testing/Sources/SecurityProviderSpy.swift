@@ -19,7 +19,7 @@ public final class SecurityProviderSpy: SecurityProviderProtocol {
     
     public init() {}
     
-    public func requestAuthentication() async -> Bool {
+    public func requestAuthentication(isDismissable: Bool = false) async -> Bool {
         requestAuthenticationCallCount += 1
         return shouldAuthenticateSuccessfully
     }
