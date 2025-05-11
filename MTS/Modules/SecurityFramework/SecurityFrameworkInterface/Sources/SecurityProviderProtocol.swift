@@ -6,17 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
+@MainActor
 public protocol SecurityProviderProtocol {
-    /// Requests user authentication with PIN or biometric (if enabled).
+    /// Requests user authentication using native biometric (Face ID / Touch ID) and device PIN (system passcode).
     /// - Returns: A boolean indicating if authentication was successful.
     func requestAuthentication() async -> Bool
     
-    /// Configures the user's PIN for authentication.
-    /// - Parameter pin: The user's chosen PIN number.
-    func setPIN(_ pin: String)
+    /// Gets if authentication is required.
+    /// - Returns: A boolean indicating if authentication is required.
+    func isAuthenticationRequired() -> Bool
     
-    /// Enables or disables biometric authentication (FaceID/TouchID).
-    /// - Parameter enabled: A boolean value.
-    func setBiometricAuthenticationEnabled(_ enabled: Bool)
+    /// Sets if authentication is required.
+    /// - Parameter required: A boolean value.
+    func setAuthenticationRequired(_ required: Bool)
 }
+
+

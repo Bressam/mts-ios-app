@@ -5,88 +5,83 @@
 //  Created by Giovanne Bressam on 11/05/25.
 //
 
-import SwiftUI
+import Foundation
 import SecurityFrameworkInterface
 import LocalAuthentication
-import SecurityFrameworkInterface
 
+@MainActor
 public final class SecurityProvider: SecurityProviderProtocol {
-    private var storedPIN: String? {
-        get { UserDefaults.standard.string(forKey: "SecurityProvider_PIN") }
-        set { UserDefaults.standard.setValue(newValue, forKey: "SecurityProvider_PIN") }
-    }
-    
-    private var isBiometricEnabled: Bool {
-        get { UserDefaults.standard.bool(forKey: "SecurityProvider_Biometric") }
-        set { UserDefaults.standard.setValue(newValue, forKey: "SecurityProvider_Biometric") }
-    }
-    
+    private let userDefaults = UserDefaults.standard
+
     public init() {}
     
-    public func setPIN(_ pin: String) {
-        storedPIN = pin
-    }
-    
-    public func setBiometricAuthenticationEnabled(_ enabled: Bool) {
-        isBiometricEnabled = enabled
-    }
-    
     public func requestAuthentication() async -> Bool {
-        if isBiometricEnabled, await isBiometricAvailable() {
-            return await authenticateWithBiometric()
-        } else {
-            return await authenticateWithPIN()
-        }
-    }
-    
-    // MARK: - Private Methods
-    
-    private func authenticateWithPIN() async -> Bool {
-        guard let storedPIN = storedPIN else { return false }
-        
-        return await withCheckedContinuation { continuation in
-            let alert = UIAlertController(title: "Enter PIN", message: nil, preferredStyle: .alert)
-            alert.addTextField { $0.isSecureTextEntry = true }
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                let inputPIN = alert.textFields?.first?.text ?? ""
-                continuation.resume(returning: inputPIN == storedPIN)
-            })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-                continuation.resume(returning: false)
-            })
-            
-            DispatchQueue.main.async {
-                self.presentAlert(alert)
+        if await isBiometricAvailable() {
+            let biometricSuccess = await authenticateWithBiometric()
+            if biometricSuccess {
+                return true
             }
         }
+        
+        return await requestDevicePIN()
     }
+    
+    public func setAuthenticationRequired(_ required: Bool) {
+        userDefaults.set(required, forKey: "authenticationRequired")
+    }
+    
+    public func isAuthenticationRequired() -> Bool {
+        return userDefaults.bool(forKey: "authenticationRequired")
+    }
+    
+    // MARK: - Biometric Authentication
     
     private func authenticateWithBiometric() async -> Bool {
         let context = LAContext()
-        let reason = "Authenticate to access the application"
+        context.localizedCancelTitle = "Cancel"
+        let reason = "Authenticate using Face ID or Touch ID"
         
         return await withCheckedContinuation { continuation in
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, _ in
-                continuation.resume(returning: success)
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
+                if success {
+                    continuation.resume(returning: true)
+                } else {
+                    print("Biometric Authentication Failed: \(error?.localizedDescription ?? "Unknown Error")")
+                    continuation.resume(returning: false)
+                }
             }
         }
     }
+    
+    // MARK: - System Device PIN Authentication
+    // TODO: Improvement for custom pin
+    /**
+     To implement custom PINs would need to apply few changes changes:
+     - Add to protocol possibility to set a pin value;
+     - change biometric validation to deviceOwnerAuthenticationWithBiometrics, to
+     */
+    private func requestDevicePIN() async -> Bool {
+        let context = LAContext()
+        let reason = "Authenticate using your device passcode"
+        
+        return await withCheckedContinuation { continuation in
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
+                if success {
+                    continuation.resume(returning: true)
+                } else {
+                    print("Device PIN Authentication Failed: \(error?.localizedDescription ?? "Unknown Error")")
+                    continuation.resume(returning: false)
+                }
+            }
+        }
+    }
+    
+    // MARK: - Biometric Availability Check
     
     private func isBiometricAvailable() async -> Bool {
         let context = LAContext()
         var error: NSError?
-        
         let isAvailable = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         return isAvailable
     }
-    
-    private func presentAlert(_ alert: UIAlertController) {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let rootVC = windowScene.windows.first?.rootViewController else {
-            return
-        }
-        
-        rootVC.present(alert, animated: true)
-    }
 }
-

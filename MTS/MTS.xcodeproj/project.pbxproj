@@ -23,6 +23,10 @@
 		1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; };
 		1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1858ED2B2DCEF92A00456FA2 /* TVShowListingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */; };
+		185FB4972DD1642100606557 /* LockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4962DD1641E00606557 /* LockScreenView.swift */; };
+		185FB4992DD1647600606557 /* LockScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4982DD1647500606557 /* LockScreenViewModel.swift */; };
+		185FB49B2DD164A900606557 /* LockScreenViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB49A2DD1649E00606557 /* LockScreenViewModel+Preview.swift */; };
+		185FB49D2DD1671A00606557 /* MainCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB49C2DD1671A00606557 /* MainCoordinatorProtocol.swift */; };
 		18CD8BF72DCFC2FE00AECE19 /* NetworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */; };
 		18CD8BF82DCFC2FE00AECE19 /* NetworkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18CD8BF92DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */; };
@@ -120,6 +124,10 @@
 		1858ED232DCEF7B100456FA2 /* TVShowListingFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858ED242DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeatureInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1858ED2A2DCEF92300456FA2 /* TVShowListingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowListingAssembly.swift; sourceTree = "<group>"; };
+		185FB4962DD1641E00606557 /* LockScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenView.swift; sourceTree = "<group>"; };
+		185FB4982DD1647500606557 /* LockScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewModel.swift; sourceTree = "<group>"; };
+		185FB49A2DD1649E00606557 /* LockScreenViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockScreenViewModel+Preview.swift"; sourceTree = "<group>"; };
+		185FB49C2DD1671A00606557 /* MainCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkCoreInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CD8C072DCFD30600AECE19 /* TVShowListingFeatureData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeatureData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +236,7 @@
 		1858ECD02DCEDAA900456FA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				185FB49C2DD1671A00606557 /* MainCoordinatorProtocol.swift */,
 				1858ECCF2DCEDAA900456FA2 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -252,6 +261,9 @@
 		1858ECD62DCEDAA900456FA2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				185FB49A2DD1649E00606557 /* LockScreenViewModel+Preview.swift */,
+				185FB4982DD1647500606557 /* LockScreenViewModel.swift */,
+				185FB4962DD1641E00606557 /* LockScreenView.swift */,
 				1858ECD52DCEDAA900456FA2 /* ContentView.swift */,
 			);
 			path = Scenes;
@@ -408,8 +420,12 @@
 				1858ECDF2DCEDAA900456FA2 /* MainCoordinator.swift in Sources */,
 				1858ECE02DCEDAA900456FA2 /* ContentView.swift in Sources */,
 				1858ECE12DCEDAA900456FA2 /* MTS.xcdatamodeld in Sources */,
+				185FB4972DD1642100606557 /* LockScreenView.swift in Sources */,
+				185FB49D2DD1671A00606557 /* MainCoordinatorProtocol.swift in Sources */,
 				1858ED2B2DCEF92A00456FA2 /* TVShowListingAssembly.swift in Sources */,
 				1858ECE22DCEDAA900456FA2 /* Persistence.swift in Sources */,
+				185FB49B2DD164A900606557 /* LockScreenViewModel+Preview.swift in Sources */,
+				185FB4992DD1647600606557 /* LockScreenViewModel.swift in Sources */,
 				1858ECE32DCEDAA900456FA2 /* AppDelegate.swift in Sources */,
 				1858ECE42DCEDAA900456FA2 /* SceneDelegate.swift in Sources */,
 			);
