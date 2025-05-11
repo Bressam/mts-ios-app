@@ -9,4 +9,5 @@ import Foundation
 
 public protocol TVShowsRepositoryProtocol {
     func getTVShows() async throws -> [TVShow]
+    func searchTVShows(query: String) async throws -> [TVShowSearchResult]
 }
