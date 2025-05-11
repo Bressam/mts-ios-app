@@ -10,20 +10,9 @@ import UIKit
 
 @MainActor
 public protocol SecurityProviderProtocol {
-    /// Sets the view controller that will present authentication alerts (PIN, biometric, etc.)
-    /// - Parameter viewController: The UIViewController to present authentication UI over.
-    func setPresentingViewController(_ viewController: UIViewController)
-    
-    /// Requests user authentication with PIN or biometric (if enabled).
-    /// - Parameter isDismissable: If true, allows the user to cancel authentication.
+    /// Requests user authentication using native biometric (Face ID / Touch ID) and device PIN (system passcode).
     /// - Returns: A boolean indicating if authentication was successful.
-    func requestAuthentication(isDismissable: Bool) async -> Bool
-    
-    /// Configures the user's PIN for authentication.
-    /// - Parameter pin: The user's chosen PIN number.
-    func setPIN(_ pin: String)
-    
-    /// Enables or disables biometric authentication (FaceID/TouchID).
-    /// - Parameter enabled: A boolean value.
-    func setBiometricAuthenticationEnabled(_ enabled: Bool)
+    func requestAuthentication() async -> Bool
 }
+
+

@@ -10,33 +10,35 @@ import UIKit
 import SecurityFrameworkInterface
 
 public final class SecurityProviderSpy: SecurityProviderProtocol {
+    // MARK: - Tracking Properties
     public private(set) var requestAuthenticationCallCount = 0
-    public private(set) var setPINCallCount = 0
-    public private(set) var setBiometricAuthenticationEnabledCallCount = 0
     
-    public var shouldAuthenticateSuccessfully = true
-    public var storedPIN: String?
-    public var biometricEnabled = false
-    public var presentingVC: UIViewController?
+    // MARK: - Controllable Behavior
+    public var shouldSucceedBiometric = true
+    public var shouldSucceedDevicePIN = true
+    public var biometricAvailable = true
     
     public init() {}
     
-    public func requestAuthentication(isDismissable: Bool = false) async -> Bool {
+    // MARK: - Protocol Implementation
+    
+    public func requestAuthentication() async -> Bool {
         requestAuthenticationCallCount += 1
-        return shouldAuthenticateSuccessfully
+        
+        if biometricAvailable {
+            if shouldSucceedBiometric {
+                return true
+            }
+        }
+        
+        return shouldSucceedDevicePIN
     }
     
-    public func setPIN(_ pin: String) {
-        setPINCallCount += 1
-        storedPIN = pin
-    }
-    
-    public func setBiometricAuthenticationEnabled(_ enabled: Bool) {
-        setBiometricAuthenticationEnabledCallCount += 1
-        biometricEnabled = enabled
-    }
-    
-    public func setPresentingViewController(_ viewController: UIViewController) {
-        presentingVC = viewController
+    // MARK: - Reset for Testing
+    public func reset() {
+        requestAuthenticationCallCount = 0
+        shouldSucceedBiometric = true
+        shouldSucceedDevicePIN = true
+        biometricAvailable = true
     }
 }

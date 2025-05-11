@@ -11,6 +11,7 @@ import SwiftUI
 // Infra
 import CoordinatorKitInterface
 import NetworkCoreInterface
+import SecurityFrameworkInterface
 // TVShowListing
 import TVShowListingFeatureInterface
 
@@ -19,6 +20,7 @@ final class MainCoordinator: CoordinatorProtocol {
     let persistenceController = PersistenceController.shared
     var navigationController: UINavigationController
     let networkClient: NetworkClientProtocol
+    let securityProvider: SecurityProviderProtocol
     
     private lazy var tvShowsListingCoordinator: TVShowListingCoordinatorProtocol = {
         let coordinator = TVShowListingAssembly.assemble(networkClient: networkClient)
@@ -27,24 +29,36 @@ final class MainCoordinator: CoordinatorProtocol {
     }()
     
     init(navigationController: UINavigationController,
-         networkClient: NetworkClientProtocol) {
+         networkClient: NetworkClientProtocol,
+         securityProvider: SecurityProviderProtocol) {
         self.navigationController = navigationController
         self.networkClient = networkClient
+        self.securityProvider = securityProvider
     }
     
     func start() {
         setupInitialViewController()
     }
     
+    private func navigateToLockScreen() {
+        let viewModel = LockScreenViewModel(securityProvider: securityProvider,
+                                            coordinatorDelegate: self)
+        let contentView = LockScreenView(viewModel: viewModel)
+        let hostingVC = UIHostingController(rootView: contentView)
+        navigationController.pushViewController(hostingVC, animated: false)
+    }
+    
     private func setupInitialViewController() {
-//        let contentView = ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
-//        let hostingVC = UIHostingController(rootView: contentView)
-//        navigationController.pushViewController(hostingVC, animated: false)
-        
-        navigateToTVShowsListing()
+        navigateToLockScreen()
     }
     
     private func navigateToTVShowsListing() {
         startChildFlow(with: tvShowsListingCoordinator)
+    }
+}
+
+extension MainCoordinator: MainCoordinatorDelegateProtocol {
+    func didFinishValidation() {
+        navigateToTVShowsListing()
     }
 }
