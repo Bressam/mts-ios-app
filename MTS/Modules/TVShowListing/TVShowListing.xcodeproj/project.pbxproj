@@ -71,6 +71,7 @@
 		18EB76032DD0F60E0013B536 /* SearchTVShowsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB76022DD0F60D0013B536 /* SearchTVShowsUseCaseProtocol.swift */; };
 		18EB76052DD0F6280013B536 /* SearchTVShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB76042DD0F6240013B536 /* SearchTVShowsUseCase.swift */; };
 		18EB76082DD0F7EB0013B536 /* SearchTVShowUseCaseStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB76072DD0F7E50013B536 /* SearchTVShowUseCaseStub.swift */; };
+		18EB760A2DD125F80013B536 /* TVShowRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB76092DD125F60013B536 /* TVShowRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +229,7 @@
 		18EB76022DD0F60D0013B536 /* SearchTVShowsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVShowsUseCaseProtocol.swift; sourceTree = "<group>"; };
 		18EB76042DD0F6240013B536 /* SearchTVShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVShowsUseCase.swift; sourceTree = "<group>"; };
 		18EB76072DD0F7E50013B536 /* SearchTVShowUseCaseStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVShowUseCaseStub.swift; sourceTree = "<group>"; };
+		18EB76092DD125F60013B536 /* TVShowRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,6 +660,7 @@
 		1863EC912DCF9EE3004015E1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				18EB76092DD125F60013B536 /* TVShowRow.swift */,
 				1863EC922DCF9EE8004015E1 /* AsyncImageView.swift */,
 			);
 			path = Components;
@@ -1092,6 +1095,7 @@
 				1863EC932DCF9EEC004015E1 /* AsyncImageView.swift in Sources */,
 				1858ED222DCEF74800456FA2 /* TVShowsListingView.swift in Sources */,
 				1863EC792DCF8FF9004015E1 /* TVShowDetailsView.swift in Sources */,
+				18EB760A2DD125F80013B536 /* TVShowRow.swift in Sources */,
 				1858ED2D2DCEFA1100456FA2 /* TVShowsListingViewModel.swift in Sources */,
 				1863EC9C2DCFA71A004015E1 /* TVShowEpisodeDetailsViewModel.swift in Sources */,
 				1858EC0C2DCED68200456FA2 /* TVShowListingCoordinator.swift in Sources */,
