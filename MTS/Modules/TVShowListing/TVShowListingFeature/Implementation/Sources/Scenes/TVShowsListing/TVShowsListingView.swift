@@ -32,6 +32,14 @@ struct TVShowsListingView: View {
                !viewModel.searchText.isEmpty {
                 ContentUnavailableView.search
             }
+            
+            if viewModel.fetchingError {
+                ContentUnavailableView {
+                    Label("Something went wrong...", systemImage: "wifi.slash")
+                } description: {
+                    Text("Please check your connection and try again.")
+                }
+            }
         }
         .onAppear {
             Task {
