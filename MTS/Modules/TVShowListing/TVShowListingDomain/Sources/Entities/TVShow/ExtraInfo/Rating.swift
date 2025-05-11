@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Rating: Decodable {
+public struct Rating: Codable {
     public let average: Double?
     
     public init(average: Double?) {

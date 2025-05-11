@@ -24,6 +24,7 @@ final public class NetworkClient: NetworkClientProtocol {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
+        urlRequest.cachePolicy = request.cachePolicy
         request.headers?.forEach { urlRequest.setValue($1, forHTTPHeaderField: $0) }
         
         switch request.encoding {
@@ -47,6 +48,8 @@ final public class NetworkClient: NetworkClientProtocol {
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
             }
+        @unknown default:
+            fatalError("Missing case implementaiton for request enconding.")
         }
         
         do {

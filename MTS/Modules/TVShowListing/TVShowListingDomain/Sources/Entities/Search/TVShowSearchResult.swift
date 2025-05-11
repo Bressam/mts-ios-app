@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TVShowSearchResult: Decodable {
+public struct TVShowSearchResult: Codable {
     public let score: Double
     public let show: TVShow
     
