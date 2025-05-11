@@ -69,6 +69,9 @@
 		18CD8C062DCFD18E00AECE19 /* RemoteTVShowDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */; };
 		18EB75FE2DD0E7620013B536 /* TVShowSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB75FD2DD0E7510013B536 /* TVShowSearchResult.swift */; };
 		18EB76002DD0F44F0013B536 /* SearchTVShowRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB75FF2DD0F44E0013B536 /* SearchTVShowRequest.swift */; };
+		18EB76032DD0F60E0013B536 /* SearchTVShowsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB76022DD0F60D0013B536 /* SearchTVShowsUseCaseProtocol.swift */; };
+		18EB76052DD0F6280013B536 /* SearchTVShowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB76042DD0F6240013B536 /* SearchTVShowsUseCase.swift */; };
+		18EB76082DD0F7EB0013B536 /* SearchTVShowUseCaseStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB76072DD0F7E50013B536 /* SearchTVShowUseCaseStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +227,9 @@
 		18CD8C052DCFD18D00AECE19 /* RemoteTVShowDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTVShowDetailsRepository.swift; sourceTree = "<group>"; };
 		18EB75FD2DD0E7510013B536 /* TVShowSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSearchResult.swift; sourceTree = "<group>"; };
 		18EB75FF2DD0F44E0013B536 /* SearchTVShowRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVShowRequest.swift; sourceTree = "<group>"; };
+		18EB76022DD0F60D0013B536 /* SearchTVShowsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVShowsUseCaseProtocol.swift; sourceTree = "<group>"; };
+		18EB76042DD0F6240013B536 /* SearchTVShowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVShowsUseCase.swift; sourceTree = "<group>"; };
+		18EB76072DD0F7E50013B536 /* SearchTVShowUseCaseStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVShowUseCaseStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +532,7 @@
 		1858ED442DCEFEDC00456FA2 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
+				18EB76012DD0F5E20013B536 /* TVShowSearch */,
 				1863EC7D2DCF93B3004015E1 /* TVShowDetails */,
 				1863EC7C2DCF93AB004015E1 /* TVShowsList */,
 			);
@@ -553,6 +560,7 @@
 		1858ED532DCF022100456FA2 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				18EB76062DD0F7DE0013B536 /* TVShowSearch */,
 				1858EC302DCED6E400456FA2 /* TVShowListingCoordinatorStub.swift */,
 				1863EC862DCF9475004015E1 /* TVShowDetails */,
 				1863EC852DCF946D004015E1 /* TVShowsList */,
@@ -690,6 +698,23 @@
 				18EB75FD2DD0E7510013B536 /* TVShowSearchResult.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		18EB76012DD0F5E20013B536 /* TVShowSearch */ = {
+			isa = PBXGroup;
+			children = (
+				18EB76042DD0F6240013B536 /* SearchTVShowsUseCase.swift */,
+				18EB76022DD0F60D0013B536 /* SearchTVShowsUseCaseProtocol.swift */,
+			);
+			path = TVShowSearch;
+			sourceTree = "<group>";
+		};
+		18EB76062DD0F7DE0013B536 /* TVShowSearch */ = {
+			isa = PBXGroup;
+			children = (
+				18EB76072DD0F7E50013B536 /* SearchTVShowUseCaseStub.swift */,
+			);
+			path = TVShowSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1107,6 +1132,7 @@
 				1863EC712DCF8D32004015E1 /* TVShowDetails+Mock.swift in Sources */,
 				1858EC3E2DCED70300456FA2 /* TVShowListingCoordinatorStub.swift in Sources */,
 				1813752B2DCF0E7B00D24DBA /* TVShowList+Mock.swift in Sources */,
+				18EB76082DD0F7EB0013B536 /* SearchTVShowUseCaseStub.swift in Sources */,
 				1858ED552DCF022800456FA2 /* FetchTVShowsUseCaseStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1122,8 +1148,10 @@
 				1858ED4D2DCF001C00456FA2 /* FetchTVShowsUseCase.swift in Sources */,
 				1863EC732DCF8D8C004015E1 /* TVShowDetails.swift in Sources */,
 				1863EC6D2DCF8BBB004015E1 /* Schedule.swift in Sources */,
+				18EB76032DD0F60E0013B536 /* SearchTVShowsUseCaseProtocol.swift in Sources */,
 				1863EC6F2DCF8BCA004015E1 /* ImageURLs.swift in Sources */,
 				1863EC842DCF93F2004015E1 /* TVShowDetailsRepositoryProtocol.swift in Sources */,
+				18EB76052DD0F6280013B536 /* SearchTVShowsUseCase.swift in Sources */,
 				1858ED472DCEFEF800456FA2 /* TVShow.swift in Sources */,
 				1863EC672DCF8B8C004015E1 /* Network.swift in Sources */,
 				1858EC5E2DCED74000456FA2 /* FetchTVShowsUseCaseProtocol.swift in Sources */,

@@ -10,4 +10,9 @@ import Foundation
 public struct TVShowSearchResult: Decodable {
     public let score: Double
     public let show: TVShow
+    
+    public init(score: Double, show: TVShow) {
+        self.score = score
+        self.show = show
+    }
 }
