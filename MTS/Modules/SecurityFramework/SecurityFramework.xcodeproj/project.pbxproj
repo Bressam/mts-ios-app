@@ -6,10 +6,25 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		18FE60EA2DD1494B00D99F53 /* SecurityFrameworkInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FE60DB2DD1488700D99F53 /* SecurityFrameworkInterface.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18FE60EC2DD1494B00D99F53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FE60C22DD1486400D99F53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18FE60DA2DD1488700D99F53;
+			remoteInfo = SecurityFrameworkInterface;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		18FE60CB2DD1486400D99F53 /* SecurityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecurityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FE60DB2DD1488700D99F53 /* SecurityFrameworkInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecurityFrameworkInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FE60E72DD148E000D99F53 /* SecurityProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityProviderProtocol.swift; sourceTree = "<group>"; };
+		18FE60E82DD1492700D99F53 /* SecurityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -17,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FE60EA2DD1494B00D99F53 /* SecurityFrameworkInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +51,7 @@
 			children = (
 				18FE60E42DD1489900D99F53 /* SecurityFrameworkInterface */,
 				18FE60E32DD1489400D99F53 /* SecurityFramework */,
+				18FE60E92DD1494B00D99F53 /* Frameworks */,
 				18FE60CC2DD1486400D99F53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,8 +92,16 @@
 		18FE60E62DD148A500D99F53 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				18FE60E82DD1492700D99F53 /* SecurityProvider.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		18FE60E92DD1494B00D99F53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,6 +136,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				18FE60ED2DD1494B00D99F53 /* PBXTargetDependency */,
 			);
 			name = SecurityFramework;
 			packageProductDependencies = (
@@ -209,6 +235,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18FE60ED2DD1494B00D99F53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18FE60DA2DD1488700D99F53 /* SecurityFrameworkInterface */;
+			targetProxy = 18FE60EC2DD1494B00D99F53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		18FE60D22DD1486400D99F53 /* Debug */ = {

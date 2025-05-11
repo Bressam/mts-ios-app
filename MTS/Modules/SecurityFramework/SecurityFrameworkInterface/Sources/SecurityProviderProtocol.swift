@@ -5,6 +5,8 @@
 //  Created by Giovanne Bressam on 11/05/25.
 //
 
+import Foundation
+
 public protocol SecurityProviderProtocol {
     /// Requests user authentication with PIN or biometric (if enabled).
     /// - Returns: A boolean indicating if authentication was successful.
