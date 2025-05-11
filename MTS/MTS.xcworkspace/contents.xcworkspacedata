@@ -11,6 +11,9 @@
       location = "group:Modules"
       name = "Modules">
       <FileRef
+         location = "group:SecurityFramework/SecurityFramework.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:NetworkCore/NetworkCore.xcodeproj">
       </FileRef>
       <FileRef
