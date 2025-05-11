@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import SecurityFrameworkInterface
 
 public final class SecurityProviderSpy: SecurityProviderProtocol {
@@ -16,6 +17,7 @@ public final class SecurityProviderSpy: SecurityProviderProtocol {
     public var shouldAuthenticateSuccessfully = true
     public var storedPIN: String?
     public var biometricEnabled = false
+    public var presentingVC: UIViewController?
     
     public init() {}
     
@@ -32,5 +34,9 @@ public final class SecurityProviderSpy: SecurityProviderProtocol {
     public func setBiometricAuthenticationEnabled(_ enabled: Bool) {
         setBiometricAuthenticationEnabledCallCount += 1
         biometricEnabled = enabled
+    }
+    
+    public func setPresentingViewController(_ viewController: UIViewController) {
+        presentingVC = viewController
     }
 }

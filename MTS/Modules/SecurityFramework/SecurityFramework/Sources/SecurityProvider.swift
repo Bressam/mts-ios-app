@@ -21,9 +21,11 @@ public final class SecurityProvider: SecurityProviderProtocol {
         set { UserDefaults.standard.setValue(newValue, forKey: "SecurityProvider_Biometric") }
     }
     
+    private weak var presentingViewController: UIViewController?
+    
     public init() {}
     
-    // MARK: - Public API
+    // MARK: - Public Methods
     
     public func setPIN(_ pin: String) {
         storedPIN = pin
@@ -33,18 +35,26 @@ public final class SecurityProvider: SecurityProviderProtocol {
         isBiometricEnabled = enabled
     }
     
+    public func setPresentingViewController(_ viewController: UIViewController) {
+        self.presentingViewController = viewController
+    }
+    
     public func requestAuthentication(isDismissable: Bool = false) async -> Bool {
-        if isBiometricEnabled,
-           await isBiometricAvailable() {
-            return await showBiometricOrPINAlert(isDismissable: isDismissable)
+        guard let presentingVC = presentingViewController else {
+            print("Error: No presenting view controller set.")
+            return false
+        }
+        
+        if isBiometricEnabled, await isBiometricAvailable() {
+            return await showBiometricOrPINAlert(in: presentingVC, isDismissable: isDismissable)
         } else {
-            return await handlePINAuthentication(isDismissable: isDismissable)
+            return await handlePINAuthentication(in: presentingVC, isDismissable: isDismissable)
         }
     }
     
     // MARK: - Biometric + PIN Authentication
     
-    private func showBiometricOrPINAlert(isDismissable: Bool) async -> Bool {
+    private func showBiometricOrPINAlert(in viewController: UIViewController, isDismissable: Bool) async -> Bool {
         return await withCheckedContinuation { continuation in
             let alert = UIAlertController(title: "Authentication Required", message: "Choose authentication method", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Face ID", style: .default) { _ in
@@ -53,13 +63,13 @@ public final class SecurityProvider: SecurityProviderProtocol {
                     if success {
                         continuation.resume(returning: true)
                     } else {
-                        continuation.resume(returning: await self.handlePINAuthentication(isDismissable: isDismissable))
+                        continuation.resume(returning: await self.handlePINAuthentication(in: viewController, isDismissable: isDismissable))
                     }
                 }
             })
             alert.addAction(UIAlertAction(title: "Use PIN", style: .default) { _ in
                 Task {
-                    continuation.resume(returning: await self.handlePINAuthentication(isDismissable: isDismissable))
+                    continuation.resume(returning: await self.handlePINAuthentication(in: viewController, isDismissable: isDismissable))
                 }
             })
             
@@ -69,7 +79,7 @@ public final class SecurityProvider: SecurityProviderProtocol {
                 })
             }
             
-            self.presentAlert(alert)
+            viewController.present(alert, animated: true)
         }
     }
     
@@ -90,8 +100,8 @@ public final class SecurityProvider: SecurityProviderProtocol {
     
     // MARK: - PIN Authentication
     
-    private func handlePINAuthentication(isDismissable: Bool) async -> Bool {
-        let isAuthenticated = await authenticateWithPIN(isDismissable: isDismissable)
+    private func handlePINAuthentication(in viewController: UIViewController, isDismissable: Bool) async -> Bool {
+        let isAuthenticated = await authenticateWithPIN(in: viewController, isDismissable: isDismissable)
         
         if isAuthenticated {
             return true
@@ -99,21 +109,21 @@ public final class SecurityProvider: SecurityProviderProtocol {
             return false
         } else {
             // Auto-retry with PIN if not dismissable
-            return await handlePINAuthentication(isDismissable: false)
+            return await handlePINAuthentication(in: viewController, isDismissable: false)
         }
     }
     
-    private func authenticateWithPIN(isDismissable: Bool) async -> Bool {
+    private func authenticateWithPIN(in viewController: UIViewController, isDismissable: Bool) async -> Bool {
         guard let storedPIN = storedPIN else { return false }
         
         return await withCheckedContinuation { continuation in
-            self.showPINAlert(isDismissable: isDismissable) { success in
+            self.showPINAlert(in: viewController, isDismissable: isDismissable) { success in
                 continuation.resume(returning: success)
             }
         }
     }
     
-    private func showPINAlert(isDismissable: Bool, completion: @escaping (Bool) -> Void) {
+    private func showPINAlert(in viewController: UIViewController, isDismissable: Bool, completion: @escaping (Bool) -> Void) {
         let alert = UIAlertController(title: "Enter PIN", message: nil, preferredStyle: .alert)
         alert.addTextField { $0.isSecureTextEntry = true }
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
@@ -127,7 +137,7 @@ public final class SecurityProvider: SecurityProviderProtocol {
             })
         }
         
-        self.presentAlert(alert)
+        viewController.present(alert, animated: true)
     }
     
     // MARK: - Biometric Check
@@ -137,17 +147,5 @@ public final class SecurityProvider: SecurityProviderProtocol {
         var error: NSError?
         let isAvailable = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
         return isAvailable
-    }
-    
-    // MARK: - Alert Presentation
-    
-    private func presentAlert(_ alert: UIAlertController) {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let rootVC = windowScene.windows.first?.rootViewController else {
-            print("Failed to find rootViewController for alert presentation.")
-            return
-        }
-        
-        rootVC.present(alert, animated: true)
     }
 }
