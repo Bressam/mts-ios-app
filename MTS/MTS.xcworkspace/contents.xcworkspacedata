@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:MTS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AllTests.xctestplan">
+   </FileRef>
+   <Group
+      location = "group:Modules"
+      name = "Modules">
+      <FileRef
+         location = "group:ValidationKit/ValidationKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SecurityFramework/SecurityFramework.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:NetworkCore/NetworkCore.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:TVShowListing/TVShowListing.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:CoordinatorKit/CoordinatorKit.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>

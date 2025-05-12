@@ -1,0 +1,71 @@
+{
+  "configurations" : [
+    {
+      "id" : "80AE7F0B-1FE0-4C32-835C-6537E528ACE0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MTS.xcodeproj",
+      "identifier" : "1858E8E42DCEAE3D00456FA2",
+      "name" : "MTS"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EBFC2DCED65300456FA2",
+        "name" : "TVShowListingFeatureTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/CoordinatorKit\/CoordinatorKit.xcodeproj",
+        "identifier" : "1858E9A92DCEB42100456FA2",
+        "name" : "CoordinatorKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/NetworkCore\/NetworkCore.xcodeproj",
+        "identifier" : "18CD8B7A2DCFC05800AECE19",
+        "name" : "NetworkCoreTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC6D2DCED75D00456FA2",
+        "name" : "TVShowListingFeatureDataTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MTS.xcodeproj",
+        "identifier" : "1858E8F92DCEAE3F00456FA2",
+        "name" : "MTSTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC1A2DCED6AA00456FA2",
+        "name" : "TVShowListingFeatureInterfaceTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Modules\/TVShowListing\/TVShowListing.xcodeproj",
+        "identifier" : "1858EC4A2DCED71500456FA2",
+        "name" : "TVShowListingFeatureDomainTests"
+      }
+    }
+  ],
+  "version" : 1
+}
