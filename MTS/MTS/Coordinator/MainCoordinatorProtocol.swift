@@ -8,5 +8,6 @@
 import Foundation
 
 protocol MainCoordinatorDelegateProtocol: AnyObject {
-    func didFinishValidation()
+    func requestAuthentication() async
 }
+

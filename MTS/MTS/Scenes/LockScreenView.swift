@@ -8,31 +8,25 @@
 import SwiftUI
 
 struct LockScreenView: View {
-    @StateObject private var viewModel: LockScreenViewModel
-    @State private var isUnlocked = false
+    @ObservedObject private var viewModel: LockScreenViewModel
     
     init(viewModel: LockScreenViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+        self.viewModel = viewModel
     }
     
     var body: some View {
         VStack(spacing: 24) {
-            Image(systemName: viewModel.isUnlocked ? "lock.open.fill" : "lock.fill")
+            Image(systemName: "lock.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 70)
                 .foregroundColor(.gray)
-                .scaleEffect(viewModel.isUnlocked ? 1.1 : 1.0)
-                .animation(.easeInOut(duration: 0.3)
-                    .repeatCount(viewModel.isUnlocked ? 1 : 0,
-                                 autoreverses: true),
-                           value: viewModel.isUnlocked)
             
-            Text(viewModel.isUnlocked ? "This content is unlocked" : "This content is locked")
+            Text("This content is locked")
                 .font(.title2)
             
             Button(action: {
-                Task { await viewModel.unlock() }
+                Task { await viewModel.authenticate() }
             }) {
                 Text("Unlock")
                     .font(.headline)
@@ -43,9 +37,6 @@ struct LockScreenView: View {
             }.buttonStyle(BorderedProminentButtonStyle())
         }
         .padding(.horizontal, 24)
-        .onChange(of: viewModel.isUnlocked) { _ in
-                viewModel.finishedUnlocking()
-        }
     }
 }
 
