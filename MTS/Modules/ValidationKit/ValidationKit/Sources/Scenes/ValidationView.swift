@@ -17,12 +17,12 @@ struct ValidationView: View {
     var body: some View {
         VStack(spacing: 24) {
             if viewModel.isUsingPIN {
-                TextField("Enter PIN", text: $viewModel.enteredPIN)
+                SecureField("Enter PIN", text: $viewModel.enteredPIN)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
                 
                 Button("Unlock") {
-                    viewModel.validatePIN()
+                    Task { await viewModel.validatePIN() }
                 }
             } else {
                 Text("Authenticating...")

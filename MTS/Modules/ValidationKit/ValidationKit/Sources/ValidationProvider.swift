@@ -17,27 +17,9 @@ public final class ValidationProvider: ValidationProviderProtocol {
         self.securityProvider = securityProvider
     }
     
-    public func requestValidation() async -> Bool {
-        // Try biometric authentication first
-        if await securityProvider.requestBiometricAuthentication() {
-            return true
-        }
-        
-        // If biometric fails, switch to PIN
-        guard await securityProvider.isPINSet() else { return false }
-        
-        var isAuthenticated = false
-        
-        for _ in 1...3 { // 3 attempts
-            print("Enter PIN:")
-            if let enteredPIN = readLine(), await securityProvider.validatePIN(enteredPIN) {
-                isAuthenticated = true
-                break
-            } else {
-                print("Invalid PIN. Try again.")
-            }
-        }
-        
-        return isAuthenticated
+    public func makeValidationView(completion: @escaping (Bool) -> Void) -> AnyView {
+        let viewModel = ValidationViewModel(securityProvider: securityProvider, completion: completion)
+        let view = ValidationView(viewModel: viewModel)
+        return AnyView(view)
     }
 }

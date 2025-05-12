@@ -19,8 +19,6 @@ extension LockScreenViewModel {
     
     // Would be on Testing target for modules or more complex scenarios
     final class MainCoordinatorDelegatePreview: MainCoordinatorDelegateProtocol {
-        func requestAuthentication() async -> Bool { return true }
-
-        func didFinishValidation() {}
+        func requestAuthentication() {}
     }
 }

@@ -16,6 +16,7 @@ import ValidationKitInterface
 // TVShowListing
 import TVShowListingFeatureInterface
 
+@MainActor
 final class MainCoordinator: CoordinatorProtocol {
     // MARK: - Properties
     let persistenceController = PersistenceController.shared
@@ -70,11 +71,16 @@ final class MainCoordinator: CoordinatorProtocol {
 }
 
 extension MainCoordinator: MainCoordinatorDelegateProtocol {
-    func requestAuthentication() async -> Bool {
-        await validationProvider.requestValidation()
-    }
-    
-    func didFinishValidation() {
-        navigateToMainScreen()
+    func requestAuthentication() async {
+        let validationView = validationProvider.makeValidationView { [weak self] success in
+            if success {
+                self?.navigateToMainScreen()
+            }
+        }
+        
+        await MainActor.run {
+            let hostingVC = UIHostingController(rootView: validationView)
+            navigationController.present(hostingVC, animated: false)
+        }
     }
 }

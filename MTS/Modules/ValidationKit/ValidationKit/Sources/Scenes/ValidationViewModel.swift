@@ -8,11 +8,10 @@
 import Foundation
 import SecurityFrameworkInterface
 
-class ValidationViewModel: ObservableObject {
+final class ValidationViewModel: ObservableObject {
     private let securityProvider: SecurityProviderProtocol
     private let completion: (Bool) -> Void
     
-    @Published var isAuthenticated = false
     @Published var isUsingPIN = false
     @Published var enteredPIN = ""
     @Published var errorMessage: String?
@@ -38,16 +37,14 @@ class ValidationViewModel: ObservableObject {
         }
     }
     
-    @MainActor func validatePIN() {
-        guard securityProvider.isPINSet() else {
-            errorMessage = "No PIN is set."
-            return
-        }
-        
-        if securityProvider.validatePIN(enteredPIN) {
-            completion(true)
-        } else {
-            errorMessage = "Invalid PIN. Try again."
+    func validatePIN() async {
+        let success = await securityProvider.validatePIN(enteredPIN)
+        await MainActor.run {
+            if success {
+                self.completion(true)
+            } else {
+                errorMessage = "Invalid PIN. Try again."
+            }
         }
     }
 }
