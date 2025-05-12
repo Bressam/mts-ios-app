@@ -27,16 +27,18 @@ Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
 
 * Scalable Design: The application is highly scalable, designed to accommodate future growth without sacrificing performance or maintainability, containing modules completely decoupled from each other behavior and details.
 * Top-notch modular architecture to optimize build times and ensure full decoupling. By depending solely on interfaces, implementation modules can leverage build cache, significantly reducing build times, improving pipelines times and development team productivity.
+* Lock Screen View: blocks the app until the user authenticates using PIN or Biometric.
 * Settings View: allow user to set or remove a PIN.
 * Testing Modules: Exposed test doubles, mocks, and utilities, making module testing straightforward and enabling easy preview stubbing for consistent behavior.
 * Extra details on Shows Listing, including: categories, status and rating.
 
-## Modules created and its benefits:
-    * TVShowListingFeature: A fully decoupled feature responsible for displaying the series list and detailed show information.
-    * SecurityFramework: Enables any feature to easily request user authentication, either using biometrics or PIN.
-    * ValidationKit: Provides a simple way for any feature to present the default authentication view.
-    * NetworkCore: Centralizes request creation and logic, making it easy to maintain and extend.
-    * CoordinatorKit: Establishes a standard for navigation, making it extremely easy to present child flows (features presenting other features) while only knowing their interfaces.
+## Modules created and its benefits
+
+* TVShowListingFeature: A fully decoupled feature responsible for displaying the series list and detailed show information.
+* SecurityFramework: Enables any feature to easily request user authentication, either using biometrics or PIN.
+* ValidationKit: Provides a simple way for any feature to present the default authentication view.
+* NetworkCore: Centralizes request creation and logic, making it easy to maintain and extend.
+* CoordinatorKit: Establishes a standard for navigation, making it extremely easy to present child flows (features presenting other features) while only knowing their interfaces.
 
 ## GitFlow Used
 
@@ -73,7 +75,18 @@ Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
 
 ## How to Run
 
-1. Open the project in Xcode.
+1. Open the MTS.xcworkspace project in Xcode.
 2. Select the MTS target and the desired device (Simulator or Physical Device).
 3. Build and Run (`Cmd + R`).
 
+## How to install on Simulator
+
+1. Open the "Distribution" Folder:
+    - Locate the Distribution folder at the root of the repository.
+2. Launch iOS Simulator:
+    - Open Xcode, then go to "Xcode > Open Developer Tool > Simulator".
+3. Drag the App:
+    - Drag the MTS.app file from the Distribution folder directly into the open Simulator window.
+4. Run the App:
+    - Once installation is complete, the app icon will appear on the Simulator's home screen.
+    - Tap the app icon to launch it.

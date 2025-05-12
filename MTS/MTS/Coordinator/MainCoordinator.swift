@@ -78,6 +78,7 @@ final class MainCoordinator: CoordinatorProtocol {
         tabBarController.selectedIndex = 0
         
         // Present
+        navigationController.navigationBar.isHidden = true
         navigationController.popToRootViewController(animated: true)
         navigationController.viewControllers = [tabBarController]
         
