@@ -15,7 +15,8 @@ final class SecuritySettingsViewModel: ObservableObject {
     @Published var newPIN = ""
     @Published var confirmPIN = ""
     @Published var errorMessage: String?
-    
+    @Published var successMessage: String?
+
     init(securityProvider: SecurityProviderProtocol) {
         self.securityProvider = securityProvider
     }
@@ -28,6 +29,7 @@ final class SecuritySettingsViewModel: ObservableObject {
         }
         
         securityProvider.setPIN(newPIN)
+        successMessage = "PIN saved successfully!"
         errorMessage = nil
         currentPIN = newPIN
     }

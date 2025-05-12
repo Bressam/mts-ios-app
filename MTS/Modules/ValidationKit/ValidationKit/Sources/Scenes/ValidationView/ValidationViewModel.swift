@@ -15,6 +15,7 @@ final class ValidationViewModel: ObservableObject {
     @Published var isUsingPIN = false
     @Published var enteredPIN = ""
     @Published var errorMessage: String?
+    @Published var isValidationSuccessful: Bool = false
     
     init(securityProvider: SecurityProviderProtocol, completion: @escaping (Bool) -> Void) {
         self.securityProvider = securityProvider
@@ -26,11 +27,16 @@ final class ValidationViewModel: ObservableObject {
         Task { await tryBiometric() }
     }
     
+    private func didValidate() {
+        self.completion(true)
+        isValidationSuccessful = true
+    }
+
     private func tryBiometric() async {
         let success = await securityProvider.requestBiometricAuthentication()
         await MainActor.run {
             if success {
-                self.completion(true)
+                didValidate()
             } else {
                 self.isUsingPIN = true
             }
@@ -41,7 +47,7 @@ final class ValidationViewModel: ObservableObject {
         let success = await securityProvider.validatePIN(enteredPIN)
         await MainActor.run {
             if success {
-                self.completion(true)
+                didValidate()
             } else {
                 errorMessage = "Invalid PIN. Try again."
             }

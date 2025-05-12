@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ValidationView: View {
+    @Environment(\.dismiss) private var dismiss
     @ObservedObject private var viewModel: ValidationViewModel
     
     init(viewModel: ValidationViewModel) {
@@ -36,6 +37,11 @@ struct ValidationView: View {
             }
         }
         .padding()
+        .onChange(of: viewModel.isValidationSuccessful) { success in
+            if success {
+                dismiss()
+            }
+        }
     }
 }
 

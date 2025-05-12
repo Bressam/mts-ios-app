@@ -15,30 +15,72 @@ struct SecuritySettingsView: View {
     }
     
     var body: some View {
-        VStack(spacing: 16) {
+        ZStack {
+            Color(.systemGray6).ignoresSafeArea()
+            
+            VStack(spacing: 16) {
+                headerSection
+                pinInputSection
+                feedbackSection
+                saveButton
+            }
+            .padding(.horizontal, 28)
+        }
+    }
+    
+    // MARK: - Components
+    private var headerSection: some View {
+        VStack(alignment: .leading) {
+            Text("Configure your PIN!")
+                .font(.title)
+                .bold()
+            Text("This PIN will be used to lock your app. You can also unlock with Face ID or Touch ID if PIN is set!")
+                .font(.caption)
+        }
+    }
+    
+    private var pinInputSection: some View {
+        VStack(spacing: 12) {
             SecureField("New PIN", text: $viewModel.newPIN)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
                 .cornerRadius(12)
+                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.accentColor, lineWidth: 1))
             
             SecureField("Confirm PIN", text: $viewModel.confirmPIN)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
                 .cornerRadius(12)
+                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.accentColor, lineWidth: 1))
+        }
+    }
+    
+    private var feedbackSection: some View {
+        VStack(spacing: 8) {
+            if let success = viewModel.successMessage {
+                Text(success)
+                    .foregroundColor(.green)
+                    .font(.caption)
+            }
             
             if let error = viewModel.errorMessage {
                 Text(error)
                     .foregroundColor(.red)
                     .font(.caption)
             }
-            
-            Button("Save PIN") {
-                viewModel.saveNewPIN()
-            }
-            .buttonStyle(BorderedProminentButtonStyle())
-            .padding()
-            .foregroundColor(.white)
-            .cornerRadius(12)
         }
-        .padding()
+    }
+    
+    private var saveButton: some View {
+        Button(action: {
+            viewModel.saveNewPIN()
+        }) {
+            Text("Save PIN")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding()
+        }
+        .foregroundColor(.white)
+        .buttonStyle(BorderedProminentButtonStyle())
+        .cornerRadius(12)
     }
 }
 
