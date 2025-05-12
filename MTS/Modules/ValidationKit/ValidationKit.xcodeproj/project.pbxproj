@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		185FB4C72DD1737600606557 /* ValidationKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4B82DD172A000606557 /* ValidationKitInterface.framework */; };
-		185FB4C82DD1737600606557 /* ValidationKitInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4B82DD172A000606557 /* ValidationKitInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		185FB4CD2DD1737C00606557 /* SecurityFrameworkInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4CC2DD1737C00606557 /* SecurityFrameworkInterface.framework */; };
-		185FB4CE2DD1737C00606557 /* SecurityFrameworkInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4CC2DD1737C00606557 /* SecurityFrameworkInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		185FB4D32DD1747000606557 /* SecurityFrameworkTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4D22DD1747000606557 /* SecurityFrameworkTesting.framework */; };
+		185FB4D62DD174D700606557 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4D02DD1740000606557 /* ValidationView.swift */; };
+		185FB4D72DD174DA00606557 /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4D12DD1741D00606557 /* ValidationViewModel.swift */; };
+		185FB4D82DD174DE00606557 /* ValidationViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4D52DD1747600606557 /* ValidationViewModel+Preview.swift */; };
+		185FB4D92DD174E100606557 /* ValidationProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4C42DD172C100606557 /* ValidationProviderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,27 +26,16 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		185FB4CB2DD1737600606557 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				185FB4C82DD1737600606557 /* ValidationKitInterface.framework in Embed Frameworks */,
-				185FB4CE2DD1737C00606557 /* SecurityFrameworkInterface.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		185FB4A82DD1728C00606557 /* ValidationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValidationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		185FB4B82DD172A000606557 /* ValidationKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValidationKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		185FB4C42DD172C100606557 /* ValidationProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProviderProtocol.swift; sourceTree = "<group>"; };
 		185FB4C52DD1734100606557 /* ValidationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProvider.swift; sourceTree = "<group>"; };
 		185FB4CC2DD1737C00606557 /* SecurityFrameworkInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SecurityFrameworkInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		185FB4D02DD1740000606557 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
+		185FB4D12DD1741D00606557 /* ValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewModel.swift; sourceTree = "<group>"; };
+		185FB4D22DD1747000606557 /* SecurityFrameworkTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SecurityFrameworkTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		185FB4D52DD1747600606557 /* ValidationViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ValidationViewModel+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +45,7 @@
 			files = (
 				185FB4C72DD1737600606557 /* ValidationKitInterface.framework in Frameworks */,
 				185FB4CD2DD1737C00606557 /* SecurityFrameworkInterface.framework in Frameworks */,
+				185FB4D32DD1747000606557 /* SecurityFrameworkTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +105,7 @@
 		185FB4C32DD172BB00606557 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				185FB4CF2DD173F000606557 /* Scenes */,
 				185FB4C52DD1734100606557 /* ValidationProvider.swift */,
 			);
 			path = Sources;
@@ -120,9 +114,20 @@
 		185FB4C62DD1737600606557 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				185FB4D22DD1747000606557 /* SecurityFrameworkTesting.framework */,
 				185FB4CC2DD1737C00606557 /* SecurityFrameworkInterface.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		185FB4CF2DD173F000606557 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				185FB4D52DD1747600606557 /* ValidationViewModel+Preview.swift */,
+				185FB4D12DD1741D00606557 /* ValidationViewModel.swift */,
+				185FB4D02DD1740000606557 /* ValidationView.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +158,6 @@
 				185FB4A42DD1728C00606557 /* Sources */,
 				185FB4A52DD1728C00606557 /* Frameworks */,
 				185FB4A62DD1728C00606557 /* Resources */,
-				185FB4CB2DD1737600606557 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,6 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185FB4D62DD174D700606557 /* ValidationView.swift in Sources */,
+				185FB4D82DD174DE00606557 /* ValidationViewModel+Preview.swift in Sources */,
+				185FB4D72DD174DA00606557 /* ValidationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185FB4D92DD174E100606557 /* ValidationProviderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
