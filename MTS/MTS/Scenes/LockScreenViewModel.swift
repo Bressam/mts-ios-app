@@ -20,7 +20,7 @@ class LockScreenViewModel: ObservableObject {
     }
     
     func unlock() async {
-        let success = await securityProvider.requestAuthentication()
+        let success = await securityProvider.requestBiometricAuthentication()
         await MainActor.run {
             self.isUnlocked = success
         }

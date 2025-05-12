@@ -49,7 +49,7 @@ final class MainCoordinator: CoordinatorProtocol {
     }
     
     private func setupInitialViewController() {
-        if securityProvider.isAuthenticationRequired() {
+        if securityProvider.isPINSet() {
             navigateToLockScreen()
         } else {
             navigateToMainScreen()

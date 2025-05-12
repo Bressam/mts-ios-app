@@ -27,6 +27,10 @@
 		185FB4992DD1647600606557 /* LockScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4982DD1647500606557 /* LockScreenViewModel.swift */; };
 		185FB49B2DD164A900606557 /* LockScreenViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB49A2DD1649E00606557 /* LockScreenViewModel+Preview.swift */; };
 		185FB49D2DD1671A00606557 /* MainCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB49C2DD1671A00606557 /* MainCoordinatorProtocol.swift */; };
+		185FB4DC2DD1752200606557 /* ValidationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4DA2DD1752200606557 /* ValidationKit.framework */; };
+		185FB4DD2DD1752200606557 /* ValidationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4DA2DD1752200606557 /* ValidationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		185FB4DE2DD1752200606557 /* ValidationKitInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4DB2DD1752200606557 /* ValidationKitInterface.framework */; };
+		185FB4DF2DD1752200606557 /* ValidationKitInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 185FB4DB2DD1752200606557 /* ValidationKitInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18CD8BF72DCFC2FE00AECE19 /* NetworkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */; };
 		18CD8BF82DCFC2FE00AECE19 /* NetworkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18CD8BF92DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */; };
@@ -90,6 +94,7 @@
 				1858ED262DCEF7B100456FA2 /* TVShowListingFeature.framework in Embed Frameworks */,
 				18CD8C2A2DCFD33200AECE19 /* TVShowListingFeatureTesting.framework in Embed Frameworks */,
 				18CD8C0C2DCFD30C00AECE19 /* TVShowListingFeatureDomain.framework in Embed Frameworks */,
+				185FB4DF2DD1752200606557 /* ValidationKitInterface.framework in Embed Frameworks */,
 				18CD8BFA2DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Embed Frameworks */,
 				18CD8C262DCFD33200AECE19 /* TVShowListingFeatureDomain.framework in Embed Frameworks */,
 				18CD8C222DCFD33200AECE19 /* TVShowListingFeature.framework in Embed Frameworks */,
@@ -99,6 +104,7 @@
 				18FE610B2DD14AF200D99F53 /* SecurityFramework.framework in Embed Frameworks */,
 				18CD8C1A2DCFD33200AECE19 /* CoordinatorKitTesting.framework in Embed Frameworks */,
 				18FE610F2DD14AF200D99F53 /* SecurityFrameworkTesting.framework in Embed Frameworks */,
+				185FB4DD2DD1752200606557 /* ValidationKit.framework in Embed Frameworks */,
 				1858ED282DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -128,6 +134,8 @@
 		185FB4982DD1647500606557 /* LockScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewModel.swift; sourceTree = "<group>"; };
 		185FB49A2DD1649E00606557 /* LockScreenViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockScreenViewModel+Preview.swift"; sourceTree = "<group>"; };
 		185FB49C2DD1671A00606557 /* MainCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		185FB4DA2DD1752200606557 /* ValidationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ValidationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		185FB4DB2DD1752200606557 /* ValidationKitInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ValidationKitInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CD8BF52DCFC2FE00AECE19 /* NetworkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CD8BF62DCFC2FE00AECE19 /* NetworkCoreInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkCoreInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CD8C072DCFD30600AECE19 /* TVShowListingFeatureData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TVShowListingFeatureData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +171,7 @@
 				1858ED252DCEF7B100456FA2 /* TVShowListingFeature.framework in Frameworks */,
 				18CD8C292DCFD33200AECE19 /* TVShowListingFeatureTesting.framework in Frameworks */,
 				18CD8C0B2DCFD30C00AECE19 /* TVShowListingFeatureDomain.framework in Frameworks */,
+				185FB4DE2DD1752200606557 /* ValidationKitInterface.framework in Frameworks */,
 				18CD8BF92DCFC2FE00AECE19 /* NetworkCoreInterface.framework in Frameworks */,
 				18CD8C252DCFD33200AECE19 /* TVShowListingFeatureDomain.framework in Frameworks */,
 				18CD8C212DCFD33200AECE19 /* TVShowListingFeature.framework in Frameworks */,
@@ -172,6 +181,7 @@
 				18FE610A2DD14AF200D99F53 /* SecurityFramework.framework in Frameworks */,
 				18CD8C192DCFD33200AECE19 /* CoordinatorKitTesting.framework in Frameworks */,
 				18FE610E2DD14AF200D99F53 /* SecurityFrameworkTesting.framework in Frameworks */,
+				185FB4DC2DD1752200606557 /* ValidationKit.framework in Frameworks */,
 				1858ED272DCEF7B100456FA2 /* TVShowListingFeatureInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +218,8 @@
 		1858EAF62DCEC31D00456FA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				185FB4DA2DD1752200606557 /* ValidationKit.framework */,
+				185FB4DB2DD1752200606557 /* ValidationKitInterface.framework */,
 				18FE61072DD14AF200D99F53 /* SecurityFramework.framework */,
 				18FE61082DD14AF200D99F53 /* SecurityFrameworkInterface.framework */,
 				18FE61092DD14AF200D99F53 /* SecurityFrameworkTesting.framework */,
