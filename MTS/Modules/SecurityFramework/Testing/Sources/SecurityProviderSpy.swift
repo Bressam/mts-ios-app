@@ -10,40 +10,31 @@ import UIKit
 import SecurityFrameworkInterface
 
 public final class SecurityProviderSpy: SecurityProviderProtocol {
-    // MARK: - Tracking Properties
-    public private(set) var requestAuthenticationCallCount = 0
-    public private(set) var isAuthenticationRequiredCallCount = 0
-    public private(set) var setAuthenticationRequiredCallCount = 0
+    public var requestBiometricAuthenticationCallCount = 0
+    public var validatePINCallCount = 0
+    public var setPINCallCount = 0
     
-    // MARK: - Controllable Behavior
-    public var shouldSucceedAuthentication = true
-    public var authenticationRequired = true
+    public var shouldSucceedBiometric = true
+    public var storedPIN: String?
     
     public init() {}
     
-    // MARK: - Protocol Implementation
-    
-    public func requestAuthentication() async -> Bool {
-        requestAuthenticationCallCount += 1
-        return shouldSucceedAuthentication
+    public func requestBiometricAuthentication() async -> Bool {
+        requestBiometricAuthenticationCallCount += 1
+        return shouldSucceedBiometric
     }
     
-    public func setAuthenticationRequired(_ required: Bool) {
-        setAuthenticationRequiredCallCount += 1
-        authenticationRequired = required
+    public func validatePIN(_ pin: String) -> Bool {
+        validatePINCallCount += 1
+        return storedPIN == pin
     }
     
-    public func isAuthenticationRequired() -> Bool {
-        isAuthenticationRequiredCallCount += 1
-        return authenticationRequired
+    public func setPIN(_ pin: String) {
+        setPINCallCount += 1
+        storedPIN = pin
     }
     
-    // MARK: - Reset for Testing
-    public func reset() {
-        requestAuthenticationCallCount = 0
-        isAuthenticationRequiredCallCount = 0
-        setAuthenticationRequiredCallCount = 0
-        shouldSucceedAuthentication = true
-        authenticationRequired = true
+    public func isPINSet() -> Bool {
+        return storedPIN != nil
     }
 }

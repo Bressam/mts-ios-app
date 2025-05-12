@@ -9,79 +9,37 @@ import Foundation
 import SecurityFrameworkInterface
 import LocalAuthentication
 
-@MainActor
 public final class SecurityProvider: SecurityProviderProtocol {
     private let userDefaults = UserDefaults.standard
-
+    private let pinKey = "SecurityProvider_PIN"
+    
     public init() {}
-    
-    public func requestAuthentication() async -> Bool {
-        if await isBiometricAvailable() {
-            let biometricSuccess = await authenticateWithBiometric()
-            if biometricSuccess {
-                return true
-            }
-        }
-        
-        return await requestDevicePIN()
-    }
-    
-    public func setAuthenticationRequired(_ required: Bool) {
-        userDefaults.set(required, forKey: "authenticationRequired")
-    }
-    
-    public func isAuthenticationRequired() -> Bool {
-        return userDefaults.bool(forKey: "authenticationRequired")
-    }
     
     // MARK: - Biometric Authentication
     
-    private func authenticateWithBiometric() async -> Bool {
+    public func requestBiometricAuthentication() async -> Bool {
         let context = LAContext()
         context.localizedCancelTitle = "Cancel"
-        let reason = "Authenticate using Face ID or Touch ID"
         
         return await withCheckedContinuation { continuation in
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
-                if success {
-                    continuation.resume(returning: true)
-                } else {
-                    print("Biometric Authentication Failed: \(error?.localizedDescription ?? "Unknown Error")")
-                    continuation.resume(returning: false)
-                }
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Authenticate using Face ID / Touch ID") { success, _ in
+                continuation.resume(returning: success)
             }
         }
     }
     
-    // MARK: - System Device PIN Authentication
-    // TODO: Improvement for custom pin
-    /**
-     To implement custom PINs would need to apply few changes changes:
-     - Add to protocol possibility to set a pin value;
-     - change biometric validation to deviceOwnerAuthenticationWithBiometrics, to
-     */
-    private func requestDevicePIN() async -> Bool {
-        let context = LAContext()
-        let reason = "Authenticate using your device passcode"
-        
-        return await withCheckedContinuation { continuation in
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, error in
-                if success {
-                    continuation.resume(returning: true)
-                } else {
-                    print("Device PIN Authentication Failed: \(error?.localizedDescription ?? "Unknown Error")")
-                    continuation.resume(returning: false)
-                }
-            }
-        }
+    // MARK: - PIN Management
+    
+    public func validatePIN(_ pin: String) -> Bool {
+        guard let storedPIN = userDefaults.string(forKey: pinKey) else { return false }
+        return storedPIN == pin
     }
     
-    // MARK: - Biometric Availability Check
+    public func setPIN(_ pin: String) {
+        userDefaults.set(pin, forKey: pinKey)
+    }
     
-    private func isBiometricAvailable() async -> Bool {
-        let context = LAContext()
-        var error: NSError?
-        let isAvailable = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
-        return isAvailable
+    public func isPINSet() -> Bool {
+        return userDefaults.string(forKey: pinKey) != nil
     }
 }
