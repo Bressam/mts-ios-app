@@ -12,6 +12,7 @@ import SwiftUI
 import CoordinatorKitInterface
 import NetworkCoreInterface
 import SecurityFrameworkInterface
+import ValidationKitInterface
 // TVShowListing
 import TVShowListingFeatureInterface
 
@@ -21,6 +22,7 @@ final class MainCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
     let networkClient: NetworkClientProtocol
     let securityProvider: SecurityProviderProtocol
+    let validationProvider: ValidationProviderProtocol
     
     private lazy var tvShowsListingCoordinator: TVShowListingCoordinatorProtocol = {
         let coordinator = TVShowListingAssembly.assemble(networkClient: networkClient)
@@ -30,10 +32,12 @@ final class MainCoordinator: CoordinatorProtocol {
     
     init(navigationController: UINavigationController,
          networkClient: NetworkClientProtocol,
-         securityProvider: SecurityProviderProtocol) {
+         securityProvider: SecurityProviderProtocol,
+         validationProvider: ValidationProviderProtocol) {
         self.navigationController = navigationController
         self.networkClient = networkClient
         self.securityProvider = securityProvider
+        self.validationProvider = validationProvider
     }
     
     func start() {
@@ -66,6 +70,10 @@ final class MainCoordinator: CoordinatorProtocol {
 }
 
 extension MainCoordinator: MainCoordinatorDelegateProtocol {
+    func requestAuthentication() async -> Bool {
+        await validationProvider.requestValidation()
+    }
+    
     func didFinishValidation() {
         navigateToMainScreen()
     }

@@ -14,11 +14,13 @@ extension LockScreenViewModel {
     public static var preview: LockScreenViewModel {
         let securityProviderSpy = SecurityProviderSpy()
         return LockScreenViewModel(securityProvider: securityProviderSpy,
-                                   coordinatorDelegate: MainCoordinatorDelegateStub())
+                                   coordinatorDelegate: MainCoordinatorDelegatePreview())
     }
     
     // Would be on Testing target for modules or more complex scenarios
-    final class MainCoordinatorDelegateStub: MainCoordinatorDelegateProtocol {
+    final class MainCoordinatorDelegatePreview: MainCoordinatorDelegateProtocol {
+        func requestAuthentication() async -> Bool { return true }
+
         func didFinishValidation() {}
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LockScreenView: View {
     @StateObject private var viewModel: LockScreenViewModel
-    @State private var isUnlocked = false
     
     init(viewModel: LockScreenViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -24,15 +23,14 @@ struct LockScreenView: View {
                 .foregroundColor(.gray)
                 .scaleEffect(viewModel.isUnlocked ? 1.1 : 1.0)
                 .animation(.easeInOut(duration: 0.3)
-                    .repeatCount(viewModel.isUnlocked ? 1 : 0,
-                                 autoreverses: true),
+                    .repeatCount(viewModel.isUnlocked ? 1 : 0, autoreverses: true),
                            value: viewModel.isUnlocked)
             
             Text(viewModel.isUnlocked ? "This content is unlocked" : "This content is locked")
                 .font(.title2)
             
             Button(action: {
-                Task { await viewModel.unlock() }
+                Task { await viewModel.authenticate() }
             }) {
                 Text("Unlock")
                     .font(.headline)
@@ -44,7 +42,7 @@ struct LockScreenView: View {
         }
         .padding(.horizontal, 24)
         .onChange(of: viewModel.isUnlocked) { _ in
-                viewModel.finishedUnlocking()
+            viewModel.finishedUnlocking()
         }
     }
 }

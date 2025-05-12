@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import ValidationModuleInterface
-import SecurityFramework
+import ValidationKitInterface
+import SecurityFrameworkInterface
 
 // MARK: - ValidationProvider Implementation
 public final class ValidationProvider: ValidationProviderProtocol {
@@ -17,20 +17,27 @@ public final class ValidationProvider: ValidationProviderProtocol {
         self.securityProvider = securityProvider
     }
     
-    public func requestValidation(completion: @escaping (Bool) -> Void) {
-        let viewModel = ValidationViewModel(securityProvider: securityProvider) { success in
-            completion(success)
+    public func requestValidation() async -> Bool {
+        // Try biometric authentication first
+        if await securityProvider.requestBiometricAuthentication() {
+            return true
         }
         
-        let validationView = ValidationView(viewModel: viewModel)
-        let hostingController = UIHostingController(rootView: validationView)
-        hostingController.modalPresentationStyle = .fullScreen
+        // If biometric fails, switch to PIN
+        guard await securityProvider.isPINSet() else { return false }
         
-        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
-            completion(false)
-            return
+        var isAuthenticated = false
+        
+        for _ in 1...3 { // 3 attempts
+            print("Enter PIN:")
+            if let enteredPIN = readLine(), await securityProvider.validatePIN(enteredPIN) {
+                isAuthenticated = true
+                break
+            } else {
+                print("Invalid PIN. Try again.")
+            }
         }
         
-        rootViewController.present(hostingController, animated: true)
+        return isAuthenticated
     }
 }

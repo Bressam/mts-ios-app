@@ -12,6 +12,8 @@ import NetworkCore
 import NetworkCoreInterface
 import SecurityFrameworkInterface
 import SecurityFramework
+import ValidationKitInterface
+import ValidationKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Properties
@@ -20,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var rootNavigationVC: DefaultNavigationController = .init()
     let networkClient: NetworkClientProtocol = NetworkClient()
     let securityProvider: SecurityProviderProtocol = SecurityProvider()
+    lazy var validationProvider: ValidationProviderProtocol = ValidationProvider(securityProvider: securityProvider)
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
@@ -43,6 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func setupCoordinators() {
         mainCoordinator = MainCoordinator(navigationController: rootNavigationVC,
                                           networkClient: networkClient,
-                                          securityProvider: securityProvider)
+                                          securityProvider: securityProvider,
+                                          validationProvider: validationProvider)
     }
 }
