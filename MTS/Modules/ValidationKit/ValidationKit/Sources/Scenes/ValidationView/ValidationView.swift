@@ -19,12 +19,22 @@ struct ValidationView: View {
         VStack(spacing: 24) {
             if viewModel.isUsingPIN {
                 SecureField("Enter PIN", text: $viewModel.enteredPIN)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.numberPad)
+                    .padding()
+                    .cornerRadius(12)
+                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.accentColor, lineWidth: 1))
                 
-                Button("Unlock") {
+                Button(action: {
                     Task { await viewModel.validatePIN() }
+                }) {
+                    Text("Unlock")
+                        .font(.headline)
+                        .frame(width: 148)
+                        .padding()
                 }
+                .foregroundColor(.white)
+                .buttonStyle(BorderedProminentButtonStyle())
+                .cornerRadius(12)
             } else {
                 Text("Authenticating...")
                     .font(.headline)

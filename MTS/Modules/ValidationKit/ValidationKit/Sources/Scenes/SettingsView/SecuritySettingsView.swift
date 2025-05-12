@@ -23,6 +23,7 @@ struct SecuritySettingsView: View {
                 pinInputSection
                 feedbackSection
                 saveButton
+                clearButton
             }
             .padding(.horizontal, 28)
         }
@@ -42,11 +43,13 @@ struct SecuritySettingsView: View {
     private var pinInputSection: some View {
         VStack(spacing: 12) {
             SecureField("New PIN", text: $viewModel.newPIN)
+                .keyboardType(.numberPad)
                 .padding()
                 .cornerRadius(12)
                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.accentColor, lineWidth: 1))
             
             SecureField("Confirm PIN", text: $viewModel.confirmPIN)
+                .keyboardType(.numberPad)
                 .padding()
                 .cornerRadius(12)
                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.accentColor, lineWidth: 1))
@@ -80,6 +83,19 @@ struct SecuritySettingsView: View {
         }
         .foregroundColor(.white)
         .buttonStyle(BorderedProminentButtonStyle())
+        .cornerRadius(12)
+    }
+    
+    private var clearButton: some View {
+        Button(action: {
+            viewModel.clearPin()
+        }) {
+            Text("Remove PIN")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding()
+        }
+        .foregroundColor(.red)
         .cornerRadius(12)
     }
 }

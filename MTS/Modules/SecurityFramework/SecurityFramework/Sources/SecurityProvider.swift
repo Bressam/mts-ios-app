@@ -35,7 +35,7 @@ public final class SecurityProvider: SecurityProviderProtocol {
         return storedPIN == pin
     }
     
-    public func setPIN(_ pin: String) {
+    public func setPIN(_ pin: String?) {
         userDefaults.set(pin, forKey: pinKey)
     }
     
