@@ -13,4 +13,8 @@ public protocol ValidationProviderProtocol {
     /// - Parameter completion: Callback with the validation result (true if authenticated).
     /// - Returns: A SwiftUI view that can be presented.
     func makeValidationView(completion: @escaping (Bool) -> Void) -> AnyView
+    
+    /// Provides a settings view for setting or updating the PIN.
+    /// - Returns: A SwiftUI view that can be presented.
+    func makeSettingsView() -> AnyView
 }

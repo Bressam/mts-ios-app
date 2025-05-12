@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ValidationView: View {
-    @StateObject private var viewModel: ValidationViewModel
+    @ObservedObject private var viewModel: ValidationViewModel
     
     init(viewModel: ValidationViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+        self.viewModel = viewModel
     }
     
     var body: some View {

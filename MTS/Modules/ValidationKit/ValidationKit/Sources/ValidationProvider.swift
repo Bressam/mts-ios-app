@@ -22,4 +22,10 @@ public final class ValidationProvider: ValidationProviderProtocol {
         let view = ValidationView(viewModel: viewModel)
         return AnyView(view)
     }
+    
+    public func makeSettingsView() -> AnyView {
+        let viewModel = SecuritySettingsViewModel(securityProvider: securityProvider)
+        let settingsView = SecuritySettingsView(viewModel: viewModel)
+        return AnyView(settingsView)
+    }
 }
