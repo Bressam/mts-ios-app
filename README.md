@@ -23,14 +23,16 @@ Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
 * PIN Security.
 * PIN Validation: Biometric + PIN Lock fallback.
 
-## Personal Bonus Improvements
+## Personal Bonus Topics & Improvements
 
 * Scalable Design: The application is highly scalable, designed to accommodate future growth without sacrificing performance or maintainability, containing modules completely decoupled from each other behavior and details.
+* Top-notch modular architecture to optimize build times and ensure full decoupling. By depending solely on interfaces, implementation modules can leverage build cache, significantly reducing build times, improving pipelines times and development team productivity.
 * Settings View: allow user to set or remove a PIN.
-* Top-notch modular architecture to improve build time and maintain full decoupling.
-* Testing Modules: Exposed test doubles and utils, making testing any module easy.
+* Testing Modules: Exposed test doubles, mocks, and utilities, making module testing straightforward and enabling easy preview stubbing for consistent behavior.
 * Extra details on Shows Listing, including: categories, status and rating.
-* Modules and its benefits:
+
+## Modules created and its benefits:
+    * TVShowListingFeature: A fully decoupled feature responsible for displaying the series list and detailed show information.
     * SecurityFramework: Enables any feature to easily request user authentication, either using biometrics or PIN.
     * ValidationKit: Provides a simple way for any feature to present the default authentication view.
     * NetworkCore: Centralizes request creation and logic, making it easy to maintain and extend.
@@ -70,6 +72,6 @@ Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
 ## How to Run
 
 1. Open the project in Xcode.
-2. Select the target device (Simulator or Physical Device).
+2. Select the MTS target and the desired device (Simulator or Physical Device).
 3. Build and Run (`Cmd + R`).
 
