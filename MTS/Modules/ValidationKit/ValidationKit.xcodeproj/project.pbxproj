@@ -14,6 +14,7 @@
 		185FB4D72DD174DA00606557 /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4D12DD1741D00606557 /* ValidationViewModel.swift */; };
 		185FB4D82DD174DE00606557 /* ValidationViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4D52DD1747600606557 /* ValidationViewModel+Preview.swift */; };
 		185FB4D92DD174E100606557 /* ValidationProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4C42DD172C100606557 /* ValidationProviderProtocol.swift */; };
+		185FB4E02DD1772A00606557 /* ValidationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4C52DD1734100606557 /* ValidationProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				185FB4D62DD174D700606557 /* ValidationView.swift in Sources */,
+				185FB4E02DD1772A00606557 /* ValidationProvider.swift in Sources */,
 				185FB4D82DD174DE00606557 /* ValidationViewModel+Preview.swift in Sources */,
 				185FB4D72DD174DA00606557 /* ValidationViewModel.swift in Sources */,
 			);

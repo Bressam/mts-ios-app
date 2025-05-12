@@ -19,14 +19,16 @@ class LockScreenViewModel: ObservableObject {
         self.coordinatorDelegate = coordinatorDelegate
     }
     
-    func unlock() async {
-        let success = await securityProvider.requestBiometricAuthentication()
+    func authenticate() async {
+        let validationResult = await coordinatorDelegate?.requestAuthentication()
         await MainActor.run {
-            self.isUnlocked = success
+            isUnlocked = validationResult ?? false
         }
     }
     
     func finishedUnlocking() {
-        coordinatorDelegate?.didFinishValidation()
+        if isUnlocked {
+            coordinatorDelegate?.didFinishValidation()
+        }
     }
 }

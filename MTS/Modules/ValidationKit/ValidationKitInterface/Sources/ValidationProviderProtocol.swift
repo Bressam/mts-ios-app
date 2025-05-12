@@ -10,6 +10,6 @@ import SwiftUI
 // MARK: - ValidationProviderProtocol
 public protocol ValidationProviderProtocol {
     /// Requests user validation (Biometric + PIN if needed).
-    /// - Parameter completion: Callback with the result (true if authenticated).
-    func requestValidation(completion: @escaping (Bool) -> Void)
+    /// - Returns: A boolean indicating if authentication was successful.
+    func requestValidation() async -> Bool
 }
