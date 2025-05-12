@@ -9,7 +9,8 @@ Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
 * All required topics.
     * Series Listing:
         * Displays all series using API paging.
-        * Allows searching for series by name.
+        * Seamless infinite scroll.
+        * Allows searching for series by name (combining local and remote fallback results).
         * Shows series name and poster image.
     * Series Details:
         * Shows name, poster, airing days/times, genres, summary.
@@ -17,14 +18,23 @@ Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
     * Episode Details:
         * Displays episode name, number, season, summary, and image (if available).
 
-## Extra Topics Done
+## Bonus Topics Done
 
-* PIN Security (Biometric + PIN Lock fallback).
+* PIN Security.
+* PIN Validation: Biometric + PIN Lock fallback.
 
-## Personal Improvements
+## Personal Bonus Improvements
 
+* Scalable Design: The application is highly scalable, designed to accommodate future growth without sacrificing performance or maintainability, containing modules completely decoupled from each other behavior and details.
+* Settings View: allow user to set or remove a PIN.
 * Top-notch modular architecture to improve build time and maintain full decoupling.
 * Testing Modules: Exposed test doubles and utils, making testing any module easy.
+* Extra details on Shows Listing, including: categories, status and rating.
+* Modules and its benefits:
+    * SecurityFramework: Enables any feature to easily request user authentication, either using biometrics or PIN.
+    * ValidationKit: Provides a simple way for any feature to present the default authentication view.
+    * NetworkCore: Centralizes request creation and logic, making it easy to maintain and extend.
+    * CoordinatorKit: Establishes a standard for navigation, making it extremely easy to present child flows (features presenting other features) while only knowing their interfaces.
 
 ## GitFlow Used
 
