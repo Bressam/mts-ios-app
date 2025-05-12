@@ -24,13 +24,28 @@ final class SecuritySettingsViewModel: ObservableObject {
     @MainActor
     func saveNewPIN() {
         guard !newPIN.isEmpty, newPIN == confirmPIN else {
-            errorMessage = "PINs do not match."
+            setErrorMessage(message: "PINs do not match.")
             return
         }
         
         securityProvider.setPIN(newPIN)
+        setSuccessMessage(message: "PIN saved successfully!")
+        currentPIN = newPIN
+    }
+    
+    @MainActor
+    func clearPin() {
+        securityProvider.setPIN(nil)
+        setSuccessMessage(message: "PIN removed successfully!")
+    }
+    
+    private func setErrorMessage(message: String) {
+        errorMessage = message
+        successMessage = nil
+    }
+    
+    private func setSuccessMessage(message: String) {
         successMessage = "PIN saved successfully!"
         errorMessage = nil
-        currentPIN = newPIN
     }
 }

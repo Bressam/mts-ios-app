@@ -21,7 +21,7 @@ public protocol SecurityProviderProtocol {
     
     /// Sets a new PIN for validation.
     /// - Parameter pin: The PIN to set.
-    func setPIN(_ pin: String)
+    func setPIN(_ pin: String?)
     
     /// Checks if a PIN is set.
     /// - Returns: A boolean indicating if a PIN is set.

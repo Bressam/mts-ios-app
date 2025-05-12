@@ -29,7 +29,7 @@ public final class SecurityProviderSpy: SecurityProviderProtocol {
         return storedPIN == pin
     }
     
-    public func setPIN(_ pin: String) {
+    public func setPIN(_ pin: String?) {
         setPINCallCount += 1
         storedPIN = pin
     }
