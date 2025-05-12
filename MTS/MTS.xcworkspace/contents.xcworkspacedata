@@ -11,6 +11,9 @@
       location = "group:Modules"
       name = "Modules">
       <FileRef
+         location = "group:ValidationKit/ValidationKit.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:SecurityFramework/SecurityFramework.xcodeproj">
       </FileRef>
       <FileRef
