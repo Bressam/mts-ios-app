@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LockScreenView: View {
-    @StateObject private var viewModel: LockScreenViewModel
+    @ObservedObject private var viewModel: LockScreenViewModel
     
     init(viewModel: LockScreenViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+        self.viewModel = viewModel
     }
     
     var body: some View {

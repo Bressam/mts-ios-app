@@ -25,6 +25,8 @@ final class MainCoordinator: CoordinatorProtocol {
     let securityProvider: SecurityProviderProtocol
     let validationProvider: ValidationProviderProtocol
     
+    private var tabBarController = UITabBarController()
+    
     private lazy var tvShowsListingCoordinator: TVShowListingCoordinatorProtocol = {
         let coordinator = TVShowListingAssembly.assemble(networkClient: networkClient)
         coordinator.navigationController.modalPresentationStyle = .fullScreen
@@ -62,7 +64,25 @@ final class MainCoordinator: CoordinatorProtocol {
     }
     
     private func navigateToMainScreen() {
-        navigateToTVShowsListing()
+        // First Tab: TV Shows Listing
+        let tvShowsNavigationController = tvShowsListingCoordinator.navigationController
+        tvShowsNavigationController.tabBarItem = UITabBarItem(title: "Shows", image: UIImage(systemName: "tv"), tag: 0)
+        
+        // Second Tab: Settings (PIN Settings)
+        let settingsView = validationProvider.makeSettingsView()
+        let settingsHostingController = UIHostingController(rootView: settingsView)
+        settingsHostingController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), tag: 1)
+        
+        // Setup Tab Bar
+        tabBarController.viewControllers = [tvShowsNavigationController, settingsHostingController]
+        tabBarController.selectedIndex = 0
+        
+        // Present
+        navigationController.popToRootViewController(animated: true)
+        navigationController.viewControllers = [tabBarController]
+        
+        // Start childFlows
+        tvShowsListingCoordinator.start()
     }
     
     private func navigateToTVShowsListing() {

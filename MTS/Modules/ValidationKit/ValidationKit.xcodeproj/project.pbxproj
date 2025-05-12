@@ -15,6 +15,9 @@
 		185FB4D82DD174DE00606557 /* ValidationViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4D52DD1747600606557 /* ValidationViewModel+Preview.swift */; };
 		185FB4D92DD174E100606557 /* ValidationProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4C42DD172C100606557 /* ValidationProviderProtocol.swift */; };
 		185FB4E02DD1772A00606557 /* ValidationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4C52DD1734100606557 /* ValidationProvider.swift */; };
+		185FB4E42DD183CE00606557 /* SecuritySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4E32DD183C600606557 /* SecuritySettingsViewModel.swift */; };
+		185FB4E62DD1841000606557 /* SecuritySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4E52DD1840D00606557 /* SecuritySettingsView.swift */; };
+		185FB4E82DD184B600606557 /* SecuritySettingsViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185FB4E72DD184AE00606557 /* SecuritySettingsViewModel+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		185FB4D12DD1741D00606557 /* ValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewModel.swift; sourceTree = "<group>"; };
 		185FB4D22DD1747000606557 /* SecurityFrameworkTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SecurityFrameworkTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		185FB4D52DD1747600606557 /* ValidationViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ValidationViewModel+Preview.swift"; sourceTree = "<group>"; };
+		185FB4E32DD183C600606557 /* SecuritySettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuritySettingsViewModel.swift; sourceTree = "<group>"; };
+		185FB4E52DD1840D00606557 /* SecuritySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuritySettingsView.swift; sourceTree = "<group>"; };
+		185FB4E72DD184AE00606557 /* SecuritySettingsViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecuritySettingsViewModel+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +130,30 @@
 		185FB4CF2DD173F000606557 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				185FB4E22DD183C100606557 /* SettingsView */,
+				185FB4E12DD183BA00606557 /* ValidationView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		185FB4E12DD183BA00606557 /* ValidationView */ = {
+			isa = PBXGroup;
+			children = (
 				185FB4D52DD1747600606557 /* ValidationViewModel+Preview.swift */,
 				185FB4D12DD1741D00606557 /* ValidationViewModel.swift */,
 				185FB4D02DD1740000606557 /* ValidationView.swift */,
 			);
-			path = Scenes;
+			path = ValidationView;
+			sourceTree = "<group>";
+		};
+		185FB4E22DD183C100606557 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				185FB4E72DD184AE00606557 /* SecuritySettingsViewModel+Preview.swift */,
+				185FB4E52DD1840D00606557 /* SecuritySettingsView.swift */,
+				185FB4E32DD183C600606557 /* SecuritySettingsViewModel.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +279,10 @@
 				185FB4D62DD174D700606557 /* ValidationView.swift in Sources */,
 				185FB4E02DD1772A00606557 /* ValidationProvider.swift in Sources */,
 				185FB4D82DD174DE00606557 /* ValidationViewModel+Preview.swift in Sources */,
+				185FB4E42DD183CE00606557 /* SecuritySettingsViewModel.swift in Sources */,
 				185FB4D72DD174DA00606557 /* ValidationViewModel.swift in Sources */,
+				185FB4E62DD1841000606557 /* SecuritySettingsView.swift in Sources */,
+				185FB4E82DD184B600606557 /* SecuritySettingsViewModel+Preview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
