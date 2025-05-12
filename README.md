@@ -49,7 +49,7 @@ Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
 * Feature branches are merged into `develop`.
 * Task branches are merged into their respective feature branches.
 
-![Git Flow](Resources/gitflow.png)
+![Git Flow](https://github.com/Bressam/mts-ios-app/blob/main/Resources/gitflow.png)
 
 ## Architecture
 
