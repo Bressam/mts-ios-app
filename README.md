@@ -2,7 +2,7 @@
 
 | Light & Dark Themes   |      Basic Flow      |
 |----------|-------------|
-| <img width=300px src="https://github.com/Bressam/mts-ios-app/blob/hotfix/updated-readme-and-resources/Resources/mts-dark-light-mode.gif"> |  <img width=300px src="https://github.com/Bressam/mts-ios-app/blob/main/Resources/mts-listing-details.gif"> |
+| <img width=300px src="https://github.com/Bressam/mts-ios-app/blob/main/Resources/mts-dark-light-mode.gif"> |  <img width=300px src="https://github.com/Bressam/mts-ios-app/blob/main/Resources/mts-listing-details.gif"> |
 
 ## Project Features
 * Series Listing View:
