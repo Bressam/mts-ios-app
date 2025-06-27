@@ -1,47 +1,39 @@
-# Challenge Project - MTS: My TVmaze Shows
+# MTS: My TVmaze Shows
 
-## Giovanne Bressam Gaspareto
+| Light & Dark Themes   |      Basic Flow      |
+|----------|-------------|
+| <img width=300px src="https://github.com/Bressam/mts-ios-app/blob/main/Resources/mts-dark-light-mode.gif"> |  <img width=300px src="https://github.com/Bressam/mts-ios-app/blob/main/Resources/mts-listing-details.gif"> |
 
-Email: [giovannebressam@gmail.com](mailto:giovannebressam@gmail.com)
+## Project Features
+* Series Listing View:
+    * **Seamless Infinite scroll**: Displays all series using API paging.
+    * **Complete Search** for series by name
+         * Search results combine local and remote results for improved UX.
+         * Includes debounce for improved performance.
+    * Includes series name, poster image, rating and current status.
+* Serie's Detail View:
+    * Includes name, poster, airing days/times, genres, summary.
+    * Lists episodes, grouped by season, including thumbnail and description.
+* Episode Details View:
+    * Displays episode name, number, season, summary, and image (if available).
+* PIN Security & Settings View:
+    * User can enable PIN security on Settings and set a PIN.
+    * If enabled, blocks the app until the user authenticates using PIN or Biometric.
+    * PIN Validation uses device biometrics (FaceID or TouchID) + manual PIN fallback.
 
-## Challenge Topics Done
-
-* All required topics.
-    * Series Listing:
-        * Displays all series using API paging.
-        * Seamless infinite scroll.
-        * Allows searching for series by name (combining local and remote fallback results).
-        * Shows series name and poster image.
-    * Series Details:
-        * Shows name, poster, airing days/times, genres, summary.
-        * Lists episodes, grouped by season.
-    * Episode Details:
-        * Displays episode name, number, season, summary, and image (if available).
-
-## Bonus Topics Done
-
-* PIN Security.
-* PIN Validation: Biometric + PIN Lock fallback.
-
-## Personal Bonus Topics & Improvements
-
+## Archtectural Benefits (TMA/Features + Clean + MVVM-C)
 * Scalable Design: The application is highly scalable, designed to accommodate future growth without sacrificing performance or maintainability, containing modules completely decoupled from each other behavior and details.
 * Top-notch modular architecture to optimize build times and ensure full decoupling. By depending solely on interfaces, implementation modules can leverage build cache, significantly reducing build times, improving pipelines times and development team productivity.
-* Lock Screen View: blocks the app until the user authenticates using PIN or Biometric.
-* Settings View: allow user to set or remove a PIN.
-* Testing Modules: Exposed test doubles, mocks, and utilities, making module testing straightforward and enabling easy preview stubbing for consistent behavior.
-* Extra details on Shows Listing, including: categories, status and rating.
+* Testing Modules: A module exclusively used to expose test doubles, mocks, and utilities, making module testing straightforward and enabling easy preview stubbing for consistent behavior.
 
 ## Modules created and its benefits
-
 * TVShowListingFeature: A fully decoupled feature responsible for displaying the series list and detailed show information.
 * SecurityFramework: Enables any feature to easily request user authentication, either using biometrics or PIN.
-* ValidationKit: Provides a simple way for any feature to present the default authentication view.
+* ValidationKit: Provides a simple way for any feature to present the default authentication view, blocking current flow until authentication is performed.
 * NetworkCore: Centralizes request creation and logic, making it easy to maintain and extend.
 * CoordinatorKit: Establishes a standard for navigation, making it extremely easy to present child flows (features presenting other features) while only knowing their interfaces.
 
 ## GitFlow Used
-
 * Branching Strategy:
 
   * `main` - Production-ready code.
